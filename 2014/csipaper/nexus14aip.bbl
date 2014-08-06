@@ -1,0 +1,128 @@
+%merlin.mbs aipnum4-1.bst 2010-07-25 4.21a (PWD, AO, DPC) hacked
+%Control: key (0)
+%Control: author (8) initials jnrlst
+%Control: editor formatted (1) identically to author
+%Control: production of article title (-1) disabled
+%Control: page (0) single
+%Control: year (1) truncated
+%Control: production of eprint (0) enabled
+\providecommand{\noopsort}[1]{}\providecommand{\singleletter}[1]{#1}%
+\begin{thebibliography}{8}%
+\makeatletter
+\providecommand \@ifxundefined [1]{%
+ \@ifx{#1\undefined}
+}%
+\providecommand \@ifnum [1]{%
+ \ifnum #1\expandafter \@firstoftwo
+ \else \expandafter \@secondoftwo
+ \fi
+}%
+\providecommand \@ifx [1]{%
+ \ifx #1\expandafter \@firstoftwo
+ \else \expandafter \@secondoftwo
+ \fi
+}%
+\providecommand \natexlab [1]{#1}%
+\providecommand \enquote  [1]{``#1''}%
+\providecommand \bibnamefont  [1]{#1}%
+\providecommand \bibfnamefont [1]{#1}%
+\providecommand \citenamefont [1]{#1}%
+\providecommand \href@noop [0]{\@secondoftwo}%
+\providecommand \href [0]{\begingroup \@sanitize@url \@href}%
+\providecommand \@href[1]{\@@startlink{#1}\@@href}%
+\providecommand \@@href[1]{\endgroup#1\@@endlink}%
+\providecommand \@sanitize@url [0]{\catcode `\\12\catcode `\$12\catcode
+  `\&12\catcode `\#12\catcode `\^12\catcode `\_12\catcode `\%12\relax}%
+\providecommand \@@startlink[1]{}%
+\providecommand \@@endlink[0]{}%
+\providecommand \url  [0]{\begingroup\@sanitize@url \@url }%
+\providecommand \@url [1]{\endgroup\@href {#1}{\urlprefix }}%
+\providecommand \urlprefix  [0]{URL }%
+\providecommand \Eprint [0]{\href }%
+\providecommand \doibase [0]{http://dx.doi.org/}%
+\providecommand \selectlanguage [0]{\@gobble}%
+\providecommand \bibinfo  [0]{\@secondoftwo}%
+\providecommand \bibfield  [0]{\@secondoftwo}%
+\providecommand \translation [1]{[#1]}%
+\providecommand \BibitemOpen [0]{}%
+\providecommand \bibitemStop [0]{}%
+\providecommand \bibitemNoStop [0]{.\EOS\space}%
+\providecommand \EOS [0]{\spacefactor3000\relax}%
+\providecommand \BibitemShut  [1]{\csname bibitem#1\endcsname}%
+\let\auto@bib@innerbib\@empty
+%</preamble>
+\bibitem [{\citenamefont {Campbell}\ \emph {et~al.}(2006)\citenamefont
+  {Campbell}, \citenamefont {Cadogan}, \citenamefont {Furusaka}, \citenamefont
+  {Hauser}, \citenamefont {James}, \citenamefont {Osborn},\ and\ \citenamefont
+  {Wilson}}]{nxold}%
+  \BibitemOpen
+  \bibinfo {editor} {\bibfnamefont {S.}~\bibnamefont {Campbell}}, \bibinfo
+  {editor} {\bibfnamefont {J.}~\bibnamefont {Cadogan}}, \bibinfo {editor}
+  {\bibfnamefont {M.}~\bibnamefont {Furusaka}}, \bibinfo {editor}
+  {\bibfnamefont {N.}~\bibnamefont {Hauser}}, \bibinfo {editor} {\bibfnamefont
+  {M.}~\bibnamefont {James}}, \bibinfo {editor} {\bibfnamefont
+  {R.}~\bibnamefont {Osborn}}, \ and\ \bibinfo {editor} {\bibfnamefont
+  {C.}~\bibnamefont {Wilson}},\ eds.,\ \href@noop {} {\emph {\bibinfo {title}
+  {Proceedings of the Eigth International Conference on Neutron Scattering:
+  ICNS 2005}}},\ \bibinfo {series} {Physica B Condensed Matter}, Vol.\ \bibinfo
+  {volume} {385-386}\ (\bibinfo  {publisher} {Elsevier},\ \bibinfo {year}
+  {2006})\ \bibinfo {note} {the State of the NeXus data format}\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Hdfgroup}(2014)}]{hdf5}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibnamefont {Hdfgroup}},\
+  }\href@noop {} {\emph {\bibinfo {title} {HDF-5}}} (\bibinfo {year} {2014
+  (accessed july 2014)}),\ \bibinfo {note}
+  {\url{http://www.hdfgroup.org/HDF5/}}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {NIAC}(2014{\natexlab{a}})}]{nxman}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibnamefont {NIAC}},\ }\href@noop {}
+  {\emph {\bibinfo {title} {NeXus Manual}}} (\bibinfo {year} {2014 (accessed
+  july 2014)}{\natexlab{a}}),\ \bibinfo {note}
+  {\url{http://download.nexusformat.org/kits/definitions/nexus-manual-3.1.0.tar.gz}}\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Willendrup}, \citenamefont {Farhi},\ and\
+  \citenamefont {Lefmann}(2004)}]{mcstas}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {P.}~\bibnamefont
+  {Willendrup}}, \bibinfo {author} {\bibfnamefont {E.}~\bibnamefont {Farhi}}, \
+  and\ \bibinfo {author} {\bibfnamefont {K.}~\bibnamefont {Lefmann}},\
+  }\href@noop {} {\bibfield  {journal} {\bibinfo  {journal} {Physica B}\
+  }\textbf {\bibinfo {volume} {350}},\ \bibinfo {pages} {735} (\bibinfo {year}
+  {2004})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Hall}\ and\ \citenamefont {McMahon}(2006)}]{ITCVG}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {S.}~\bibnamefont
+  {Hall}}\ and\ \bibinfo {author} {\bibfnamefont {B.}~\bibnamefont {McMahon}},\
+  }\href@noop {} {\emph {\bibinfo {title} {International Tables for
+  Cystallography Volume G: Definition and exchange of crystallographic data}}}\
+  (\bibinfo  {publisher} {Wiley},\ \bibinfo {year} {2006})\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Bernstein}\ and\ \citenamefont
+  {Ellis}(2005)}]{cbflib}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {H.~J.}\ \bibnamefont
+  {Bernstein}}\ and\ \bibinfo {author} {\bibfnamefont {P.~J.}\ \bibnamefont
+  {Ellis}},\ }in\ \href@noop {} {\emph {\bibinfo {booktitle} {International
+  Tables For Crystallography}}},\ Vol.\ \bibinfo {volume} {G: Definition and
+  Exchange of Crystallographic Data},\ \bibinfo {editor} {edited by\ \bibinfo
+  {editor} {\bibfnamefont {S.~R.}\ \bibnamefont {Hall}}\ and\ \bibinfo {editor}
+  {\bibfnamefont {B.}~\bibnamefont {McMahon}}}\ (\bibinfo  {publisher}
+  {Springer},\ \bibinfo {address} {Dordrecht, NL},\ \bibinfo {year} {2005})\
+  Chap.\ \bibinfo {chapter} {5.6}, pp.\ \bibinfo {pages} {544 -- 556},\
+  \bibinfo {note} {see \url{http://sf.net.projects/cbflib} and
+  \url{http://www.bernstein-plus-sons.com/software/CBF/}}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {canSAS}(2014)}]{cansas}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibnamefont {canSAS}},\ }\href@noop
+  {} {\emph {\bibinfo {title} {Description of the canSAS2012 data format}}}
+  (\bibinfo {year} {2014 (accessed july 2014)}),\ \bibinfo {note}
+  {\url{http://www.cansas.org/formats/canSAS2012/1.0/doc/}}\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {NIAC}(2014{\natexlab{b}})}]{nxwww}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibnamefont {NIAC}},\ }\href@noop {}
+  {\emph {\bibinfo {title} {NeXus A common data format for neutron, x-ray and
+  muon science}}} (\bibinfo {year} {2014 (accessed july 2014)}{\natexlab{b}}),\
+  \bibinfo {note} {\url{http://www.nexusformat.org/}}\BibitemShut {NoStop}%
+\end{thebibliography}%
