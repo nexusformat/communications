@@ -1,0 +1,12 @@
+\frametitle {NXdetector Additions for DECTRIS 2}
+\begin{semiverbatim}
+  gain\_setting:NX\_CHAR
+  pixel\_mask:NX\_FLOAT[i,j]
+  pixel\_mask\_applied:NX\_BOOLEAN
+  saturation\_value:NX\_INT
+  sensor\_material:NX\_CHAR
+  sensor\_thickness:NX\_FLOAT
+  threshold\_energy:NX\_FLOAT
+  trigger\_dead\_time:NX\_FLOAT
+  trigger\_delay\_time:NX\_FLOAT
+\end{semiverbatim}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><umlet_diagram><element><type>com.umlet.element.base.Relation</type><coordinates><x>130</x><y>190</y><w>220</w><h>120</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>200;20;200;70;20;70;20;100</additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>310</x><y>190</y><w>220</w><h>120</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>20;20;20;70;200;70;200;100</additional_attributes></element><element><type>com.umlet.element.base.Class</type><coordinates><x>390</x><y>290</y><w>210</w><h>80</h></coordinates><panel_attributes>NX_kappa
+--
++kappa:NX_FLOAT32
++phi:NX_FLOAT32:[1..n]
++rotation:NX_FLOAT32:[1..n]
+</panel_attributes><additional_attributes></additional_attributes></element><element><type>com.umlet.element.base.Class</type><coordinates><x>60</x><y>290</y><w>190</w><h>70</h></coordinates><panel_attributes>NXeulerian_cradle
+--
++chi:NX_FLOAT32:[1..n]
++phi:NX_FLOAT32:[1..n]</panel_attributes><additional_attributes></additional_attributes></element><element><type>com.umlet.element.base.Class</type><coordinates><x>200</x><y>180</y><w>270</w><h>30</h></coordinates><panel_attributes>/NXsingle_crystal_positioner/
+</panel_attributes><additional_attributes></additional_attributes></element><element><type>com.umlet.element.base.Class</type><coordinates><x>30</x><y>50</y><w>170</w><h>80</h></coordinates><panel_attributes>NXtranslation_table
+--
++x:NX_FLOAT32:[1..n]
++y:NX_FLOAT32:[1..n]
++z:NX_FLOAT32:[0..n]
+</panel_attributes><additional_attributes></additional_attributes></element><element><type>com.umlet.element.base.Class</type><coordinates><x>290</x><y>50</y><w>190</w><h>70</h></coordinates><panel_attributes>NXtilt_table
+--
++sgu:NX_FLOAT32:[1..n]
++sgl:NX_FLOAT32[1..n]
+</panel_attributes><additional_attributes></additional_attributes></element></umlet_diagram>

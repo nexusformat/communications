@@ -1,0 +1,19 @@
+\frametitle {NXDict dictionary Data Transfer API }
+\begin{semiverbatim}
+NXstatus NXDputalias(NXhandle file, NXdict dict, char *alias, void *pData);
+NXstatus NXDputdef(NXhandle file, NXdict dict, char *pDefString,
+                   void *pData);
+
+NXstatus NXDgetalias(NXhandle file, NXdict dict, char *alias, void *pData);
+NXstatus NXDgetdef(NXhandle file, NXdict dict, char *pDefString,
+                   void *pData);
+NXstatus NXDdefget(NXdict handle, char *pKey, char *pBuffer, int iBufLen);
+
+NXstatus NXDaliaslink(NXhandle file, NXdict dict,
+                      char *pAlias1, char *pAlias2);
+NXstatus NXDdeflink(NXhandle file, NXdict dict, char *pDef1, char *pDef2);
+
+NXstatus NXDopenalias(NXhandle file, NXdict dict, char *alias);
+NXstatus NXDopendef(NXhandle file, NXdict dict, char *pDefString);
+
+\end{semiverbatim}

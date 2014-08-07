@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <NXroot NeXus_version="4.1.0" XML_version="mxml"
+file_name="/afs/psi.ch/user/k/koennecke/src/workspace/sics/sim/tmp/000/taspub2010n000158.xml"
+file_time="2010-11-24 09:37:21">
+    <NXentry name="entry1">
+      <title NAPItype="NX_CHAR[8]">UNKNOWN
+      
+      
+      
+      </title>
+      <start_time NAPItype="NX_CHAR[20]">2010-11-24 09:37:21
+      
+      
+      
+      </start_time>
+      <end_time NAPItype="NX_CHAR[20]">2010-11-24 09:37:21
+      
+      
+      
+      </end_time>
+      <definition NAPItype="NX_CHAR[10]"
+URL="http://www.nexus.anl.gov/instruments/xml/NXmonotas.xml"
+version="1.0">NXmonotas
+      
+      
+      
+      </definition>
+      <NXuser name="user">
+        <name NAPItype="NX_CHAR[8]">UNKNOWN
+        
+        
+        
+        </name>
+        <affiliation NAPItype="NX_CHAR[8]">UNKNOWN
+        
+        
+        
+        </affiliation>
+        <address NAPItype="NX_CHAR[8]">UNKNOWN
+        
+        
+        
+        </address>
+        <email NAPItype="NX_CHAR[8]">UNKNOWN
+        
+        
+        
+        </email>
+      </NXuser>
+      <NXuser name="local_contact">
+        <name NAPItype="NX_CHAR[8]">UNKNOWN
+        
+        
+        
+        </name>
+      </NXuser>
+      <NXinstrument name="TASPUB">
+        <NXcrystal name="monochromator">
+          <type NAPItype="NX_CHAR[19]">Pyrolytic Graphite
+          
+          
+          
+          </type>
+          <curvature NAPItype="NX_FLOAT32" units="degree">
+                 57.5000 
+          </curvature>
+          <d_spacing NAPItype="NX_FLOAT32" units="Angstroem">
+                  3.3500 
+          </d_spacing>
+          <energy NAPItype="NX_FLOAT32[3]" units="mev"
+target="/entry1/TASPUB/monochromator/energy">
+                  4.9087       4.9087       4.9087 
+          </energy>
+          <rotation_angle NAPItype="NX_FLOAT32[3]" units="degree">
+                -40.3000     -40.3000     -40.3000 
+          </rotation_angle>
+        </NXcrystal>
+        <NXcrystal name="analyzer">
+          <type NAPItype="NX_CHAR[19]">Pyrolytic Graphite
+          
+          
+          
+          </type>
+          <d_spacing NAPItype="NX_FLOAT32" units="Angstroem">
+                  3.3500 
+          </d_spacing>
+          <azimuthal_angle NAPItype="NX_FLOAT32" units="degree">
+                  0.0000 
+          </azimuthal_angle>
+          <energy NAPItype="NX_FLOAT32[3]" units="mev"
+target="/entry1/TASPUB/analyzer/energy">
+                239.8876     239.8876     239.8876 
+          </energy>
+          <polar_angle NAPItype="NX_FLOAT32[3]" units="degree">
+                  1.4500       1.4500       1.4500 
+          </polar_angle>
+          <rotation_angle NAPItype="NX_FLOAT32[3]" units="degree">
+                  0.0000       0.0000       0.0000 
+          </rotation_angle>
+        </NXcrystal>
+        <NXdetector name="detector">
+          <azimuthal_angle NAPItype="NX_FLOAT32" units="degree">
+                  0.0000 
+          </azimuthal_angle>
+          <data NAPItype="NX_INT32[3]" signal="1"
+target="/entry1/TASPUB/detector/data">
+                    6250         8325         2005 
+          </data>
+          <polar_angle NAPItype="NX_FLOAT32[3]" units="degree">
+                -10.0000     -10.0000     -10.0000 
+          </polar_angle>
+        </NXdetector>
+      </NXinstrument>
+      <NXmonitor name="control">
+        <preset NAPItype="NX_FLOAT32">
+                2.0000 
+        </preset>
+        <mode NAPItype="NX_CHAR[30]">timer
+        
+        
+        
+        </mode>
+        <data NAPItype="NX_INT32[3]">
+                     2            2            2 
+        </data>
+        <time NAPItype="NX_FLOAT32[3]" units="seconds">
+                0.0000       0.0000       0.0000 
+        </time>
+      </NXmonitor>
+      <NXmonitor name="aux_detector">
+        <data NAPItype="NX_INT32[3]">
+                  6250         8325         2005 
+        </data>
+      </NXmonitor>
+      <NXsample name="sample">
+        <unit_cell NAPItype="NX_FLOAT32[6]">
+                1.0000       1.0000       1.0000      90.0000      90.0000 
+               90.0000 
+        </unit_cell>
+        <plane_normal NAPItype="NX_FLOAT32[3]">
+                0.0000       0.0000       0.0000 
+        </plane_normal>
+        <plane_vector_1 NAPItype="NX_FLOAT32[9]">
+                0.0000       0.0000       0.0000       0.0000       0.0000 
+                0.0000       0.0000       0.0000       0.0000 
+        </plane_vector_1>
+        <plane_vector_2 NAPItype="NX_FLOAT32[9]">
+                0.0000       0.0000       0.0000       0.0000       0.0000 
+                0.0000       0.0000       0.0000       0.0000 
+        </plane_vector_2>
+        <orientation_matrix NAPItype="NX_FLOAT32[3,3]">
+                1.0000       0.0000       0.0000       0.0000       1.0000 
+                0.0000       0.0000       0.0000       1.0000 
+        </orientation_matrix>
+        <name NAPItype="NX_CHAR[8]">UNKNOWN
+        
+        
+        
+        </name>
+        <azimuthal_angle NAPItype="NX_FLOAT32" units="degree">
+                0.0000 
+        </azimuthal_angle>
+        <rotation_angle NAPItype="NX_FLOAT32[3]" units="degree">
+               -0.1000       0.0000       0.1000 
+        </rotation_angle>
+        <Qh NAPItype="NX_FLOAT32[3]" target="/entry1/sample/Qh">
+               -0.0459      -0.0459      -0.0459 
+        </Qh>
+        <Qk NAPItype="NX_FLOAT32[3]" target="/entry1/sample/Qk">
+                1.4669       1.4669       1.4669 
+        </Qk>
+        <Ql NAPItype="NX_FLOAT32[3]" target="/entry1/sample/Ql">
+                0.0000       0.0000       0.0000 
+        </Ql>
+        <Qm NAPItype="NX_FLOAT32[3]">
+                9.2213       9.2213       9.2213 
+        </Qm>
+        <energy_transfer NAPItype="NX_FLOAT32[3]" units="mev"
+target="/entry1/sample/energy_transfer">
+             -234.9789    -234.9789    -234.9789 
+        </energy_transfer>
+        <polar_angle NAPItype="NX_FLOAT32[3]" units="degree">
+              -75.0750     -75.0750     -75.0750 
+        </polar_angle>
+        <sgu NAPItype="NX_FLOAT32[3]" units="degree">
+                0.0000       0.0000       0.0000 
+        </sgu>
+        <sgl NAPItype="NX_FLOAT32[3]" units="degree">
+                0.0000       0.0000       0.0000 
+        </sgl>
+      </NXsample>
+      <NXdata name="data">
+        <NAPIlink target="/entry1/TASPUB/monochromator/energy" />
+        <NAPIlink target="/entry1/TASPUB/analyzer/energy" />
+        <NAPIlink target="/entry1/sample/Qh" />
+        <NAPIlink target="/entry1/sample/Qk" />
+        <NAPIlink target="/entry1/sample/Ql" />
+        <NAPIlink target="/entry1/sample/energy_transfer" />
+        <NAPIlink target="/entry1/TASPUB/detector/data" />
+      </NXdata>
+    </NXentry>
+  </NXroot>

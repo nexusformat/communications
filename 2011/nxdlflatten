@@ -1,0 +1,164 @@
+#!/bin/sh
+# restart tclch \
+exec tclsh $0 ${1+"$@"}
+#-------------------------------------------------------------------------------------
+# This is a little program which takes a NXDL file and flattens away inheritance. 
+# The alcoholism is somewhat like this:
+#   Open the nxdl file to flatten
+#   Read the extends attribute of the definition
+#   while the extends attribute  != NXobject
+#      Open the second, base nxdl file
+#      recursively add all groups and fields which exist in the second NXDL file but not 
+#      in the first one to the first nxdl tree
+#      Read the extends attribute of the second nxdl file 
+#
+# copyright: GPL
+#
+# Mark Koennecke, January 2011   
+#-------------------------------------------------------------------------------------
+package require tdom
+
+
+#--------------------------------------------------------------------------------------
+proc findBaseFile {base} {
+	global env
+	set basename ${base}.nxdl.xml
+	if {[file exists $basename]} {
+		return $basename
+	}
+	if {![info exists env(NXDLPATH)]} {
+		error "Definition for $base NOT found"	
+        }
+	set nxdlpath $env(NXDLPATH)
+	set nxdlist [split $nxdlpath :]
+	foreach p $nxdlist	{
+		set path $p/$basename
+		if {[file exists $path]} {
+			return $path
+		}
+	}
+	error "Definition for $base NOT found"	
+}
+#--------------------------------------------------------------------------------------
+proc findNXentry {node} {
+	set childlist [$node childNodes]
+	foreach child $childlist {
+		set test [catch {$child @type} type]
+		if {$test == 0} {
+			if {[string compare $type NXentry] == 0} {
+				return $child
+                	}
+		}		
+        }
+	error "No NXentry found"
+}
+#-------------------------------------------------------------------------------------
+proc findMatch {node searchlist} {
+	set element [$node nodeName]
+	if {[string compare $element doc] == 0} {
+		return 1
+        }
+	foreach n $searchlist {
+		set testName [$n nodeName]
+		if {[string compare $element $testName] == 0} {
+			set tst [catch {
+				set fieldname [$node @name]
+				set testfield [$n @name]
+				} msg]
+                        if {$tst != 0} {
+				set fieldname [$node @type]
+				set testfield [$n @type]
+                        }
+			if {[string compare $fieldname $testfield] == 0 } {
+				return 1
+			}
+                }
+        } 
+	return 0
+}
+#--------------------------------------------------------------------------------------
+proc findMatchingGroup {group searchlist} {
+	set type [$group @type]
+	foreach node $searchlist {
+		set test [$node nodeName]
+		if {[string compare $test group] == 0} {
+			set ttype [$node @type]
+			if {[string compare $type $ttype] == 0} {
+				set tst [catch {
+					set name1 [$group @name]
+					set name2 [$node @name]
+					} msg]
+# If  a group name exists, compare on the group names. If they dont exist matching types are enough
+				if {$tst == 0} {
+					if {[string compare $name1 $name2] == 0} {
+						return $node
+					} 
+				} else {
+					return $node
+				}	
+                        }
+                }
+        }
+	return NULL
+}
+#--------------------------------------------------------------------------------------
+proc mergeGroups {target source} {
+	set targetlist [$target childNodes]
+	set sourcelist [$source childNodes]
+	foreach child $sourcelist {
+		if {![findMatch $child $targetlist] } {
+			$target appendChild $child
+                }
+        }
+	foreach child $targetlist {
+		set element [$child nodeName]
+		if {[string compare $element group] == 0} {
+			set sgroup [findMatchingGroup $child $sourcelist]
+			if {[string compare $sgroup NULL] != 0} {
+				mergeGroups $child $sgroup
+                        }
+                }
+        }
+}
+#---------------------------------------------------------------------------------------
+proc mergeDefinitions {target source} {
+	set targetentry [findNXentry $target]
+	set sourceentry [findNXentry $source]	
+	mergeGroups $targetentry $sourceentry
+}
+
+
+#================== main
+if {[llength $argv] < 1} {
+	puts stdout "Usage:\n\tnxdlflatten nxdl-file\n"
+        puts stdout "\tUses environment variable NXDLPATH to search for base NXDL files"
+	exit 1
+}
+
+set nxdl [open [lindex $argv 0] r]
+
+set nxdltext [read $nxdl]
+close $nxdl
+
+set doc [dom parse $nxdltext]
+set targetroot [$doc documentElement]
+
+set base [$targetroot getAttribute extends]
+while {[string compare $base NXobject] != 0} {
+	set fname [findBaseFile $base]
+	set f [open $fname r]
+	set basetext [read $f]
+	close $f
+	set basedoc [dom parse $basetext]
+	set baseroot [$basedoc documentElement]
+	mergeDefinitions $targetroot $baseroot
+	set targetroot [$doc documentElement]
+	set base [$baseroot getAttribute extends]
+}
+
+set xmltext [$doc asXML]
+puts stdout "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
+puts stdout $xmltext
+
+exit 0
+

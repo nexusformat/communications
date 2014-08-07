@@ -1,0 +1,11 @@
+NeXus presentation plus artwork from the NeXus presentation 
+at the joint CIF NeXus workshop at the University of Warwick 
+in 2013.
+
+Uses the beamer latex package.
+
+Given a decent installation of latex:
+
+pdflatex CIFNexus.tex 
+
+will build

@@ -1,0 +1,33 @@
+
+Hi,
+
+before we christmas we had an e-mail discussion about how best to store NXpositioners. 
+In one of that mails I stated that the ideal situation would be to store for example 
+a rotation_angle where it belongs in the NeXus hierarchy and be able to open it as a 
+group to see all the gory details. With current NeXus facilities this is not possible 
+and thus we settled for storing NXpositioners somewhere in NXcollection and make 
+links to the value where appropriate. 
+
+Now, I had another idea: HDF does not allow to use groups as datasets. But if we use the 
+NeXus-API it would be straightforward to implement something like this. 
+
+Currently NXopendata returns with an error when called on a group.
+
+NXopendata could be changed in the following way:
+- If NXopendata finds that it is applied to a group, it first tries to locate a value SDS in the group 
+  and opens this
+- If the above fails, a value group attribute is searched for. This attribute should contain the 
+  name of the  SDS to open as data for the group. If this exists open that SDS as data for the group
+- Only if all of the above fails, return an error
+
+There are caveats though: names need to be unique within groups. Those who use NeXus as 
+HDF-5 with NeXus structures would have to worry about yet another convention. 
+
+Is this an idea worth pursuing?
+
+
+Best Regards,
+
+   Mark Koennecke
+  
+ 

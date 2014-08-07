@@ -1,0 +1,23 @@
+NXdetector
+   data[nx*ny]
+     @signal=1
+     @axes=x,y
+   x[nx*ny]
+   y[nx*ny]
+
+NXdetecor
+  data[nx,ny]
+    @signal=1
+    @axes=x,y
+  x[nx]
+  y[nx]
+  x_error]nx,ny]
+  y_error[nx,ny]
+
+NXdetecor
+  data[nx,ny,xdim,ydim]
+    @signal=1
+    @axes=x,y
+  x[nx,ny]
+  y[nx,ny]
+

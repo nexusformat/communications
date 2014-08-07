@@ -1,0 +1,303 @@
+This is pdfTeX, Version 3.14159-14h-released-20010417 (Web2C 7.3.3.1) (format=pdflatex 2006.2.2)  17 JUL 2006 09:09
+**nexusph
+(./nexusph.tex{/usr/share/texmf/pdftex/config/pdftex.cfg}
+LaTeX2e <2001/06/01>
+Babel <v3.7h> and hyphenation patterns for american, french, german, ngerman, i
+talian, nohyphenation, loaded.
+(./elsart4.cls
+Document Class: elsart4 2001/01/05, 2.18: Elsevier Science
+(./elsart.cls
+Document Class: elsart 2001/01/05, 2.18: Elsevier Science
+\@frontmatterwidth=\dimen102
+\@bls=\dimen103
+\eqntopsep=\skip41
+\eqnarraycolsep=\dimen104
+\labelwidthi=\dimen105
+\labelwidthii=\dimen106
+\labelwidthiii=\dimen107
+\labelwidthiv=\dimen108
+\@maxlistdepth=\count79
+\eqnbaselineskip=\skip42
+\eqnlineskip=\skip43
+\mathindent=\dimen109
+\rulepreskip=\dimen110
+\rulepostskip=\dimen111
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+(/usr/share/texmf/tex/latex/base/latexsym.sty
+Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
+\symlasy=\mathgroup4
+LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
+(Font)                  U/lasy/m/n --> U/lasy/b/n on input line 42.
+)
+\c@thm=\count85
+\c@alg=\count86
+\c@algorithm=\count87
+\c@note=\count88
+\c@summ=\count89
+\c@case=\count90
+\@tempcntc=\count91
+\c@figure=\count92
+\c@table=\count93
+\t@glob@notes=\toks14
+\t@loc@notes=\toks15
+\note@cnt=\count94
+\corauth@text=\toks16
+\email@text=\toks17
+\url@text=\toks18
+\c@corauth=\count95
+\c@author=\count96
+\n@author=\count97
+\c@collab=\count98
+\n@collab=\count99
+\c@address=\count100
+\sv@mathsurround=\dimen112
+\sv@hyphenpenalty=\count101
+\prev@elem=\count102
+\cur@elem=\count103
+\fm@box=\box26
+\fm@size=\dimen113
+\t@abstract=\box27
+\t@keyword=\box28
+\t@xtheight=\dimen114
+\@logoheight=\dimen115
+\@pubyear=\count104
+\c@firstpage=\count105
+\c@lastpage=\count106
+\slashbox=\box29
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 1377.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 1377.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 1377.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 1377.
+
+
+(/usr/share/texmf/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+\Slashbox=\box30
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14.4> on input line 1378.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 1378.
+)
+\Arrayrulewidth=\dimen116
+\crulepostskip=\dimen117
+\@Ldec=\dimen118
+\@Rdec=\dimen119
+\@Lpmdec=\dimen120
+\@Rpmdec=\dimen121
+)
+(/usr/share/texmf/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks19
+)
+(/usr/share/texmf/tex/latex/graphics/graphics.sty
+Package: graphics 2001/07/07 v1.0n Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texmf/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/share/texmf/tex/latex/config/graphics.cfg)
+Package graphics Info: Driver file: pdftex.def on input line 80.
+
+(/usr/share/texmf/tex/latex/graphics/pdftex.def
+File: pdftex.def 2001/11/29 v0.03i graphics/color for pdftex
+\Gread@gobject=\count107
+))
+\Gin@req@height=\dimen122
+\Gin@req@width=\dimen123
+)
+(/usr/share/texmf/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2002/01/22 v2.2d
+
+(/usr/share/texmf/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2001/10/25 v2.2f
+\@emptytoks=\toks20
+\symAMSa=\mathgroup5
+\symAMSb=\mathgroup6
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 132.
+)) (./nexusph.aux)
+\openout1 = `nexusph.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 55.
+LaTeX Font Info:    ... okay on input line 55.
+
+(/usr/share/texmf/tex/context/base/supp-pdf.tex
+(/usr/share/texmf/tex/context/base/supp-mis.tex
+loading : Context Support Macros / Missing
+\protectiondepth=\count108
+\scratchcounter=\count109
+\scratchtoks=\toks21
+\scratchdimen=\dimen124
+\scratchskip=\skip44
+\scratchmuskip=\muskip10
+\scratchbox=\box31
+\scratchread=\read1
+\scratchwrite=\write3
+\zeropoint=\dimen125
+\nextbox=\box32
+\nextdepth=\dimen126
+\everyline=\toks22
+\!!counta=\count110
+\!!countb=\count111
+\recursecounter=\count112
+)
+loading : Context Support Macros / PDF
+\nofMPsegments=\count113
+\nofMParguments=\count114
+\everyMPtoPDFconversion=\toks23
+)
+LaTeX Font Info:    Try loading font information for U+msa on input line 65.
+ (/usr/share/texmf/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2002/01/19 v2.2g AMS font definitions
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 65.
+
+(/usr/share/texmf/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2002/01/19 v2.2g AMS font definitions
+)
+\c@sv@footnote=\count115
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [1{/usr/share/texmf/dvips/config/pdftex.map}
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 300--300
+[]/cmr7/The
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 300--300
+/cmr7/root
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 300--300
+/cmr7/level
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 300--300
+/cmr7/of a
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 300--300
+/cmr7/NeXus
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 304--305
+/cmr7/long-ing to
+ []
+
+
+Underfull \hbox (badness 7415) in paragraph at lines 304--305
+/cmr7/NeXus file
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 309--310
+[]/cmr7/The data
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 309--310
+/cmr7/needed to
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 309--310
+/cmr7/in-stru-ment.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 309--310
+/cmr7/Con-tains
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 309--310
+/cmr7/groups for
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 309--310
+/cmr7/each rel-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 309--310
+/cmr7/e-vant in-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 309--310
+/cmr7/stru-ment
+ []
+
+
+Overfull \hbox (2.0pt too wide) in paragraph at lines 311--324
+[][]| 
+ []
+
+
+Overfull \hbox (4.0pt too wide) in paragraph at lines 301--340
+[][]| 
+ []
+
+
+Overfull \hbox (1.39565pt too wide) in paragraph at lines 296--342
+[][] 
+ []
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 433--436
+[]/cmr9/with sub-groups NX-trans-la-tion,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 481--482
+[]/cmr7/http://www.nexus.anl.gov;
+ []
+
+[3] (./nexusph.aux) ) 
+Here is how much of TeX's memory you used:
+ 1734 strings out of 50453
+ 19205 string characters out of 690529
+ 69344 words of memory out of 1500001
+ 4737 multiletter control sequences out of 10000+25000
+ 15413 words of font info for 64 fonts, out of 400000 for 1000
+ 14 hyphenation exceptions out of 10000
+ 31i,35n,24p,200b,707s stack positions out of 3000i,500n,3000p,50000b,5000s
+</usr/share/texmf/fonts/type1/bluesky/cm/cmsy9.pfb></usr/s
+hare/texmf/fonts/type1/bluesky/cm/cmsl8.pfb></usr/share/texmf/fonts/type1/blues
+ky/cm/cmsy7.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmmi9.pfb></usr/share/
+texmf/fonts/type1/bluesky/cm/cmr7.pfb></usr/share/texmf/fonts/type1/bluesky/cm/
+cmti7.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmti9.pfb></usr/share/texmf/
+fonts/type1/bluesky/cm/cmr9.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmbx9.
+pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmsy10.pfb></usr/share/texmf/fonts
+/type1/bluesky/cm/cmr12.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmr17.pfb>
+
+Output written on nexusph.pdf (3 pages, 95256 bytes).

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><umlet_diagram><element><type>com.umlet.element.base.Class</type><coordinates><x>170</x><y>160</y><w>280</w><h>100</h></coordinates><panel_attributes>NXposition
+--
++distance: NX_FLOAT32
++polar_angle:NX_FLOAT32:[1..n]
++elevation:NX_FLOAT32:[1..n]
++azimuthal_angle:NX_FLOAT32: [0..1]</panel_attributes><additional_attributes></additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>260</x><y>40</y><w>190</w><h>140</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>170;20;170;80;20;80;20;120</additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>410</x><y>40</y><w>210</w><h>140</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>20;20;20;80;190;80;190;120</additional_attributes></element><element><type>com.umlet.element.base.Class</type><coordinates><x>510</x><y>160</y><w>170</w><h>100</h></coordinates><panel_attributes>NXMcStas
+--
++x:NX_FLOAT32
++y:NX_FLOAT32
++z:NX_FLOAT32</panel_attributes><additional_attributes></additional_attributes></element><element><type>com.umlet.element.base.Class</type><coordinates><x>370</x><y>30</y><w>100</w><h>30</h></coordinates><panel_attributes>/NXpos/
+</panel_attributes><additional_attributes></additional_attributes></element></umlet_diagram>

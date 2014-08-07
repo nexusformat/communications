@@ -1,0 +1,515 @@
+%----------------------------------------------------------------------
+% Template article for ICNS2005 conference: 
+% document class 'elsart4'
+%
+% This template should be used for all manuscripts submitted to the
+% International Conference on Neutron Scattering 2005
+% Darling Harbour. Sydney. Australia 27 November - 2 December, 2005
+%
+% Send any comments to the ICNS2005 Administration <nha@ansto.gov.au>
+%----------------------------------------------------------------------
+% The template contains a number of LaTeX commands of the form :
+%
+% \command{}
+%
+% In order to complete this abstract, fill in the blank fields between
+% the curly braces with the requested information.
+%
+% e.g. in order to add an abstract title, replace 
+% \title{}    with   \title{Evidence of Solitons in Tedium Diboride}
+%
+% The \author and \address commands can take an optional label 
+% in square brackets of the form :
+%
+% \command[label]{}
+%
+% The text of the abstract should be inserted between the two commands
+% \begin{abstract} and \end{abstract}.
+%
+% Please leave all commands in place even if you don't fill them in. 
+% Do not alter commands which have non-blank arguments unless you are
+% familiar with them.
+%
+% N.B. In LaTeX, all text following the % sign is treated as a comment.
+%      Some commands, e.g. \thanks{}, have been "commented 
+%      out".  Remove the % sign if you wish to use it.
+%      Blank lines are ignored (except in the manuscript text where 
+%      they will be treated as a paragraph break).
+% 
+%----------------------------------------------------------------------
+% Invoke the LaTeX document class for these conference proceedings
+
+\documentclass{elsart4}
+
+%----------------------------------------------------------------------
+% Install LaTeX packages to allow enhanced math formatting and 
+% graphics installation.  These are the recommended packages.  If you 
+% are experienced in using LaTeX, you may choose a different list.
+
+\usepackage{graphicx}
+\usepackage{amssymb}
+
+%----------------------------------------------------------------------
+% Start processing the document and front page
+
+\begin{document}
+\begin{frontmatter}
+
+%----------------------------------------------------------------------
+% Specify destination and version number of the manuscript
+
+
+%----------------------------------------------------------------------
+% Title of manuscript
+
+\title{The State of the NeXus Data Format}
+
+%----------------------------------------------------------------------
+% List of authors
+%
+% List each author using a separate \author{} command
+%
+% If there is more than one author address, add a label to each author
+% of the form \author[label]{name}.  This label should be identical to
+% the corresponding label provided with the \address command.
+%
+% e.g. if there are three authors from two institutions in USA and 
+% France, you can link them to their respective addresses, using
+%
+% \author[US]{John Doe}
+% \author[US,FR]{Jane Doe}
+% \author[FR]{Jean Dupont}
+% \address[US]{University of Life, Somewhere, USA}
+% \address[FR]{Universite de la Vie, Quelque Part, France}
+%
+% N.B. Unlike the document class used for abstract submissions, it is
+% possible to have the author associated with more than one address,
+% as shown in the example above.
+%
+
+\author{NeXus International Advisory Committee\corauthref{1}}
+
+%----------------------------------------------------------------------
+% List of addresses
+%
+% If there is more than one address, list each using a separate 
+% \address command using a label to link it to the respective author
+% as described above
+ 
+\address{}
+
+%----------------------------------------------------------------------
+% Title page footnotes
+%
+% If you need to add qualifying information to any of the authors, 
+% use the \thanksref{} command within the \author command.  The 
+% argument is the label of a corresponding \thanks[label]{text}
+% command which contains the footnote text
+%
+% e.g. you can acknowledge a funding authority for John Doe, using
+%
+% \author{John Doe\thanksref{ABC}}
+% \thanks[ABC]{This work was supported by Institute of Unphysical 
+%    Phenomena under contract no. ABC-123}
+%
+
+%\thanks[]{}
+
+%----------------------------------------------------------------------
+% Contact Information
+%
+% Add the complete postal address, telephone number, fax number, and
+% email address of the corresponding author as a special footnote using
+% the \corauth[]{} command.  This works in a similar way to the \thanks 
+% command.  Add the \corauthref{} command within the \author command.
+% The argument is the label of a corresponding \corauth[label]{text}
+% command which contains the contact information.  Prefix the text with
+% Corresponding Author:
+%
+% e.g. if the contact author is John Doe,
+%
+% \author{John Doe\corauthref{1}}
+% \corauth[1]{Corresponding Author: University of Life, 123 Some St.,
+%    Somewhere, MI 12345, USA.  Phone: (555) 555-5555 
+%    Fax: (555) 555-7777, Email: JDoe@uol.edu}
+%
+
+\corauth[1]{Corresponding Author: Mark K\"onnecke, 
+  Laboratory for Development and Methods,
+Paul Scherrer Institute, 5232 Villigen-PSI, Switzerland, 
+Phone: +41-56-3102512, Fax: +41-56-3102939,Email: Mark.Koennecke@psi.ch}
+
+%----------------------------------------------------------------------
+% Text of abstract
+
+\begin{abstract}
+
+NeXus is an effort by an international group of scientists to define 
+ a common data exchange format for neutron, muon and x-ray scattering.   
+ NeXus has six levels: a physical file format, a file structure, rules 
+ for storing individual data items in a file, a dictionary of names,  
+ instrument definitions and an Application Programming Interface (API) to NeXus 
+ files. The authors will present the large steps forward which have been 
+ made both with instrument definitions and the NeXus-API. 
+
+
+Authors to 
+ NeXus are:\begin{it}
+Freddie Akeroyd, ISIS Facility, Rutherford Appleton Laboratory, UK;
+Stuart Cambell, Diamond Light Source, UK;
+Stephen Cottrell, ISIS Facility, Rutherford Appleton Laboratory, UK;
+Matthias Drochner, Forschungszentrum J\"ulich, Germany;
+Nick Hauser, Australian Nuclear Science and Technology Organisation, Australia;
+Ron Ghosh, Institute Laue Langevin, Grenoble, France;
+Andrew G\"otz, European Synchrotron Radiation Facility, France;
+Hartmut Gilde, FRM2, Technische Universit\"at M\"unchen, Germany;
+Przemek Klosowski, National Institute of Standards and Technology, USA; 
+Mark K\"onnecke, Paul Scherrer Institute, Switzerland;
+Ray Osborn, Intense Pulsed Neutron Source, ANL, USA;
+Toshiya Otomo, KEK, Japan;
+Peter Peterson, Spallation Neutron Source, USA;
+Thomas Proffen, Lujan Neutron Scattering Center, USA.
+\end{it}
+\end{abstract}
+
+%----------------------------------------------------------------------
+% Manuscript keywords
+%
+% Please give two or three keywords in the form: keyword \sep keyword
+% e.g. NMR \sep superconductivity
+%
+% NB The syntax is different from the abstract document class
+
+\begin{keyword}
+data format \sep data analysis \sep data management
+
+\end{keyword}
+
+%----------------------------------------------------------------------
+% End of front page
+
+\end{frontmatter}
+
+%----------------------------------------------------------------------
+% Manuscript text
+%
+% Fill in the following space with the manuscript text.
+%
+% A number of LaTeX commands may be invoked in this space, e.g.
+%
+% \section{} : to insert a new section title
+% \label{}   : to label the numbered section for use in \ref{}
+% \cite{}    : to add a reference using the label in \bibitem{}
+% 
+% A number of LaTeX environments may be used, e.g. 
+% \begin{equation}
+%     An equation inserted here will be automatically numbered
+% \end{equation}  
+%
+% Please refer to other LaTeX documentation for help on using these
+% environments.
+\section{Introduction}
+As of now, most major facilities choose to store the data measured at 
+ neutron, x-ray or muon instruments in a number of different home
+ grown data formats. This situation makes the life of the travelling
+ scientist more difficult than it needs to be because they have to
+ cater for many different data formats while performing data reduction
+ and analysis. Moreover, the existence of many different data formats
+ is a hurdle to sharing data reduction and analysis software. To
+ improve this situation a single, common data exchange format is 
+ proposed for both raw and preprocessed data. This
+ proposal is NeXus, the NEutron, X-ray, $\mu$ (muon) Science data format.    
+
+\section{NeXus Guiding Principles}
+The NeXus team tried to follow a few guiding principles while
+designing the format:
+\begin{itemize}
+\item Portability across common computing platforms. 
+\item Self describing. It must be possible to deduce the content of
+  the file from data in the file alone.
+\item Extensible. It must be possible to add data to the file without
+  breaking code based on the standard. 
+\item Flexibility in data organisation. This is required to cope with the
+  plethora of different instruments addressed.
+\item Upcoming high powered neutron and x-ray sources demand efficient
+  data storage.  
+\item Completeness. All data necessary for common data treatment tasks 
+  should be stored in one file. 
+\item Easy Access. The user should be protected from writing low level
+  parsers.
+\item Facilitate Automatic Plotting. 
+\item Availability in the public domain. 
+\end{itemize}
+
+\section{NeXus Overview}
+In order to meet these guidelines the NeXus team developed a proposal
+consisting of six levels:
+\begin{itemize}
+\item An underlying Physical File Format.
+\item A file organsisation.
+\item A programming interface (API) to access data files.
+\item Rules for storing data items in a file.
+\item A collection of instrument component definitions.
+\item A collection of instrument definitions.
+\end{itemize}
+
+\section{Physical File Format and the NeXus-API}
+With NeXus--API version 3.0 (released: July 2005) three different
+physical file formats are supported:
+\begin{itemize}
+\item HDF--4\cite{hdf4}
+\item HDF--5\cite{hdf5}
+\item XML
+\end{itemize}
+Rather than inventing yet another binary file format the NeXus team
+chose an existing scientific data format, HDF, as one of its
+underlying physical file formats. When a newer version of HDF, HDF-5,
+appeared support for this format was added, too. These two binary file
+formats allow for the efficient storage of large data sets and support
+transparent on the fly compression and decompression of data while
+reading or writing. The HDF file formats are also natively supported by many
+commercial and freeware data treatment packages--such tools can
+instantly be used to treat NeXus files. XML is a structured ASCII file
+format. Support for XML was added to cater for those
+scientists who wish to be able to edit their data manually. All three
+file formats allow for structured data storage in the file. Not only
+scientific datasets (multi-dimensional arrays of numbers) are
+supported, but also grouping constructs which allow for ordering
+elements in a hierarchical manner, much like in a file system.
+
+
+Access to all three physical file formats is provided through the
+NeXus--API. With the roughly 30 functions of this API a user can
+construct and navigate a NeXus file's hierarchy, write and read data and
+inquire meta information without having to even know about the
+underlying physical file format. The NeXus--API is written in portable
+ANSI-C. Language bindings exist for FORTRAN-77, FORTRAN-90, Java,
+python, Tcl and through a SWIG\cite{swig} interface to a plethora of
+common scripting languages. The NeXus--API comes with a small set of
+utilities including a file browser and nxconvert, a utility which
+allows conversion between all three physical file formats.  
+     
+\section{NeXus File Structure}
+For an overview of the structure of a NeXus file, see table 1.
+\begin{table}
+\label{struc}
+\begin{tabular}{|p{1cm}|p{6.5cm}|}
+\hline
+\multicolumn{2}{|l|}{NXroot}\\
+\hline
+The root level of a NeXus file & 
+\begin{tabular}{p{1.5cm}|p{5.0cm}}
+\multicolumn{2}{l}{NXentry}\\
+\hline
+All data belonging to one scan or run. A given NeXus file
+can contain multiple related scans or runs &
+\begin{tabular}{p{1.5cm}|p{3.3cm}}
+\multicolumn{2}{l}{NXinstrument}\\
+\hline
+The data needed to describe an instrument. Contains groups for
+each relevant instrument component&
+\begin{tabular}{p{3.3cm}}
+NXsource\\
+\hline
+NXmoderator\\
+\hline
+NXvelocity\_selector\\
+\hline
+NXcollimator\\
+\hline
+NXattenuator\\
+\hline
+NXdetector\\
+\end{tabular}\\
+\hline
+\multicolumn{2}{l}{NXsample}\\
+\multicolumn{2}{p{3.3cm}}{All the information about the sample}\\
+\hline
+\multicolumn{2}{l}{NXmonitor}\\
+\multicolumn{2}{l}{Control monitor}\\
+\hline
+\multicolumn{2}{l}{NXuser}\\
+\multicolumn{2}{l}{User information}\\
+\hline
+\multicolumn{2}{l}{NXdata}\\
+\multicolumn{2}{p{3.3cm}}{Links to plottable data in the NXdetector group --
+ one instance for each detector bank. This provides support for generating a
+typical plot automatically}\\
+\end{tabular}\\
+\end{tabular}\\
+\hline
+\end{tabular}
+\caption{Overview of the structure of a NeXus file}
+\end{table}
+Each NeXus group (or directory) has both a type (class) and a
+name; NeXus only standardizes the class names. At the root level of
+each NeXus file there is some global information and one to $n$ NXentry
+groups. Each NXentry group holds all the data related to one scan or
+run. NXentry is the NeXus construct for holding multiple related data sets in one
+file. Within each NXentry there are further groups: NXinstrument,
+NXsample, NXuser, NXmonitor and NXdata and possibly additional
+groups. NXinstrument itself contains further groups which represent the
+building blocks of the instrument--each of these groups will contain data
+describing the component and its position within the instrument:
+\begin{itemize} 
+\item the NXdetector group contains detector information and also the counts 
+\item the NXsample group holds the sample information
+\item the NXmonitor group holds monitor information
+\item the NXdata group contains plottable data i.e. a link to the counts along 
+   with axis information which an automatic tool can use
+to display a default plot of the data. 
+\end{itemize} 
+
+The above structure would seem to require
+the duplication of possibly large data sets. This is not the case as
+both the file format and the NeXus--API support the concept of links,
+i.e. references to data elements already written. This is very similar to
+links in a UNIX file system. 
+
+Additional groups may be present in an NXentry group which describe
+event based data, logged data items, processing information or the 
+intent of the data.
+
+Within groups, datasets are stored which describe the
+corresponding component - these datasets can also have associated attributes. 
+A standard attribute which has to be written is the units used. 
+For unit names we
+use the conventions established by the Udunits\cite{udu} unit
+conversion program. The axes datasets describing the dimensions of a 
+ multi dimensional dataset are stored in the same group as the
+ dataset. A convention allows one to associate the dimensions of a multi 
+ dimensional dataset with the appropriate datasets describing the axis. 
+
+For defining the position of a component within an instrument two
+schemes exist: a simple one where positions are defined by distances
+to the previous component, polar\_angle (in most cases equivalent to
+two theta) and azimuthal angle. For the distances, the sample is at zero,
+towards the source is negative, towards the detector is
+positive. There also exists a more sophisticated system using
+NXgeometry and its sub classes. The system is based on the coordinate
+system of McStas\cite{mcstas} and has been included in order to meet 
+the demands of the instrument simulation community.  
+
+\section{NeXus Component and Instrument Definitions}
+The NeXus International Advisory Committee (NIAC) was founded to oversee
+the development of NeXus and further the creation of both component
+definitions and instrument definitions. The following component
+definitions now exist: 
+\begin{itemize}
+\item NXentry
+\begin{itemize}
+\item NXinstrument
+\begin{itemize}
+\item NXsource
+\item NXmoderator
+\item NXcrystal
+\item NXchopper
+\item NXguide
+\item NXcollimator
+\item NXaperture
+\item NXfilter
+\item NXattenuator
+\item NXflipper
+\item NXmirror
+\item NXdetector
+\item NXbeam\_stop
+\end{itemize}
+\item NXsample
+\item NXmonitor
+\item NXdata
+\item NXevent\_data
+\item NXuser
+\item NXprocess
+\item NXcharacterizations
+\end{itemize}
+\end{itemize}
+In addition there are groups which may appear at any appropriate level
+in the hierarchy:
+\begin{description}
+\item[NXlog] for logging variables, for example temperature 
+\item[NXnote] for free text notes 
+\item[NXbeam] for summarizing the status of the incoming or outgoing 
+ neutron beam. 
+\item[NXgeometry] with subgroups NXtranslation,
+NXshape, NXorientation for defining instrument component positions
+very accuratetly. 
+\item[NXenvironment] with subgroup NXsensor for handling sample 
+ environment controllers.
+\end{description} 
+
+
+So far the following instrument definitions have been approved:
+\begin{itemize}
+\item Time of flight neutron powder diffractometer
+\item Monochromatic triple axis spectrometer
+\item Monochromatic small angle scattering instrument
+\item Time-of-flight Neutron Reflectometer.
+\item Direct geometry time-of-flight spectrometer.
+\end{itemize}
+More are to follow.
+
+\section{Conclusion}
+At the last count, 14 major facilities world wide have commited
+themselves to use NeXus for data storage and more than 30 NeXus aware
+data treatment programs are already available. This demonstrates that the
+NeXus file format is gaining widespread acceptance. The NeXus--API has
+proven mature enough to write and process more then 500 000 files, 
+especially at PSI. For more information,
+do not hesitate to consult the NeXus WWW--site\cite{nx} or to contact
+the members of the NIAC.  
+
+%----------------------------------------------------------------------
+% Reference section
+%
+% List each reference with a separate \bibitem{} command.  The
+% argument contains the label that is used in the \cite{} command
+% in the main text
+%
+% e.g.
+%
+%    This follows our pioneering work on TdB2\cite{TdB2}.
+%
+% \bibitem{TdB2}
+% J. Doe, J. Doe, and J. Dupont, J. Irrep. Res. 10 (2000) 1000.
+
+\begin{thebibliography}{00}
+
+\bibitem{hdf4} http://hdf.ncsa.uiuc.edu/hdf4.html
+\bibitem{hdf5} http://hdf.ncsa.uiuc.edu/HDF5
+\bibitem{swig} http://www.swig.org
+\bibitem{udu} http://www.unidata.ucar.edu/packages/udunits
+\bibitem{nx} http://www.nexus.anl.gov; http://www.nexus.anl.gov/mediawiki
+\bibitem{mcstas}K. Lefmann, K. Nielsen, Neutron News. 10 (1999) 20
+
+\end{thebibliography}
+
+%----------------------------------------------------------------------
+% Figures and Tables
+%
+% Insert figures and tables at the end of the document unless you
+% are familiar with the LaTeX positional options.
+%
+% \begin{figure}
+%     \centering
+%     \includegraphics{filename.eps}
+%     \caption{Insert figure caption here} 
+% \end{figure}  
+%
+% \begin{table}
+%     \centering
+%     \begin{tabular}
+%     Insert table here
+%     \end{tabular}
+%     \caption{Insert table caption here}
+% \end{table}  
+%
+% Please refer to other LaTeX documentation for help on using these
+% environments.
+
+%----------------------------------------------------------------------
+% Terminate document
+
+\end{document}
+
+%----------------------------------------------------------------------
+

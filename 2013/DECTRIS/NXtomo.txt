@@ -1,0 +1,39 @@
+entry:NXentry
+    title
+    start_time
+    end_time
+    definition
+    instrument:NXinstrument
+        NXsource
+            type
+            name
+            probe
+        bright_field:NXdetector
+            data[nBrightFrames,xsize,ysize]
+                @signal=1
+            sequence_number[nBrightFrames]
+        dark_field:NXdetector
+            data[nDarkFrames,xsize,ysize]
+                @signal=1
+            sequence_number[nDarkFrames]
+        sample:NXdetector
+            data[nSampleFrames,xsize,ysize]
+                @signal=1
+            sequence_number[nSampleFrames]
+            x_pixel_size
+            y_pixel_size
+            distance
+		@transformation_type=translation
+		@vector=0,0,1
+    sample:NXsample
+        name
+        rotation_angle[nSampleFrames]
+            @axis=1
+	    @transformation_type=rotation
+	    @vector=0,1,0
+    control:NXmonitor
+        integral[nDarkFrames + nBrightFrames + nSampleFrame]
+    data:NXdata
+        data --> /NXentry/NXinstrument/data:NXdetector/data
+        rotation_angle --> /NXentry/NXsample/rotation_angle
+

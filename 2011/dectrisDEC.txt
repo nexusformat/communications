@@ -1,0 +1,9 @@
+DECTRIS 15-12-2011
+====================
+
+- Servers with 40 - 80 cores
+- Speed and compression
+- I will provide:
+  * An updated PX version
+  * A only detector file with the new fields
+- A HDF-5 workshop somewhere next week

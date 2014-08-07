@@ -1,0 +1,17 @@
+\frametitle {NeXus API Example }
+\begin{semiverbatim}
+nxfile = nxs.open('hrpt2008n152088.hdf','r')
+nxfile.openpath('/entry1/data1/two\_theta')
+x = nxfile.getdata()
+nxfile.openpath('/entry1/data1/counts')
+y = nxfile.getdata()
+nxfile.openpath('/entry1/title')
+txt = nxfile.getdata()
+nxfile.close()
+
+plot(x,y)
+xlabel('two theta')
+ylabel('counts')
+title(txt)
+show()
+\end{semiverbatim}

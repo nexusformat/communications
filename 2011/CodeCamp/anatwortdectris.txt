@@ -1,0 +1,93 @@
+Hallo Miro,
+
+wir haben heute im NeXus Code Camp die Dectris Erweiterungen 
+diskutiert. Die Diskussion verlief durchaus positiv. Es ist 
+uns wichtig das gut laueft. Wie immer, gibt es allerdings ein 
+paar Kommentare. Ich kann im Moment allerding nicht auf das 
+Google Dokument zugreifen; offenbar ist Google US und Google 
+Europa unterschiedlich. Hier unsere Kommentare im Detail:
+
+acquisition_mode
+    angenommen. Aber wir brauchen mehr detaillierte Dokumentation
+    wie die beschrieben Modi exakt definiert sind.
+
+angular_calibration_applied
+angular_calibration[nx,ny]                               
+    angenommen. Aber wie ist die angular_calibration exakt definiert?
+    P_echt[x,y] = P_pixel[x,y]*angular_calibration[x,y]
+
+flatfield_applied 
+flatfield[nx,ny]
+    angenommen
+
+pixel_mask_applied
+pixel_mask[nx,ny]
+    angenommen. Aber was die einzelnen Werte in der Maske bedeuten muss 
+    noch dokumentiert werden.
+
+number_of_excluded_pixels
+    Ist implizit in der Maske enthalten. Deswegen ist die Meinung das 
+    wir dafuer keinen Standard brauchen. Aber Ihr koennt es natuerlich 
+    in der Dectris Sektion einfuegen
+
+countrate_correction_applied
+countrate_correction[nx,ny]
+   Bei Euch ist das tau. Wir haben das umbenannt da wir finden das dieser 
+   Namen besser beschreibt was es ist. Es braucht auch noch Dokumentation wie 
+   dies Korrektur angebracht wird. 
+
+bit_depth_readout: NX_INT
+   angenommen
+
+detector_readout_time
+trigger_delay_time
+trigger_dead_time
+   angenommen. delay_time wurde in trigger_delay_time umbenannt, da 
+   das klarer ist
+
+frame_time[np]
+   Das ist die urspruengliche exposure_period. Wir finden das der neue 
+   Name besser beschreibt was es ist.
+
+gain_setting
+   Der Konsensus war das dies Dectris specifisch ist. Der vorgeschlagene
+   neue Name ist dectris_gain_setting
+ 
+image_path
+   Ist implizit im link
+
+saturation_value
+   umbenant von maximum_count_value
+
+exposures_per_frame
+   Umbenannt von number_of_cycles
+
+sensor_material:NX_CHAR
+sensor_thickness
+threshold_energy
+   angenommen.
+
+Ich habe ausserdem bereits am PSI gesehen das Ihr den x_pixel_offset in 
+x_pixel_absolute umgebaut habt. Das ist so nicht NeXus standard. Und das 
+deswegen weil wir davon ausgehen das der Detektor auf einem beweglichen
+Arm sitzt und wir nur relative Positionen zum Zentrum des Detektors 
+angeben koennen. Die absolute Position errechnet sich dann aus der 
+Position des Detektors plus den pixel offsets.
+
+Eine allgemeine Anmerkung fuer die Dectris privaten Felder: Damit der 
+Namensraum nicht unnuetz belastet wird entweder in einer eigenen Gruppe 
+ablegen oder dem Namen dectris voranstellen.
+
+Seht Euch unsere Aenderungen bitte an. Wenn irgendwas sehr stoert und Ihr 
+schnell seid koennen wir auf dem Code Camp noch eine zweite Iteration 
+haben.
+
+Mit freundlichen Gruessen,
+
+     Mark Koennecke
+
+
+
+   
+
+ 

@@ -1,0 +1,280 @@
+
+Hi,
+
+as most of you know we had two workshops concerning dataformats and 
+synchrotrons in the last few months. Namely the workshop on HDF5 as 
+hyperspectral dataformat at ESRF and the NeXus for Synchrotrons Workshop 
+at PSI. These workshops resulted in several suggestions for extensions to 
+Nexus which are now up for vote. In short these are three suggestions:
+
+1) Introduce NXsubentry
+2) Introduce scaled data
+3) Extend NeXus axis definitions to be more precise
+4) NXmeasurement
+
+More detail on each propsal is given below. 
+
+NXsubentry
+----------
+Add to NXentry a new class named NXsubentry which has the same structure 
+as NXentry. Each NXsubentry is to hold the data or links thereto of a single 
+application definition in a  multi method instrument. 
+
+=== The Reasoning===
+Synchrotron beamlines often utilise several different detectors and detector 
+types in order to combine multiple techniques in simultaneous measurements. 
+NeXus currently asks for separate NXentry groups to be written for each 
+technique. This is good if one measurement is written to a file. However, 
+there is a second requirement that multiple scans, multiple measurements, 
+possibly a whole log of an experimental session is written to one NeXus file. 
+Then having different techniques in different NXentries will make the files 
+difficult to understand as the relationshipbetween different measurements 
+is lost.  Thus, in order to keep the data from these multiple techniques 
+together, it is desirable to have the ability to write it all into a single 
+NXentry in a NeXus. The current NeXus application definitions refer to the 
+same names and paths and so there are many name collisions when trying to 
+satisfy two application definitions in one NXentry in a file. The ability 
+to combine application definitions could be enabled by modifying the 
+application definitions to refer to new and separate groups inside the main 
+NXentry of the NeXus file that refer to the particular application/technique 
+name and which contains all of the data (or links to it) that is relevant 
+to that application/technique. For an example experiment that involves 
+a combination of SAS and Fluorescence, the proposed NeXus structure could 
+look like:
+
+
+entry:NXentry/
+  definition = "NXSas, NXFluo"
+  user:NXuser/
+  sample:NXsamle/
+  instrument:NXinstument/
+    SASdet:NXdetector/
+    fancyname:NXdetector/
+    fancyname2:NXdetector/
+    ...
+  SAS:NXsubentry/
+    definition = "NXSas"
+    instrument:NXinstrument/
+      detector:link to SASdet
+    data:NXdata/
+  Fluo:NXsubentry/
+    definition = "NXFluo"
+    instrument:NXinstrument/
+      detector:link to fancyname
+      detector2:link to fancyname2
+    data:NXdata/
+
+In the above NeXus tree, the entire beamline state could be stored in 
+entry/instrument and then any subset of this that is relevant to the SAS or 
+Fluorescence techniques would then be linked within the entry/SAS/instrument 
+and the entry/Fluo/instrument groups as defined by the current application 
+definitions with a minor change in the hierarchy. The advantages of this 
+approach are:
+* Only minor changes from current practice.
+* The only name collisions to worry about are the names of the 
+ applications/techniques themselves.
+* Application definitions need not be concerned with the names and paths that 
+ other application definitions proscribe.
+* The paths for each application remains well defined and an analysis program 
+ for either technique can find the relevant data without having to understand 
+ the other techniques present in the file. Further, the same analysis programs 
+ can read the multi-technique files in the same way (i.e. with the same code) 
+ exactly the same as they read single-technique files.
+* A user inspecting the data manually can find all the relevant information for
+  a particular analysis in the one group and so doesn't need to understand the 
+  entire beamline.
+One drawback of this approach is that the beamline staff would have to define 
+many links when configuring the data acquisition software. However, this is 
+necessary work regardless of how the data is saved since the user must be 
+informed of how the different instrument components and detectors relate to 
+the various analyses anyway. In fact, NeXus and the above proposal simplifies 
+this task by clearly documenting in a formal manner where the relevant 
+information can be read.
+
+Another use of NXsubentry is the retrofitting of existing non compliant NeXus 
+files with NXsubentries complying to an application definition. 
+
+Scaled Data
+------------
+NeXus STRONGLY suggests to store data as arrays of physical values in C 
+storage order. However, for cases where this is not possible or would cause 
+an efficiency concern when writing allow to store raw data. Such data must 
+be annotated with additional attributes as described below in order to allow 
+reading software to reconstruct the true physical value.
+
+
+==The Reasoning==
+The data rates possible at synchrotron facilities and the new pixel detectors 
+test current computing technology to their limits. There may not be enough 
+time to scale or convert data on the fly before writing to disk. In some 
+occasions significant space savings can be obtained by storing data as short 
+integers and scaling them to the desired floating point values. 
+  
+
+In the formulas below 
+Vtrue denotes the true value of the data item, Vraw the one which is stored 
+in the data element on file. The attributes are:
+
+* transform: This is the indicator that a transformation of the Vraw data is 
+   necessary. Transform can have one the following values:
+** offset: Vtrue = Vraw + offset
+** scaling: Vtrue = Vraw * scaling
+** scaling_offset: both an offset and scaling is applied. 
+   Vtrue = Vraw*scaling + offset
+** sqrt_scaled: Vtrue = (Vraw/scaling)*(Vraw/scaling)
+** logarithmic_scaled: Vtrue = (Vraw/scaling)**10   
+** polynomial: Vtrue = p1 + p2*Vraw + p3*Vraw*Vraw + p4*Vraw*Vraw*Vraw ....
+* offset:  The offset to apply
+* scaling: The scale factor to apply
+* direction: a komma separated list of length ndim which specifies for each 
+  dimension if it is increasing or decreasing. If this attribute is missing, 
+  increasing is implied. 
+* precedence: a komma separated list of length ndim which gives the rank 
+  order in which array indexes change with respect to other indexes. A 
+  precedence of 1 denotes the fastest changing index. If this attribute is 
+  missing, C storage order is implied.
+* coefficients, a komma separated list of the polynomial coefficients to use 
+  for a polynomial transform
+
+Coordinate System
+------------------
+This suggestion results from comparing imageCIF with NeXus. Ideally we should 
+be able to make a mapping from CIF to NeXus. Unfortunately, NeXus had some 
+weaknesses in coordinate systems (addressed by this proposal) and scaled data. 
+Please note, that this proposal extends in what we already do in NeXus and 
+does not invalidate earlier efforts. 
+
+
+The CIF way of specifying axis is far more accurate then what we do with NeXus.
+Thus the suggestion is to align NeXus with the well thought out CIF scheme. 
+This section consists first of a discussion of the CIF axis system and then 
+of suggestions how to use this within NeXus. 
+
+
+
+CIF uses a coordinate system which is similar to the McStas coordinate system 
+which NeXus uses at its bottom. Just the orientation of the Z-axis differs. 
+The description of any given axis in CIF consists of three elements:
+* The type of the axis. This can be translation or rotation
+* The axis vector. This is the direction of a translation or the vector around 
+  which the axis rotates. 
+* The axis offset. The offset to the base of the rotation or translation. If 
+  this is not given 0,0,0 is assumed. 
+
+
+CIF also describes in which order transformations have to be applied to get 
+a component into its final position from its zero position. In CIF this is 
+done by chaining axis through the depends attribute. 
+
+
+
+This scheme is a generalisation of the methods used commonly in 
+crystallography. There a crystal is brought into scattering position by 
+applying a series of rotations. Please note that order is important!
+
+
+===Axis Suggestions for NeXus===   
+
+1) NeXus stays with the McStas coordinate system.
+
+
+2) NeXus uses the vector and offset scheme to document existing NeXus axis. 
+  The base of all operations is always the component, if not specified by an 
+  offset vector. Rotations are in degree, translations in milimetre. 
+
+Some examples:
+* rotation_angle has a vector 0 1 0, rotation around Y
+* azimuthal_angle is a rotation around Z, vector = 0 0 1
+* polar_angle is also a rotation around Y, vector 0 1 0, but as the rotation 
+  axis is with the previous component upstream, we have an offset of 
+  0 0 -distance
+
+In NXsample we additionally have:
+* chi is a rotation around Z, vector 0 0 1
+* phi is a rotation around Y, vector 0 1 0
+* kappa, for kappa the vector attribute has to be given as there are 
+  kappa goniometres with different values of kappa.
+
+
+
+3) Each NeXus component can have an additional field with the name transform. 
+This contains a komma separated list of the operations required to place 
+the componentat its position in the instrument. The formula is:
+
+      Xcurrent = op1*op2....*opn * X0
+
+with transform becoming: op1,op2,....,opn Names of operations are the names of 
+the axis to apply. Unqualified names relate to axis in the same group. In 
+order to refer axis outside the current group, full path names must be given. 
+Storing this separatly in a transform field gives direct access whereas 
+the CIF depends system requires a lot of searches to reconstruct the sequence 
+of transforms. 
+
+
+
+In this description, our NeXus polar coordinate system has the transform:
+
+          azimuthal_angle, polar_angle
+
+This is also the default if the transform field is missing.  
+
+
+4) NeXus strongly prefers to use the NeXus simple coordinate system with 
+polar_angle and azimuthal_angle as describe above. This description has the 
+advantage that polar_angle is always two theta. 
+
+
+
+5)  With the vector/offset scheme arbitrary axis can be stored in NeXus. 
+The rule then is  that type, vector and offset have to be specified as 
+attributes.Type is NX_CHAR, vector and offset  are of dim 3 and type 
+NX_FLOAT. We need these attributes anyway as there are angles such as kappa, 
+which differ in their rotation axis between instruments. 
+
+
+
+6) NeXus is missing a rotation around the X axis. As we already bought into 
+quite lyrical names for rotation axis I suggest aequatorial_angle as a name 
+for this. 
+
+7) Consequently, as NeXus does not have fields for describing translations, 
+except in Nxgeometry, I suggest to add x_translation, y_translation and 
+z_translation fields to each component. I choose to suggest separate fields 
+for the translations as they frequently map to dedicated motors. Please note 
+that all angles have to be 0 if you were to determine the operation of any 
+given translation motor.  
+
+
+8) The orientation field in NXgeometry receives the same meaning as vector 
+in axis descriptions. With vector being aligned with the main axis of the 
+component. 
+
+
+
+9) NXgeometry stays as is as a means to describe shapes, engineering 
+coordinates of orientations of components.
+
+
+NXmeasurement
+----------------
+In order to satisfy the requirements of the beamline scientist an additional, 
+simplified NeXus hierarchy is proposed:
+
+
+entry:NXentry
+   measurement:NXmeasurement
+      positions:NXpositioners
+      scalars:NXscalar
+      images:NXimagedata
+  
+Please note that this is an example how a NXmeasurement group may look like. 
+The general feeling was to allow much freedom in NXmeasurement and standardize 
+later on if a common pattern emerges. The meaning is that the NXpositioners 
+groups contains a list of all constants and motor positions, NXscalar arrays 
+of all parameters varied during the scan and NXimageData the images and other 
+detector data which has been captured during a scan or measurement. This 
+structure is for the expert, the instrument scientist, who knows his 
+instrument by heart and wishes to be able to plot anything against anything 
+in his instrument. NXmeasurement is not meant to stand alone but is to be 
+augmented with further NXsubentries containing the data in proper NeXus 
+notation and hierarchy. 

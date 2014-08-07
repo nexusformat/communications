@@ -1,0 +1,200 @@
+#!/usr/bin/tclsh
+#--------------------------------------------------------------
+# This is a little program for reformatting NXDL files to 
+# something nicer for human consumption
+# 
+# copyright: GPL
+#
+# Mark Koennecke, January 2011
+#-------------------------------------------------------------
+package require tdom
+
+set indent 4
+set separator _
+set pathtxt ""
+set nxtxt ""
+set pathlist ""
+
+#--------------------------------------------------------------------------
+proc findNXentry {node} {
+	set childlist [$node childNodes]
+	foreach child $childlist {
+		set test [catch {$child @type} type]
+		if {$test == 0} {
+			if {[string compare $type NXentry] == 0} {
+				return $child
+                	}
+		}		
+        }
+	error "No NXentry found"
+}
+#------------------------------------------------------------------------
+proc findDim {node} {
+	set children [$node childNodes]
+	foreach child $children {
+		set type [$child nodeName]
+		if {[string compare $type dimensions] == 0} {
+		    set tst [catch {$child @rank} rank]
+			if {$tst != 0} {
+				set rank 1
+                        }
+			for {set i 0} {$i < $rank} {incr i} {
+			    set dimar($i) 0
+                        }
+			set dimlist [$child childNodes]
+			foreach dim $dimlist {
+				set ind [$dim @index]
+				set tst [catch {$dim @value} val]
+				if {$tst == 0} {
+				    set dimar([expr $ind -1]) $val
+				}
+                        }
+                }
+        }
+        if {[info exists dimar] == 1} {
+	    for {set i 0} {$i < $rank} {incr i} {
+		lappend dimresult $dimar($i)
+            }
+	    return $dimresult
+        } else {
+	   return NULL
+        }
+}
+#------------------------------------------------------------------------
+proc findAttributes {node} {
+    set attlist [$node attributes]
+    foreach att $attlist {
+	if {[string compare $att units] != 0 && [string compare $att type] != 0 \
+		&& [string compare $att name] != 0 } {
+	    set val [$node getAttribute $att]
+	    lappend attresult [list $att $val]
+	}
+    }
+    set children [$node childNodes]
+    foreach child $children {
+	set type [$child nodeName]
+	if {[string compare $type attribute] == 0} {
+	    set att [$child @name]
+	    set it [$child getElementsByTagName item]
+	    if {[llength $it] > 0} {
+		set val [[lindex $it 0] @value]
+		lappend attresult [list $att $val]
+	    } else {
+		set val [$child @name]
+	    }
+        }
+    }
+    if {[info exists attresult] == 1} {
+	return $attresult
+    } else {
+	return ""
+    }
+}
+#------------------------------------------------------------------------
+proc printAttribute {att indentlevel} {
+    global indent nxtxt
+    set ind [string repeat " " [expr $indentlevel*$indent]]
+    set name [lindex $att 0]
+    set value [lindex $att 1]
+    append nxtxt "${ind}@${name}=${value}\n"
+}
+#-------------------------------------------------------------------------
+proc printField {node indentlevel} {
+    global indent separator pathtxt pathlist nxtxt
+    set name [$node @name]
+    set dim [findDim $node]
+    set ind [string repeat " " [expr $indentlevel*$indent]]
+    lappend pathlist $name
+    set fieldpath [join $pathlist $separator]
+    if {[string compare $dim NULL] != 0} {
+	set dims [join $dim ,]
+	append nxtxt "${ind}${name}\[$dims\]\n"
+	append pathtxt "${separator}${fieldpath}\[$dims]\n"
+
+    } else {
+	append nxtxt "${ind}${name}\n"
+	append pathtxt "${separator}${fieldpath}\n"
+    }
+    set attributes [findAttributes $node]
+    foreach att $attributes {
+	printAttribute $att [expr $indentlevel + 1]
+    }
+    set pathlist [lrange $pathlist 0 end-1]
+}
+#------------------------------------------------------------------------
+proc printLink {node indentlevel} {
+    global indent separator pathtxt pathlist nxtxt
+    set ind [string repeat " " [expr $indentlevel*$indent]]
+    set name [$node @name]
+    set target [$node @target]
+    append nxtxt "${ind}${name} --> $target\n"
+    set localpath $pathlist
+    lappend localpath $name
+    set fieldpath [join $pathlist $separator]
+    append pathtxt "${separator}${fieldpath}-->$target\n"
+    
+}
+#--------------------------------------------------------------------------
+proc printGroup {group indentlevel} {
+	global indent separator pathtxt pathlist nxtxt
+	set type [$group @type]
+	set ind [string repeat " " [expr $indentlevel*$indent]]
+	set tst [catch  {$group @name} name]
+	if {$tst == 0} {
+		lappend pathlist $name
+		append nxtxt "${ind}${name}:${type}\n"
+		
+        } else {
+		lappend pathlist $type
+		append nxtxt "${ind}${type}\n"
+        }
+	incr indentlevel
+	set children [$group childNodes]
+	foreach child $children {
+		set objtype [$child nodeName]
+		switch $objtype {
+			group {printGroup $child $indentlevel}
+			field {printField $child $indentlevel}
+		        link {printLink $child $indentlevel}
+		}
+        }
+        set pathlist [lrange $pathlist 0 end-1]
+}
+#=================== main ==================================
+ if {[llength $argv] < 1} {
+     puts stdout "Usage:\n\tnxdlformat nxdl-file nx|cif\n"
+     exit 1
+ }
+
+set format nx
+if {[llength $argv] > 1} {
+    set format [lindex $argv 1]
+}
+
+ set nxdl [open [lindex $argv 0] r]
+ set nxdltext [read $nxdl]
+ close $nxdl
+
+ set doc [dom parse $nxdltext]
+ set root [$doc documentElement]
+
+ set entry [findNXentry $root]
+
+ printGroup $entry 0
+
+ switch $format {
+     nx {
+	 puts stdout $nxtxt
+     }
+     cif {
+	 puts stdout $pathtxt
+     }
+     default {
+	 puts stdout $nxtxt
+     }
+ }
+
+exit 0
+
+
+

@@ -1,0 +1,10 @@
+NeXus Myths and Legends
+For more than a decade, NeXus has been actively exploring philosophies and methods for recording scientific data, as well as testing and developing enabling technologies. Over this time, NeXus has evolved from a diverse and conflicting set of individual requirements and opinions into a unified set of principles that is flexible and inclusive. However, the image of NeXus has not always kept up with this maturation and outdated information persists in some corners of the scientific community. Below is a set of clarifying statements about NeXus:
+
+* NeXus is inclusive. We want to collaborate with everybody in the scientific community to develop standards that work well simultaneously for every individual and entire communities.
+* NeXus is being used by a significant number of instruments in numerous facilities.
+* NeXus does not require you to store "lots of useless information". NeXus standards are written by scientific communities for their own consumption. If something is required in a NeXus application definition, then someone in your community has a need for it. NeXus provides recommendations based on more than a decade of experience, but each community of users is free to ignore them (at their own peril) so long as they agree on something that can be validated. 
+* NeXus standards are real and defined. NeXus provides tools to formally define the standard for each community and validation tools to test compliance.
+* NeXus does not have to be written in binary. NeXus is designed with the ability to be expressed in multiple different physical file formats and tools are available to convert between them.
+
+

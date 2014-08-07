@@ -1,0 +1,109 @@
+NIAC TOPICS
+====================
+
+* Electing new officers                 Very high
+
+  * Chair
+  * Executive secretary
+  * Technical Chair
+  * Documentation Chair
+
+* Roadmap OO NeXus                    high-middle
+* Multi dimensional axis encoding     high-middle 
+* DECTRIC meeting                     middle
+* How to verify communities?          middle
+* Process for ratifing changes to NeXus classes   low
+
+
+* Materials definition                           middle
+* Some questions from the code camp              middle
+
+  * Timed data
+
+* Interaction with HDF group
+* Examples
+* Optional fields in application defintions?
+
+* Review of synchrotron beamline classes        low
+* Review Additions to NXdetector          low          
+
+ 
+
+Done 
+============
+* CIF coordinates, tech committee suggestion accepted
+* Quo Vadis, results below
+* Nexus-developers merged into NeXus list
+* Herbert Bernstein accepted as representative of 
+  imageCIF
+* NXcharacterization: mailing list, then kill
+* F77, leave put not much work
+* Seen ARPES definitions
+* download.nexusformat.org/sphinx/                
+
+
+
+Quo Vadis
+=================
+
+* The main focus of the NeXus community will be to 
+  further develop the dictionary, base classes,
+  application definitions
+* The NIAC is a forum for resolving issues 
+* The NIAC acts as a custodian for NeXus: definitions,
+  examples, documentation, reference implementations
+* NeXus can be mapped to different physical file 
+  formats
+
+   * HDF-5 is the preferred physical file format 
+   * NeXus-XML is the currently supported ASCII 
+     file format
+
+* We recommended to use the NeXus hierarchy in 
+  application definitions, but we do accept
+  application definitions with a flattened
+  hierarchy. 
+
+Consequences 
+=================
+
+* The NAPI and applications are considered stable 
+* The use of NAPI is not mandatory and examples 
+  using HDF-5 APIs will be provided
+* The validation tool is actively developed
+* We seek cooperation with IUCR and CIF
+
+  * Have a meeting with them to figure out what this
+    means
+  * May be have another NIAC next year to agree on this
+
+* We encourage the inclusion of NeXus into CBFlib
+* We invest into cleaning up NeXus, remove outdated,
+  old or broken stuff
+* We invest into documenting NeXus better through
+  bringing inheritance or composition to NeXus base
+  classes
+
+
+
+Tasks for the Tech Committee
+================================
+
+* Cleanup NeXus
+* Suggestion for an OO-NeXus
+
+
+
+
+State of NeXus
+===================
+
+* Ask for representation!
+* Who wants a standard, please seek contact 
+* Validation valuable even without NeXus
+
+
+Freddies phone
+
++447766422175
+

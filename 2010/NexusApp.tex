@@ -1,0 +1,111 @@
+\documentclass{beamer}
+\usepackage{beamerthemesplit}
+\usepackage{graphics}
+\logo{\includegraphics[height=1cm]{psi_logo_white.png}}
+\usetheme{Pittsburgh}
+\usecolortheme{dove}
+\beamertemplatenavigationsymbolsempty
+\setbeamertemplate{footline}[frame number]
+\definecolor{myback}{RGB}{175,238,238}
+\setbeamercolor{structure}{bg=myback}
+\usepackage[T1]{fontenc}
+\newcommand{\changefont}[3] {
+ \fontfamily{#1} \fontseries{#2} \fontshape{#3} \selectfont}
+
+
+\begin{document}
+
+\begin{frame}
+\frametitle{NeXus Application Definitions}
+\begin{itemize}
+\item<1->Application definitions are the NeXus way of defining a standard
+\item<2->Describe the minimum data required for typical usage 
+\item<3->Strive to cover 80-90\% of all use cases
+\item<4->Expressed in NXDL
+\item<5->I will show example files and ASCII metadata dumps
+\item<6->{\color{blue}A real file will always contain more data and this will not break the standard compliance!} 
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Scans and Rastering}
+\begin{itemize}
+\item Come in all shapes and sizes
+\item Captured by rules:
+\begin{itemize}
+\item Store all varied parameters as arrays of length NP at the appropriate place in the NeXus 
+ hierarchy
+\item For multi detectors, NP, number of scan points is always the first dimension
+\item In NXdata: create links to counts and varied variables
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Scan Example 1: rotating sample}
+
+\begin{tabbing}
+\hspace*{1cm} \= \hspace*{1cm} \= \hspace*{1cm} \= \hspace*{1cm} \= \hspace*{1cm} \= \hspace*{1cm}\= \kill
+entry:NXentry \\
+ \>sample:NXsample\\
+ \> \> rotation\_angle[NP], axis=1 (1) \\
+ \> instrument:NXinstrument\\
+ \>  \>detector:NXdetector\\
+ \>  \> \>data[NP],signal=1 (2)\\
+ \>control:NXmonitor\\  
+ \> \>data[NP]\\  
+ \>data:NXdata\\
+ \> \> link to (1)\\
+ \> \> link to (2) \\
+\end{tabbing}
+\end{frame}
+
+\begin{frame}
+\frametitle{Scan Example 2: complex scan in Q}
+
+\begin{tabbing}
+\hspace*{1cm} \= \hspace*{1cm} \= \hspace*{1cm} \= \hspace*{1cm} \= \hspace*{1cm} \= \hspace*{1cm}\= \kill
+entry:NXentry \\
+ \>sample:NXsample\\
+ \> \> rotation\_angle[NP], axis=1 (1) \\
+ \> \> phi[NP], axis=1 (2) \\
+ \> \> chi[NP], axis=1 (3) \\
+ \> \> h[NP], axis=1 (4), primary=1 \\
+ \> \> k[NP], axis=1 (5) \\
+ \> \> l[NP], axis=1 (6) \\
+ \> instrument:NXinstrument\\
+ \>  \>detector:NXdetector\\
+ \>  \> \>data[NP],signal=1 (7)\\
+ \>  \> \>polar\_angle[NP],signal=1 (8)\\
+ \>data:NXdata\\
+ \> \> link to (1)\\
+ \> \> link to (2) \\
+ \> \> link to (...) \\
+ \> \> link to (8) \\
+\end{tabbing}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Scan Example 3: sample rotation, area detector}
+\begin{tabbing}
+\hspace*{1cm} \= \hspace*{1cm} \= \hspace*{1cm} \= \hspace*{1cm} \= \hspace*{1cm} \= \hspace*{1cm}\= \kill
+entry:NXentry \\
+ \>sample:NXsample\\
+ \> \> rotation\_angle[NP], axis=1 (1) \\
+ \> instrument:NXinstrument\\
+ \>  \>detector:NXdetector\\
+ \>  \> \>data[NP,xsize,ysize],signal=1 (2)\\
+ \>control:NXmonitor\\  
+ \> \>data[NP]\\  
+ \>data:NXdata\\
+ \> \> link to (1)\\
+ \> \> link to (2) \\
+\end{tabbing}
+\end{frame}
+
+
+\end{document}
+

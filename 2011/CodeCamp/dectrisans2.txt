@@ -1,0 +1,24 @@
+Hallo Miro,
+
+die naechste Runde an NIAC feedback:
+
+detector_type:NX_CHAR existiert als type in NXdetector
+exposure_time[nFrames] ist in NXentry/NXmonitor/time
+
+x_pixel_offset[i,j] etc ist voellig OK.  
+
+Wir haben uns ueberzeugen lassen sowohl 
+
+gain_setting
+number_of_cycles
+flat_field_error[i,j]
+
+zu akzeptieren. Aber das durcheinander zeigt, das wir noch 
+bessere Dokumentation brauchen was die verschiedenen Sachen 
+eigentlich bedeuten. Vielleicht brauchen wir mal ein Detektormanual
+von Euch......
+
+Schoenes Wochenende,
+
+              Mark Koennecke
+

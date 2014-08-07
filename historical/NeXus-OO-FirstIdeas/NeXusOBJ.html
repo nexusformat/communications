@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<title>Object Oriented NeXus Classes </title>
+<!-- metadata -->
+<meta name="generator" content="SICS for Users" />
+<meta name="version" content="S5 1.1" />
+<meta name="presdate" content="20060910" />
+<meta name="author" content="Mark K&ouml;nnecke" />
+<meta name="company" content="LDM" />
+<!-- configuration parameters -->
+<meta name="defaultView" content="slideshow" />
+<meta name="controlVis" content="hidden" />
+<!-- style sheet links -->
+<link rel="stylesheet" href="ui/default/slides.css" type="text/css" media="projection" id="slideProj" />
+<link rel="stylesheet" href="ui/default/outline.css" type="text/css" media="screen" id="outlineStyle" />
+<link rel="stylesheet" href="ui/default/print.css" type="text/css" media="print" id="slidePrint" />
+<link rel="stylesheet" href="ui/default/opera.css" type="text/css" media="projection" id="operaFix" />
+<!-- S5 JS -->
+<script src="ui/default/slides.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="layout">
+<div id="controls"><!-- DO NOT EDIT --></div>
+<div id="currentSlide"><!-- DO NOT EDIT --></div>
+<div id="header"></div>
+<div id="footer">
+<h1>Object Oriented NeXus Classes </h1>
+<h2>Object Oriented NeXus Classes </h2>
+</div>
+
+</div>
+
+
+<div class="presentation">
+
+<div class="slide">
+<h1>Object Oriented NeXus Classes </h1>
+<h3>Mark K&ouml;nnecke</h3>
+<h4>Laboratory for Development and Methods, PSI</h4>
+</div>
+
+
+
+<div class="slide"><h1>Simple Coordinate System </h1>
+<ul><li>The plane perpendicular to the main rotation axis of the sample table defines the 
+ scattering plane of the instrument.  
+</li><li>As components are commonly positioned using angles, a polar coordinate system is used.
+</li><li>When distances are required then we assume that the sample is a zero. Distances towards the
+ source are negative, distances behind the sample, towards the detector are positive.  
+</li></ul>
+</div><div class="slide"><h1>Polar Angle, Distance and Rotation </h1>
+<ul><li>Polar angle synonymous to two theta or gamma. Longitude in geography 
+</li><li>Birds eye view on scattering plane:
+</li></ul><center>
+<p><img src="polar.jpg">
+</p></center>
+
+</div><div class="slide"><h1>Elevation </h1>
+<ul><li>Standing besides the instrument:
+</li></ul><center>
+<p><img src="elevation.jpg">
+</p></center>
+<ul><li>Elevation corresponds to latitude in geography. In neutron scattering this is often the angle nu.
+</li></ul>
+</div><div class="slide"><h1>Azimuthal Angle </h1>
+<ul><li>Again birds eye view onto the scattering plane
+</li></ul><center>
+<p><img src="azimuthal.jpg">
+</p></center>
+
+</div><div class="slide"><h1>McStas Coordinates </h1>
+<ul><li>Birds eye view again:
+</li></ul><center>
+<p><img src="mcstas.jpg">
+</p></center>
+</div><div class="slide"><h1>Miscellaneous Classes </h1>
+<center>
+<p><img src="nxmisc.jpg">
+</p></center>
+</div><div class="slide"><h1>NeXus Position </h1>
+<center>
+<p><img src="nxpos.jpg">
+</p></center>
+
+</div><div class="slide"><h1>NeXus Shape </h1>
+<center>
+<p><img src="nxshape.jpg">
+</p></center>
+</div><div class="slide"><h1>NeXus Stages </h1>
+<center>
+<p><img src="nxstage.jpg">
+</p></center>
+</div><div class="slide"><h1>Source Components </h1>
+<center>
+<p><img src="nxsource.jpg">
+</p></center>
+
+</div><div class="slide"><h1>Passive Beam Line Components </h1>
+<center>
+<p><img src="nxpassivebeam.jpg">
+</p></center>
+
+</div><div class="slide"><h1>Active Beam Line Components </h1>
+<center>
+<p><img src="nxactivebeam.jpg">
+</p></center>
+</div><div class="slide"><h1>More Beamline Components </h1>
+<center>
+<p><img src="nxmorebeam.jpg">
+</p></center>
+</div><div class="slide"><h1>Samples </h1>
+<center>
+<p><img src="nxsample.jpg">
+</p></center>
+
+</div><div class="slide"><h1>Detectors </h1>
+<ul><li>Concerning data handling there are the following types of detectors:
+<ul><li>single detectors
+</li><li>linear detectors
+</li><li>area detectors
+</li><li>ID detectors 
+</li></ul></li><li>For each detector pixel we need to be able to deduce:
+<ul><li>The scattering angle towards the previous component 
+</li><li>The elevation out of the scattering plane
+</li><li>The distance to the previous component
+</li></ul></li><li>All detectors can be described by the general case where we give those values for each pixel
+</li></ul>
+</div><div class="slide"><h1>Non-TOF Detectors </h1>
+<center>
+<p><img src="nxdet.jpg">
+</p></center>
+
+</div><div class="slide"><h1>Area Detector geometry </h1>
+<center>
+<p><img src="nxdetgeom.jpg">
+</p></center>
+
+</div><div class="slide"><h1>TOF-Detectors </h1>
+<center>
+<p><img src="nxtofdet.jpg">
+</p></center>
+
+</div><div class="slide"><h1>More Detectors </h1>
+<center>
+<p><img src="nxmoredet.jpg">
+</p></center>
+
+</div><div class="slide"><h1>Monochromatic Instruments </h1>
+<center>
+<p><img src="nxmonoinst.jpg">
+</p></center>
+
+</div><div class="slide"><h1>TOF Instruments </h1>
+<center>
+<p><img src="nxtofinst.jpg">
+</p></center>
+
+</div><div class="slide"><h1>Conclusion </h1>
+<ul><li>The current NeXus classes are messy due to lack of specialization
+</li><li>More classes improve clarity
+</li><li>Inheritance brings better maintainability: for instance adding NXellipitcal as 
+ a NXshape does not require changes downstream
+</li><li>Caveats:
+<ul><li>backwards compatability difficult
+</li><li>description in XML problematic
+</li><li>NAPI should know about inheritance hierarchies
+</li></ul></li></ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+</div>
+
+</body>
+</html>
+

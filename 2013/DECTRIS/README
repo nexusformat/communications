@@ -1,0 +1,9 @@
+NeXus presentation for the DECTRIS workshop in january 2013
+
+Build by running:
+
+pdflatex NexusTalk.tex
+
+The .dia files are for the FOSS Linux dia program for 
+diagram editing
+

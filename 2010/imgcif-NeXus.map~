@@ -1,0 +1,153 @@
+This is an attempt at mapping Herbert Bernsteins imagecif file 
+converted to NeXus into the NeXus hierarchy. This mapping was 
+created by editing the output of NXmeta on Herberts file.
+
+The structure of this file is like this: 
+A # at the start of the line denotes a path in Hebert's file. 
+This is followed by my comment or mapping into NeXus proper. 
+
+The original filename from Herbert to which this applies to is:
+ 
+      mb_LP_1_001_orig_cg.hdf5
+
+ImageCIF uses _id and _binary_id fields to relate the various 
+bits and pieces of information with each other. In NeXus this 
+relationship is established by  storing the relevant pieces 
+of information in the same group as the associated data. 
+Therefore I will ignore the ID's in the following mapping.
+
+Below the -- line the real work begins.
+----------------------------------------------------------------
+#/image_1/array_data/array_id/data:image_1
+#/image_1/array_data/binary_id/data:1
+  NeXus does not have any data ID's. But the image_1 can be 
+  taken care of by the entry name or the detector name
+
+#/image_1/array_data/data/data:data:9437184
+ /image_1:NXentry/instrument:NXinstrument/detector:NXdetector/data
+
+# /image_1/array_element_size/array_id/data:image_1
+# /image_1/array_element_size/index/data:1 2
+
+# /image_1/array_element_size/size/data:102.588e-6 102.588e-6
+ /image_1:NXentry/instrument:NXinstrument/detector:NXdetector/x_pixel_size
+ /image_1:NXentry/instrument:NXinstrument/detector:NXdetector/y_pixel_size
+  
+
+#/image_1/array_intensities/array_id/data:image_1
+#/image_1/array_intensities/binary_id/data:1
+
+#/image_1/array_intensities/gain/data:2.45
+ /image_1:NXentry/instrument:NXinstrument/detector:NXdetector/gain
+ Not in NeXus base class yet. This is a value to divide the data array values 
+ with in order to get true photon intensity
+#/image_1/array_intensities/linearity/data:linear
+ /image_1:NXentry/instrument:NXinstrument/detector:NXdetector/linearity
+# /image_1/array_intensities/pixel_fast_bin_size/data:2
+# /image_1/array_intensities/pixel_slow_bin_size/data:2
+# /image_1/array_intensities/undefined_value/data:0
+#/image_1/array_intensities/overload/data:65535
+ /image_1:NXentry/instrument:NXinstrument/detector:NXdetector/overload
+ These parameters are not in the NXdetector NeXus base class yet
+ There are other parameters in the imgCIF dictionary:
+ scaling, offset and other values for linearity which allow for various 
+ methods to calculate the true data intensity from the raw data in the 
+ detector data array. In NeXus we always asked for true values to be stored. 
+ A decision by the NIAC is needed if we permit the imageCIF scheme and add the 
+ required values to the base class NXdetector. An indicator for the necessity 
+ of such a calculation can be the presence of the linearity field in the 
+ NXdetector group. 
+
+# /image_1/array_structure_list/array_id/data:image_1 image_1
+# /image_1/array_structure_list/axis_set_id/data:ELEMENT_X ELEMENT_Y
+# /image_1/array_structure_list/dimension/data:3072 3072
+# /image_1/array_structure_list/direction/data:increasing increasing
+# /image_1/array_structure_list/index/data:1 2
+# /image_1/array_structure_list/precedence/data:1 2
+  Not needed: the dimensions of the data array are part of the data. NeXus requires storage 
+  according to C storage conventions. However, if NeXus ever wishes to change that, to allow 
+  different storage layouts to be defined, then these fields ought to become attributes to the dataset.  
+
+# /image_1/array_structure_list_axis/axis_id/data:ELEMENT_X ELEMENT_Y
+# /image_1/array_structure_list_axis/axis_set_id/data:ELEMENT_X ELEMENT_Y
+# /image_1/array_structure_list_axis/displacement/data:0.000000 0.000000
+# /image_1/array_structure_list_axis/displacement_increment/data:0.102588 -0.102588
+  This set of entries associate axis with the detector data. This is covered by the NeXus rules
+  which require axis to be stored with the data as arrays and having appopriate attributes, axis=n, 
+  to do the association. 
+
+# /image_1/axis/depends_on/data:. . . . DETECTOR_Z DETECTOR_Y DETECTOR_X DETECTOR_PITCH ELEMENT_X
+# /image_1/axis/equipment/data:goniometer source gravity detector detector detector detector detector detector
+# /image_1/axis/id/data:GONIOMETER_PHI SOURCE GRAVITY DETECTOR_Z DETECTOR_Y DETECTOR_X DETECTOR_PITCH ELEMENT_X ELEMENT_Y
+# /image_1/axis/offset[1]/data:. . . 0 0 0 0 -157.500 0
+# /image_1/axis/offset[2]/data:. . . 0 0 0 0 157.496 0
+# /image_1/axis/offset[3]/data:. . . 0 0 0 0 0 0
+# /image_1/axis/type/data:rotation general general translation translation translation rotation translation translation
+# /image_1/axis/vector[1]/data:1 0 0 0 0 1 0 1 0
+# /image_1/axis/vector[2]/data:0 0 -1 0 1 0 1 0 1
+# /image_1/axis/vector[3]/data:0 1 0 -1 0 0 0 0 0
+  This specifies the names of axis, their type (translation, rotation, general direction), their offset to 
+  the coordinate system (the offset field) and their direction of operation (translation or axis of rotation, 
+  the vector field). This is something NeXus does not have. It is also more precise then what we have in NeXus, 
+  so it is desirable. The imgcif coordinate system is almost identical to the NeXus one. The only difference being 
+  that in imagecif z points towards the source, whereas in NeXus z points along the primary beam towards the detector.
+  This seemingly small difference has an effect on the sense of rotations too. There are two ways to use this:
+  - specify this information in the description of base classes or application definition
+  - add offset, vector and type attributes to all data sets affecting translations or rotations
+  - Use this for NXgeometry 
+  The second is more flexible and takes care of distances too. I wonder though how the NeXus polar coordinate system, 
+  polar_angle, azimuthal_angle and distance can be expressed in this.       
+
+# /image_1/diffrn/id/data:DS1
+# /image_1/diffrn_data_frame/array_id/data:image_1
+# /image_1/diffrn_data_frame/binary_id/data:1
+# /image_1/diffrn_data_frame/details/data:; HEADER_BYTES=  512; DIM=2; BYTE_ORDER=big_endian; TYPE=unsigned_short;
+# SIZE1=3072; SIZE2=3072; PIXEL_SIZE=0.102588; BIN=2x2; DETECTOR_SN=901; TIME=29.945155; DISTANCE=200.000000;
+# PHI=85.000000; OSC_START=85.000000; OSC_RANGE=1.000000; WAVELENGTH=0.979381; BEAM_CENTER_X=157.500000; 
+# BEAM_CENTER_Y=157.500000; ;
+# /image_1/diffrn_data_frame/detector_element_id/data:ELEMENT1
+# /image_1/diffrn_data_frame/detector_id/data:ADSCQ315-SN901
+# /image_1/diffrn_data_frame/id/data:frame_1
+# /image_1/diffrn_detector/details/data:'bin 2x2 software'
+# /image_1/diffrn_detector/diffrn_id/data:DS1
+# /image_1/diffrn_detector/id/data:ADSCQ315-SN901
+# /image_1/diffrn_detector/number_of_axes/data:4
+# /image_1/diffrn_detector/type/data:'ADSC QUANTUM315'
+# /image_1/diffrn_detector_axis/axis_id/data:DETECTOR_X DETECTOR_Y DETECTOR_Z DETECTOR_PITCH
+# /image_1/diffrn_detector_axis/detector_id/data:ADSCQ315-SN901 ADSCQ315-SN901 ADSCQ315-SN901 ADSCQ315-SN901
+# /image_1/diffrn_detector_element/detector_id/data:ADSCQ315-SN901
+# /image_1/diffrn_detector_element/id/data:ELEMENT1
+# /image_1/diffrn_measurement/diffrn_id/data:DS1
+# /image_1/diffrn_measurement/id/data:GONIOMETER
+# /image_1/diffrn_measurement/method/data:oscillation
+# /image_1/diffrn_measurement/number_of_axes/data:1
+# /image_1/diffrn_measurement/sample_detector_distance/data:200.0000
+# /image_1/diffrn_measurement_axis/axis_id/data:GONIOMETER_PHI
+# /image_1/diffrn_measurement_axis/measurement_id/data:GONIOMETER
+# /image_1/diffrn_radiation/diffrn_id/data:DS1
+# /image_1/diffrn_radiation/wavelength_id/data:L1
+# /image_1/diffrn_radiation_wavelength/id/data:L1
+# /image_1/diffrn_radiation_wavelength/wavelength/data:0.979381
+# /image_1/diffrn_radiation_wavelength/wt/data:1.0
+# /image_1/diffrn_scan/frame_id_end/data:FRAME1
+# /image_1/diffrn_scan/frame_id_start/data:FRAME1
+# /image_1/diffrn_scan/frames/data:1
+# /image_1/diffrn_scan/id/data:SCAN1
+# /image_1/diffrn_scan_axis/angle_increment/data:1.00 0.00 0.00 0.00 0.00
+# /image_1/diffrn_scan_axis/angle_range/data:1.00 0.00 0.00 0.00 0.00
+# /image_1/diffrn_scan_axis/angle_start/data:85.00 0.00 0.00 0.00 0.00
+# /image_1/diffrn_scan_axis/axis_id/data:GONIOMETER_PHI DETECTOR_Z DETECTOR_Y DETECTOR_X DETECTOR_PITCH
+# /image_1/diffrn_scan_axis/displacement_increment/data:0.00 0.00 0.00 0.00 0.00
+# /image_1/diffrn_scan_axis/displacement_range/data:0.00 0.00 0.00 0.00 0.00
+# /image_1/diffrn_scan_axis/displacement_start/data:0.00 200.00 0.00 0.00 0.00
+# /image_1/diffrn_scan_axis/scan_id/data:SCAN1 SCAN1 SCAN1 SCAN1 SCAN1
+# /image_1/diffrn_scan_frame/frame_id/data:FRAME1
+# /image_1/diffrn_scan_frame/frame_number/data:1
+# /image_1/diffrn_scan_frame/integration_time/data:29.9452
+# /image_1/diffrn_scan_frame_axis/angle/data:85.00 0.00 0.00 0.00 0.00
+# /image_1/diffrn_scan_frame_axis/axis_id/data:GONIOMETER_PHI DETECTOR_Z DETECTOR_Y DETECTOR_X DETECTOR_PITCH
+# /image_1/diffrn_scan_frame_axis/displacement/data:0.00 200.00 0.00 0.00 0.00
+# /image_1/diffrn_scan_frame_axis/frame_id/data:FRAME1 FRAME1 FRAME1 FRAME1 FRAME1
+# /image_1/diffrn_source/diffrn_id/data:DS1
+# /image_1/diffrn_source/source/data:synchrotron
+# /image_1/diffrn_source/type/data:'ssrl crystallography'

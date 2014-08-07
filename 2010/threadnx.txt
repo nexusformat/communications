@@ -1,0 +1,13 @@
+* The error reporting must go into thread local storage. Then NAPI is 
+  thread safe if each thread has an own handle. Pthreads would do the 
+  trick and is portable to Win32, Unix including MacOS X
+* Introduce NXMTsetError wich does the necessary magic
+* May be a function to copy a NXhandle is needed
+* HDF5 itself serialises API access. This implies HDF5 is thread safe 
+  but does not give a performance gain from multi threaded access
+* For more performance PHDF5, parallel HDF, is required
+** MPI, MPI-IO, parallel file system required
+** A NeXus-PHDF5 file driver would need to be written
+** It may be asked if someone who needs this performance uses the 
+   NeXus-API at all but rather skips this extra layer of indirection
+

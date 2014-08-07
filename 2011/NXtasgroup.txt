@@ -1,0 +1,68 @@
+entry:NXentry
+    title
+    start_time
+    definition
+    NXinstrument
+        NXsource
+            name
+            probe
+        monochromator:NXcrystal
+            ei[np]
+                @axis=1
+            rotation_angle[np]
+            distance
+                @transformation_type=translation
+        analyser:NXcrystal
+            ef[np]
+                @axis=1
+            rotation_angle[np]
+            polar_angle[np]
+                @transformation_type=rotation
+            distance
+        NXdetector
+            data[np]
+                @signal=1
+            polar_angle[np]
+                @transformation_type=rotation
+            distance
+                @transformation_type=translation
+    NXsample
+        name
+        qh[np]
+            @axis=1
+        qk[np]
+            @axis=1
+        ql[np]
+            @axis=1
+        en[np]
+            @axis=1
+        rotation_angle[np]
+        polar_angle[np]
+            @transformation_type=rotation
+        sgu[np]
+            @transformation_type=rotation
+        sgl[np]
+            @transformation_type=rotation
+        unit_cell[6]
+        orientation_matrix[9]
+    NXmonitor
+        mode
+        preset
+        data[np]
+    NXdata
+        ei --> /NXentry/NXinstrument/monochromator:NXcrystal/ei
+        ef --> /NXentry/NXinstrument/analyzer:NXcrystal/ef
+        en --> /NXentry/NXsample/en
+        qh --> /NXentry/NXsample/qh
+        qk --> /NXentry/NXsample/qk
+        ql --> /NXentry/NXsample/ql
+        data --> /NXentry/NXinstrument/NXdetector/data
+    transform:NXtransform
+        dependencies
+           data= /instrument/sample/distance:/sample/polar_angle
+                 /instrument/analyzer/distance:/instrument/analyzer/polar_angle
+                 /instrument/detector/polar_angle:/instrument/analyzer/distance
+                 /instrument/detector/distance:/instrument/detector/polar_angle
+                 /sample/sgu:/sample/rotation_angle
+                 /sample/sgl:/sample/sgu
+

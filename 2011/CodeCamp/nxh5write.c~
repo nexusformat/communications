@@ -1,0 +1,36 @@
+/**
+ * This is an example how to write a valid NeXus file
+ * using the HDF-5 API alone. Ths structure which is 
+ * going to be created is:
+ *
+ * scan:NXentry
+ *      data:NXdata
+ *         counts[]
+ *            @signal=1
+ *            @axes=two_theta
+ *         two_theta[]
+ *            @units=degrees
+ *
+ *  Mark Koennecke, October 2011
+ */
+#include <hdf5.h>
+#include <stdlib.h>
+
+#define LENGTH 400
+int main(int argc, char *argv[])
+{
+  float two_theta[LENGTH];
+  int   counts[LENGTH], i;
+
+  /* HDF-5 handles */
+
+
+  /* create some data: nothing NeXus or HDF-5 specific */
+  for(i = 0; i < LENGTH; i++){
+    two_theta[i] = 10. + .1*i;
+    counts[i] = 1000 *(int)(random()/RAND_MAX);
+  }
+
+  
+
+}

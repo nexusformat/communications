@@ -1,0 +1,190 @@
+
+Hi,
+
+this is both a short report on the workshop HDF5 as hyperspectral data format
+at ESRF and ideas about how to address the issues raised on the workshop.
+Basically this was a workshop of synchrotron people talking about data 
+formats. This is a first!  Some already experimented with HDF-5 or with 
+NeXus. Alltogether NeXus was well received. Even Herbert Bernstein, of CIF 
+fame, now argues towards NeXus as he considers the imageCIF approach failed. 
+This was especially brought on by the progress on application definitions 
+we made. Nevertheless there are some issues and I think we should try to go 
+with the momentum and address the issues raised quickly. Perhaps already on 
+the next teleconference. 
+
+One of the issues which came out is that many synchrotron techniques appear 
+to be treated in terms of image processing. Thus they would like to have a 
+means to identify the image part in a multidimensional dataset. My suggestion 
+now is to introduce a new dataset attribute: imagedim=x,y with x,y being the 
+indices of the dimensions of the image. For example, an area detector scan 
+dataset of dim [np,xsize,ysize] would get an attribute imagedim=1,2. I hope 
+that this is a no brainer. On the same line, I wonder if we should either 
+write an ImageJ plugin for NeXus or a utility to dump NeXus data into a series 
+of tiff images. The latter would probably be more versatile.  I suggest tiff 
+here as it supports image pixel depths of up to 32 bit. So we can dump without 
+loosing information. 
+
+The other thing which seems to be done routinely is rastering on a sample. 
+This means taking images at various settings of energy, x, y, or whatever. 
+What is done here appears to be highly variable, as variable as scans. 
+Rastering is not necessarily done on a linear grid. Thus my suggestion is 
+to treat this similar to scans using the following rules:
+- The data gets the dimensions p,original dimensions of the detector. With p 
+  being the total number of raster points. Example for an area detector:
+  [p,xsize,ysize]
+- The raster positions are stored at the appropriate place in the NeXus 
+  hierarchy as arrays of length p.
+- In the NXdata group there are links to the data and all the variables which 
+  have been rastered upon. 
+- Also in NXdata there could be rasterisation field with value such as linear, 
+  non linear etc to indicate to the analysis program what it has to do with 
+  this data.
+There are two problem with this approach: this will be very hard to validate 
+and we put the burden of reconstructing a possibly gridded rasterisation onto 
+the analysis program. The advantage is that the synchrotron people get the format 
+of a stack of images which they like and we cover all cases, even such things 
+as rastering on a spiral which was mentioned, with one simple set of rules. 
+ 
+
+There also was a demand to allow multiple application definitions to be usable 
+on a single entry. Apparently, at synchrotrons, people do experiments where they 
+do SAS, powder diffraction, x-ray fluorescence and and and in one go. Using 
+separate NXentries for that, as we usually suggest, was not well received. And, 
+actually, with two simple changes we could accomodate this:
+- The definition field in NXentry becomes a comma separated list of definitions the 
+  entry complies to.
+- The name of NXdata groups is changed such that the meaning of the data is implied. 
+  For example sasdata, NXdata for SAS data, nxmonpddata for powder diffraction data    
+  etc. The actual names are specified in the application definition. If there is 
+  more then one it becomes: sasdata0, sasdata1, etc. 
+With all the rest, there are no problems. Different detectors end up in different 
+NXdetector groups, all the other fields are stored where they are appropriate. We 
+just have to take care that we do not create different meanings for the same name 
+in base class definitions. Which anyway would be a bad idea. 
+
+
+Some criticism of NeXus which I hear often is that it cannot easily be used with tools 
+like excel or other column oriented tools.  Though I personally failed to build a 
+working relationship with spreadsheet software, I can see the use with gnuplot. I 
+suggest to address the issue through a new tool which I think is simple to write:
+
+NXcolumn nexusfile path1 path2 .... pathn
+
+which dumps path1 path2 .. pathn from nexusfile in various column oriented formats. 
+With plain columns  and CSV being in the version 1 specifications. 
+
+With a handful of SAX people present we also discussed the NXsas definition. We more 
+or less agreed to cover all monochromatic SAS definitions, SAS, WAX, GISAS with 
+NXsas. The cost is a couple of additional fields in NXsas which I will add if I 
+do not meet fervent oposition. The data is treated similarly. But the big issue 
+were once AGAIN the issue of coordinate systems. Especially Herbert Bernstein, but 
+also some others, were not content with there being a necessity to convert data to 
+NeXus coordinate systems before dumping. The demand was to specify the meaning of 
+axis in the same way as desribed for imageCIF. Pete Jemian,  who was also present, 
+had a longer discussion with Herbert Bernstein and you find his summary of this 
+discussion as a PS at the bottom of this mailing.  
+
+My view on this: We are really only pushing around the burden of transforming axis. 
+If we require data to be stored in the NeXus coordinate system, the burden is on 
+the data producer and the data analysis programmer has an easier job. If data can 
+be stored in various coordinate systems, all analysis software has the burden of 
+interpreting the tags describing the coordinate systems and make appropriate 
+transformations. Which I do not find advantageous. Thus my suggestion:
+- We STRONGLY encourage people to store data in NeXus coordinate systems.
+- If they do not, they have to tag their data and describe the coordinate system in 
+  something we derive from the imageCIF definitions. From what I collected the 
+  imageCIF ways of describing coordinate systems are the end results of a longer 
+  discussion and evolved over an extended period of time. So we would be well 
+  advised to draw on their results.
+
+
+  
+I think the the thing which are described above should be addressed quickly. There 
+are other important topics which came up. But the section below is mostly 
+informational. 
+
+I had to justify why we did not have OO base classes yet. So people ask for this. 
+The point made was that a DA programmer can find out what kind of detector something 
+is. An idea might be to add that information as a group attribute. Example: you have 
+something like NXdetector and an extra group attribute, like derived, with values 
+such as NXareadetector. This can be a comma separated list in order to map the 
+inheritance hierarchy. Then in the API you still open NXdetector but have a means 
+of figuring out what this really is. Only a suggestion!
+
+Some people were hit hard by the HDF-5 1.6 - 1.8 version bug. This was a glitch 
+by the HDF-5 people, in the case you did not know. This caused a lot of excitement.
+I see two lessons here for us: Be very careful when introducing backwards 
+compatability problems. If we build binary kits we should use HDF-5 1.6.10 at most 
+in the moment as all commercial tools only support that version today.
+
+We may encounter an approach suggested by the people from Soleil which suggests 
+that DA programs access data files through a pluggable compatability layer. With an 
+interface like GetData(somestring). A data producers task is then to provide the 
+appropriate plugin to read his data.  I see many problems with this, programming 
+language, plugin architecture, mapping between DA expected strings and files 
+being main concerns. I just wish to let you know that this idea is around. BTW: 
+this can easily be done if your data in HDF-5 or NeXus if you program data analysis 
+intelligently.
+
+Herbert Bernstein and another speaker brought up the idea that data should really 
+be stored in relational databases and accessed through SQL. And users get the data 
+in SQlite DB files. I personally wonder if this will work. The biggest problem 
+with relational databases occurs if you have to change the table layout. 
+And neither scientists nor many scientific programmers are familiar with SQL. 
+I would like to see the first working system of this......
+
+
+Sorry for the long post,
+
+Mark Koennecke
+
+
+P.S: Pete Jemians Summary of his Discussion with Herbert Bernstein
+Herbert Bernstein provided some good suggestions for NeXus.
+
+One suggestion was to review our current definition of NXgeometry
+(which should also include review of NXtranslate and NXorientation)
+and compare them with the description in the International Tables for
+Crystallography, Volume G (which I will call ITCvG).  "Review and
+compare" may not be the best words to describe what he said, though:
+Herb said NeXus should use the geometry definition provided in ITCvG.
+The ITCvG geometry definition was deliberated for many years by some
+seasoned veterans and also has the blessing of the IUCr as the
+definitive word on the topic.  This consideration will strengthen
+significantly the community desire to use NeXus. Presently, IUCr
+journals require data to be in CIF format for deposition to _any_
+journal.  If CIF is to be written within NeXus, we'd better address
+this ASAP.
+
+Another suggestion from Herbert Bernstein was that we should take it
+as a high priority task to develop a direct mapping between CIF and
+NeXus terms, especially imgCIF, so that there is no ambiguity or loss
+of classification when writing imgCIF in a NeXus file.  See previous
+paragraph for the impact factor of this work.
+
+
+An additional question was raised from the ESRF and this may be from a
+NeXus novice: how does describe the order in which rotations are
+applied where the description of the position is given by NXgeometry,
+NXtranslate, and NXorientation?  The context was thus: a detector on
+the ID02 instrument at ESRF is positioned in non-zero angles offset
+(x', y') from the transmitted beam axis (z).  (Picture that it has
+been moved out of the beam in both horizontal and vertical directions
+and that the beam progresses parallel to the floor.)
+
+What is the order of these angles when applying the rotation described
+in NXgeometry?  Additional problems are sustained by this beam line as
+the local geometry has +z pointing towards the radiation source while
++z in NeXus geometry points towards the detector.  NeXus convention is
+to require ID02 to perform coordinate transformation before writing
+the data.  Herbert Bernstein strongly (and I mean _strongly_) asserts
+that we will eventually need to support both a local (such as ID02
+above) definition of the geometry and a common convention definition
+of geometry.  By keeping the latter, backwards compatibility with the
+entire archive of existing NeXus data files will not be broken.
+Herbert said that CIF already addresses (with good acceptance from the
+community that uses CIF and that this community includes the IUCr and
+the PDB -- Protein Data Bank -- and that we should weigh this support
+by IUCr quite heavily in our considerations and designs) this flexible
+description of the geometry.  We should consider implementing it
+directly.

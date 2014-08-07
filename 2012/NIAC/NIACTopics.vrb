@@ -1,0 +1,24 @@
+\frametitle {NXdetector Additions for DECTRIS}
+\begin{semiverbatim}
+  acquisition\_mode:NX\_CHAR
+  angular\_calibration:NX\_FLOAT[i,j]
+  angular\_calibration\_applied:NX\_BOOLEAN
+  bit\_depth\_readout:NX\_INT
+  countrate\_correction\_\_applied:NX\_BOOLEAN
+  countrate\_correction:NX\_FLOAT[i,j]
+  detector\_readout\_time:NX\_FLOAT
+  flatfield:NX\_FLOAT[i,j]
+  flatfield\_applied:NX\_BOOLEAN
+  flatfield\_error:NX\_FLOAT[i,j]
+  frame\_start\_number:NX\_INT
+  frame\_time:NX\_FLOAT[NP]
+  gain\_setting:NX\_CHAR
+  pixel\_mask:NX\_FLOAT[i,j]
+  pixel\_mask\_applied:NX\_BOOLEAN
+  saturation\_value:NX\_INT
+  sensor\_material:NX\_CHAR
+  sensor\_thickness:NX\_FLOAT
+  threshold\_energy:NX\_FLOAT
+  trigger\_dead\_time:NX\_FLOAT
+  trigger\_delay\_time:NX\_FLOAT
+\end{semiverbatim}

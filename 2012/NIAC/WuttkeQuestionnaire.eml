@@ -1,0 +1,341 @@
+Received: from MAILGATEWAY02.psi.ch ([129.129.191.38]) by MAILBOX0A.psi.ch with Microsoft SMTPSVC(6.0.3790.4675);
+	 Wed, 29 Aug 2012 11:03:36 +0200
+Received: from esa01.psi.ch ([192.33.120.21]) by MAILGATEWAY02.psi.ch with Microsoft SMTPSVC(6.0.3790.4675);
+	 Wed, 29 Aug 2012 11:03:36 +0200
+X-fn: 
+X-IronPort-Anti-Spam-Filtered: true
+X-IronPort-Anti-Spam-Result: AvIMAOnZPVDUOfh0bmdsb2JhbABFuxENBwQKCBQngiEBAQEDAQEBQwoDGwoEAwECBgEBHg0WBwgDAQUDAgECARUBLwYNBgIBAQEPh3kEB7tFiwgUhkUDiBqGRoEggyuDP4RIIoUTh2mBVg
+X-IronPort-AV: E=Sophos;i="4.80,332,1344204000"; 
+   d="eml'208?scan'208,208";a="56511554"
+Received: from engine29-1277-2.icritical.com ([212.57.248.116])
+  by esa01.psi.ch with SMTP; 29 Aug 2012 11:03:35 +0200
+Received: (qmail 27031 invoked from network); 29 Aug 2012 09:04:42 -0000
+Received: from localhost (127.0.0.1)
+  by engine29-1277-2.icritical.com with SMTP; 29 Aug 2012 09:04:42 -0000
+Return-Path: <>
+Delivered-To: clean-quarantine
+X-Envelope-From: <nexus-committee-bounces@nexusformat.org>
+X-Envelope-To: <Mark.Koennecke@psi.ch>
+Received: from engine29-1277-2.icritical.com ([127.0.0.1])
+ by localhost (engine29-1277-2.icritical.com [127.0.0.1]) (amavisd-new, port 10024)
+ with SMTP id 26984-01 for <Mark.Koennecke@psi.ch>;
+ Wed, 29 Aug 2012 10:04:41 +0100 (BST)
+Received: (qmail 26152 invoked by uid 599); 29 Aug 2012 09:03:02 -0000
+Received: from unknown (HELO exchhub03.rl.ac.uk) (130.246.236.9)
+    by engine29-1277-2.icritical.com (qpsmtpd/0.28) with ESMTP; Wed, 29 Aug 2012 10:03:02 +0100
+Received: from shadow.nd.rl.ac.uk (130.246.39.141) by exchsmtp.stfc.ac.uk
+ (130.246.236.17) with Microsoft SMTP Server (TLS) id 14.1.379.0; Wed, 29 Aug
+ 2012 10:02:02 +0100
+Received: from shadow.nd.rl.ac.uk (localhost.localdomain [127.0.0.1])	by
+ shadow.nd.rl.ac.uk (8.14.5/8.14.4) with ESMTP id q7T9224s015123;	Wed, 29 Aug
+ 2012 10:02:02 +0100
+Received: from mx1.net.stfc.ac.uk (mx1.net.stfc.ac.uk [130.246.135.223]) by
+ shadow.nd.rl.ac.uk (8.14.5/8.14.4) with ESMTP id q7T91xOX014465 for
+ <nexus-committee@nexusformat.org>; Wed, 29 Aug 2012 10:02:00 +0100
+X-RAL-MFrom: <mark.koennecke@psi.ch>
+X-RAL-Connect: <esa02.psi.ch [192.33.121.21]>
+Received: from esa02.psi.ch (esa02.psi.ch [192.33.121.21]) by
+ mx1.net.stfc.ac.uk (8.13.1/8.13.1) with ESMTP id q7SEt8Uv003674 for
+ <nexus-committee@nexusformat.org>; Tue, 28 Aug 2012 15:55:10 +0100
+X-fn:
+X-IronPort-Anti-Spam-Filtered: true
+X-IronPort-Anti-Spam-Result: AhQFAIzbPFCBgb82/2dsb2JhbABFi2GvCYEHgiEBBVMlER8NFg8JAwIBAgE7CgYNBgIBARCHebwbiwgUhkUDiBqGRoEghmqESIU1hQSCZYFW
+X-IronPort-AV: E=Sophos;i="4.80,327,1344204000"; 
+ d="eml'208?scan'208,208";a="42331812"
+Received: from mailsend02.psi.ch ([129.129.191.54]) by esa02-i.psi.ch with
+ ESMTP; 28 Aug 2012 16:55:02 +0200
+Received: from [129.129.195.182] ([129.129.195.182]) by MAILSEND02.psi.ch with
+ Microsoft SMTPSVC(6.0.3790.4675); Tue, 28 Aug 2012 16:55:01 +0200
+Message-ID: <503CDBC5.8020305@psi.ch>
+Date: Tue, 28 Aug 2012 16:55:01 +0200
+From: Mark Koennecke <Mark.Koennecke@psi.ch>
+User-Agent: Mozilla/5.0 (X11; Linux i686;
+ rv:10.0.6esrpre) Gecko/20120717 Thunderbird/10.0.6
+MIME-Version: 1.0
+To: Discussions of the NeXus Advisory Committee
+	<nexus-committee@nexusformat.org>
+References: <503BE210.7090608@fz-juelich.de>
+In-Reply-To: <503BE210.7090608@fz-juelich.de>
+X-Forwarded-Message-Id: <503BE210.7090608@fz-juelich.de>
+Content-Type: multipart/mixed;
+	boundary="------------040805030703020601040805"
+X-OriginalArrivalTime: 28 Aug 2012 14:55:01.0328 (UTC)
+ FILETIME=[199BDD00:01CD852D]
+X-CCLRC-SPAM-report: -2.599 : BAYES_00
+X-Scanned-By: MIMEDefang 2.61 on 130.246.135.223
+Subject: [NeXus-committee] Fwd: Antwort Questionnaire
+X-BeenThere: nexus-committee@nexusformat.org
+X-Mailman-Version: 2.1.14
+Precedence: list
+List-Id: Discussions of the NeXus Advisory Committee
+ <nexus-committee.nexusformat.org>
+List-Unsubscribe: <http://lists.nexusformat.org/mailman/options/nexus-committee>, 
+ <mailto:nexus-committee-request@nexusformat.org?subject=unsubscribe>
+List-Archive: <http://lists.nexusformat.org/pipermail/nexus-committee/>
+List-Post: <mailto:nexus-committee@nexusformat.org>
+List-Help: <mailto:nexus-committee-request@nexusformat.org?subject=help>
+List-Subscribe: <http://lists.nexusformat.org/mailman/listinfo/nexus-committee>, 
+ <mailto:nexus-committee-request@nexusformat.org?subject=subscribe>
+Errors-To: nexus-committee-bounces@nexusformat.org
+Sender: <nexus-committee-bounces@nexusformat.org>
+Received-SPF: None (EXCHHUB01.fed.cclrc.ac.uk:
+ nexus-committee-bounces@nexusformat.org does not designate permitted sender
+ hosts)
+X-Virus-Scanned: by iCritical at engine29-1277-2.icritical.com
+
+--------------040805030703020601040805
+Content-Type: text/plain; charset="ISO-8859-1"; format=flowed
+Content-Transfer-Encoding: 8bit
+
+Dear All,
+
+forwarded on behalf of Jachim Wuttke.
+
+Regards,
+
+              Mark
+--------------------------------------------------------------------------------------------------------------------------
+
+Dear all:
+
+* Facility name
+
+FRM II, including instruments of Forschungszentrum Jülich and of other 
+institutes
+
+* Number of files/beamlines/instruments producing NeXus files
+
+very few, most probably 0
+
+* Number of files/beamlines/instruments producing NeXus files in 2 years 
+time
+
+1 more (implemented by detector manufacturer, no idea whether this will be
+         valid, portable NeXus, or only compliant in form)
+
+* Barriers found for increasing NeXus use
+
+- instrument scientists:
+   - won't change a running system
+   - don't see benefit
+   - don't know how to boil down NeXus to a useable specification
+   - have heard that the main potential advantage, portability, is by no 
+means guaranteed
+   - want human-readable ASCII data
+
+- I as head of computing group:
+   - don't understand NeXus, in spite of many attempts to read the 
+documentation
+   - find the documentation fragmented, full of duplications, verbous on 
+details,
+     but shallow as for the basic concepts
+   - have no clue how to organize the social process to generate a 
+widely accepted
+     data-format specification for one class of instruments
+   - doubt that data exchange at raw-data level will be of much use - 
+instruments are
+     too different
+   - don't see demand for reduced data in NeXus format
+   - am not aware of a generally accepted NeXus specification for 
+reduced data
+   - would like to have standardized metadata, but don't know how to 
+gather them
+     from notoriously non-compliant instrument users
+   - fear that the very limited success of NeXus after so many years of 
+hard efforts
+     is an indication that there is a deep conceptual problem
+
+* Priorities for the NeXus community should be
+
+- evaluate concepts, and put to sleep what is not generally useful
+- rewrite documentation to be brief, simple, and coherent, and to prove 
+that the
+   project is conceptually clear and mature
+- agree within 1/2 year on a white paper that unambiguously defines what 
+NeXus means
+   for one class of instruments, then start a coordinated implementation 
+campaign
+- if that doesn't work, declare final failure
+
+Sorry for being again so bold in all my obvious ignorance,
+I am looking forward to meet you in September and to learn better,
+
+Joachim
+
+
+------------------------------------------------------------------------------------------------ 
+
+------------------------------------------------------------------------------------------------ 
+
+Forschungszentrum Juelich GmbH
+52425 Juelich
+Sitz der Gesellschaft: Juelich
+Eingetragen im Handelsregister des Amtsgerichts Dueren Nr. HR B 3498
+Vorsitzender des Aufsichtsrats: MinDir Dr. Karl Eugen Huthmacher
+Geschaeftsfuehrung: Prof. Dr. Achim Bachem (Vorsitzender),
+Karsten Beneke (stellv. Vorsitzender), Prof. Dr.-Ing. Harald Bolt,
+Prof. Dr. Sebastian M. Schmidt
+------------------------------------------------------------------------------------------------ 
+
+------------------------------------------------------------------------------------------------ 
+
+
+Kennen Sie schon unsere app? http://www.fz-juelich.de/app
+
+
+--------------040805030703020601040805
+Content-Type: message/delivery-status; name="Attached Message Part"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment; filename="Attached Message Part"
+
+Reporting-MTA: dns; mx2.net.stfc.ac.uk
+Arrival-Date: Mon, 27 Aug 2012 17:05:37 +0100
+
+Final-Recipient: RFC822; nexus-committee@nexusformat.org
+Action: delayed
+Status: 4.4.1
+Remote-MTA: DNS; nexusformat.org
+Last-Attempt-Date: Mon, 27 Aug 2012 21:57:29 +0100
+Will-Retry-Until: Sat, 1 Sep 2012 17:05:37 +0100
+
+
+
+--------------040805030703020601040805
+Content-Type: message/rfc822; name="ForwardedMessage.eml"
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment; filename="ForwardedMessage.eml"
+
+X-RAL-MFrom: <j.wuttke@fz-juelich.de>
+X-RAL-Connect: <mailgw-e01.its.kfa-juelich.de [134.94.4.23]>
+Return-Path: <j.wuttke@fz-juelich.de>
+Received: from mailgw-e01.its.kfa-juelich.de (mailgw-e01.its.kfa-juelich.de
+ [134.94.4.23])	by mx2.net.stfc.ac.uk (8.13.1/8.13.1) with SMTP id
+ q7RG5Y2o012606	for <nexus-committee@nexusformat.org>; Mon, 27 Aug 2012
+ 17:05:37 +0100
+Received: from localhost (localhost [127.0.0.1])	by
+ mailgw-e01.its.kfa-juelich.de (Postfix) with ESMTP id 99161820081	for
+ <nexus-committee@nexusformat.org>; Mon, 27 Aug 2012 18:05:29 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at fz-juelich.de
+Received: from mailgw-e01.its.kfa-juelich.de ([127.0.0.1])	by localhost
+ (mailgw-e01.its.kfa-juelich.de [127.0.0.1]) (amavisd-new, port 10024)	with
+ ESMTP id PzeKIBSD3WvD for <nexus-committee@nexusformat.org>;	Mon, 27 Aug 2012
+ 18:05:28 +0200 (CEST)
+Received: from HUB2010-E01.ad.fz-juelich.de (hub2010-e01.its.kfa-juelich.de
+ [134.94.4.42])	by mailgw-e01.its.kfa-juelich.de (Postfix) with ESMTP	for
+ <nexus-committee@nexusformat.org>; Mon, 27 Aug 2012 18:05:28 +0200 (CEST)
+Received: from [172.25.45.39] (172.25.45.39) by HUB2010-E01.ad.fz-juelich.de
+ (134.94.4.42) with Microsoft SMTP Server id 14.2.298.4; Mon, 27 Aug 2012
+ 18:05:27 +0200
+Message-ID: <503B9AC7.1050705@fz-juelich.de>
+Date: Mon, 27 Aug 2012 18:05:27 +0200
+From: j.wuttke <j.wuttke@fz-juelich.de>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:10.0.5) Gecko/20120624 Icedove/10.0.5
+MIME-Version: 1.0
+To: <nexus-committee@nexusformat.org>
+Subject: Questionnaire: answer from FRM II
+Content-Type: text/plain; charset="ISO-8859-1"; format=flowed
+Content-Transfer-Encoding: quoted-printable
+X-Originating-IP: [172.25.45.39]
+X-CCLRC-SPAM-report: 0.001 : BAYES_50
+X-Scanned-By: MIMEDefang 2.63 on 130.246.135.224
+
+Dear all:
+
+* Facility name
+
+FRM II, including instruments of Forschungszentrum J=FClich and of other in=
+stitutes
+
+* Number of files/beamlines/instruments producing NeXus files
+
+very few, most probably 0
+
+* Number of files/beamlines/instruments producing NeXus files in 2 years ti=
+me
+
+1 more (implemented by detector manufacturer, no idea whether this will be
+         valid, portable NeXus, or only compliant in form)
+
+* Barriers found for increasing NeXus use
+
+- instrument scientists:
+   - won't change a running system
+   - don't see benefit
+   - don't know how to boil down NeXus to a useable specification
+   - have heard that the main potential advantage, portability, is by no me=
+ans guaranteed
+   - want human-readable ASCII data
+
+- I as head of computing group:
+   - don't understand NeXus, in spite of many attempts to read the document=
+ation
+   - find the documentation fragmented, full of duplications, verbous on de=
+tails,
+     but shallow as for the basic concepts
+   - have no clue how to organize the social process to generate a widely a=
+ccepted
+     data-format specification for one class of instruments
+   - doubt that data exchange at raw-data level will be of much use - instr=
+uments are
+     too different
+   - don't see demand for reduced data in NeXus format
+   - am not aware of a generally accepted NeXus specification for reduced d=
+ata
+   - would like to have standardized metadata, but don't know how to gather=
+ them
+     from notoriously non-compliant instrument users
+   - fear that the very limited success of NeXus after so many years of har=
+d efforts
+     is an indication that there is a deep conceptual problem
+
+* Priorities for the NeXus community should be
+
+- evaluate concepts, and put to sleep what is not generally useful
+- rewrite documentation to be brief, simple, and coherent, and to prove tha=
+t the
+   project is conceptually clear and mature
+- agree within 1/2 year on a white paper that unambiguously defines what Ne=
+Xus means
+   for one class of instruments, then start a coordinated implementation ca=
+mpaign
+- if that doesn't work, declare final failure
+
+Sorry for being again so bold in all my obvious ignorance,
+I am looking forward to meet you in September and to learn better,
+
+Joachim
+
+
+---------------------------------------------------------------------------=
+---------------------
+---------------------------------------------------------------------------=
+---------------------
+Forschungszentrum Juelich GmbH
+52425 Juelich
+Sitz der Gesellschaft: Juelich
+Eingetragen im Handelsregister des Amtsgerichts Dueren Nr. HR B 3498
+Vorsitzender des Aufsichtsrats: MinDir Dr. Karl Eugen Huthmacher
+Geschaeftsfuehrung: Prof. Dr. Achim Bachem (Vorsitzender),
+Karsten Beneke (stellv. Vorsitzender), Prof. Dr.-Ing. Harald Bolt,
+Prof. Dr. Sebastian M. Schmidt
+---------------------------------------------------------------------------=
+---------------------
+---------------------------------------------------------------------------=
+---------------------
+
+Kennen Sie schon unsere app? http://www.fz-juelich.de/app
+
+
+
+--------------040805030703020601040805
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+
+_______________________________________________
+NeXus-committee mailing list
+NeXus-committee@nexusformat.org
+http://lists.nexusformat.org/mailman/listinfo/nexus-committee
+
+--------------040805030703020601040805--

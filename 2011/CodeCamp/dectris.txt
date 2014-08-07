@@ -1,0 +1,47 @@
+NXdetector
+  acquisition_mode: gated|triggered|summed|event|histogram  #Needs documentation
+  angular_calibration_applied
+        //There is the option to apply angular_calibration already 
+        // in the electronics. This boolean says if this was done 
+        // or not
+  angular_calibration[nx,ny]                               # Better documentation and examples
+  flatfield_applied 
+  flatfield[nx,ny]
+        // Again a correction which may or may not be applied 
+        // in the electronics
+        // Efficiency correction
+  pixel_mask_applied
+  pixel_mask[nx,ny]                                        # What do the ints means
+        // mask of bad or border or otherwise unusuable pixels
+        // Again, this may already been corrected for in 
+        // electronics
+  number_of_excluded_pixels                                 # Implicit form mask. Does not need to be in standard
+  bit_depth_readout: NX_INT
+        // 4|8|12 or more: For faster readout, the detector 
+        // can reduce its bid depth.
+  detector_readout_time
+        // How long did it take to read the detector. Important for 
+        // time resolved esperiments
+  trigger_delay_time
+        // Time between trigger and actual exposure
+  trigger_dead_time
+        // time in which no new external trigger is accepted 
+        // when a trigger had been received
+        // Important for timed experiments  
+  frame_time[np]
+        // Time between any two consecutive exposures. This is different from the exposure time.
+        //  This is the exposure_time + readout time + trigger or other delays
+  dectris_gain_setting :high|standard|fast|auto                     # Does not need to be in standard
+              // General comment: vendor fields prefixed as not to pollute name space
+  image_path   # should be on link
+        // image directory where data sits, such as calibrations
+  saturation_value
+        // maximum count where the detector goes into saturation, value or rate?
+  exposures_per_frame, optionally NP
+        // number of exposures per frame
+  sensor_material:NX_CHAR
+  sensor_thickness
+        // when using scintillators before the detector
+  threshold_energy
+        // The energy the detector was configured for
+   

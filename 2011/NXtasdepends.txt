@@ -1,0 +1,67 @@
+entry:NXentry
+    title
+    start_time
+    definition
+    NXinstrument
+        NXsource
+            name
+            probe
+        monochromator:NXcrystal
+            ei[np]
+                @axis=1
+            rotation_angle[np]
+            distance
+                @dependson=/sample/rotation_angle
+                @transformation_type=translation
+        analyser:NXcrystal
+            ef[np]
+                @axis=1
+            rotation_angle[np]
+            polar_angle[np]
+                @dependson=distance
+                @transformation_type=rotation
+            distance
+        NXdetector
+            data[np]
+                @signal=1
+            polar_angle[np]
+                @dependson=/instrument/analyser/distance
+                @transformation_type=rotation
+            distance
+                @dependson=polar_angle
+                @transformation_type=translation
+    NXsample
+        name
+        qh[np]
+            @axis=1
+        qk[np]
+            @axis=1
+        ql[np]
+            @axis=1
+        en[np]
+            @axis=1
+        rotation_angle[np]
+        polar_angle[np]
+            @dependson=/instrument/monochromator/rotation_angle
+            @transformation_type=rotation
+        sgu[np]
+            @dependson=rotation_angle
+            @transformation_type=rotation
+        sgl[np]
+            @dependson=sgu
+            @transformation_type=rotation
+        unit_cell[6]
+        orientation_matrix[9]
+    NXmonitor
+        mode
+        preset
+        data[np]
+    NXdata
+        ei --> /NXentry/NXinstrument/monochromator:NXcrystal/ei
+        ef --> /NXentry/NXinstrument/analyzer:NXcrystal/ef
+        en --> /NXentry/NXsample/en
+        qh --> /NXentry/NXsample/qh
+        qk --> /NXentry/NXsample/qk
+        ql --> /NXentry/NXsample/ql
+        data --> /NXentry/NXinstrument/NXdetector/data
+

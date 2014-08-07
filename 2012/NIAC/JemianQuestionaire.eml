@@ -1,0 +1,127 @@
+Received: from MAILGATEWAY02.psi.ch ([129.129.191.38]) by MAILBOX0A.psi.ch with Microsoft SMTPSVC(6.0.3790.4675);
+	 Mon, 3 Sep 2012 18:11:28 +0200
+Received: from esa01.psi.ch ([192.33.120.21]) by MAILGATEWAY02.psi.ch with Microsoft SMTPSVC(6.0.3790.4675);
+	 Mon, 3 Sep 2012 18:11:28 +0200
+X-IronPort-Anti-Spam-Filtered: true
+X-IronPort-Anti-Spam-Result: AtEBADLWRFDRVd+tm2dsb2JhbABFuxwIIgEBAQEBCAkLCRQngiABAQEBAgESAiQIARscAQEDAQsGBQsNCRYPCQMCAQIBEREBBQEcBg0BBwEBEAIMh1sBAwYGnCMJA4wjgnOEZgoZJw1ZiHMBBQyLARoGhwMDiFCNCYVfiF0+hCGBOwEHHA
+X-IronPort-AV: E=Sophos;i="4.80,360,1344204000"; 
+   d="scan'208";a="56632109"
+Received: from mail-ie0-f173.google.com ([209.85.223.173])
+  by esa01.psi.ch with ESMTP; 03 Sep 2012 18:11:27 +0200
+Received: by iebc10 with SMTP id c10so4592192ieb.32
+        for <Mark.Koennecke@psi.ch>; Mon, 03 Sep 2012 09:11:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20120113;
+        h=message-id:date:from:user-agent:mime-version:to:cc:subject
+         :references:in-reply-to:content-type:content-transfer-encoding;
+        bh=iqnVo0U4pK7Yzq8cG3+LgsxeYVdiTZYpU4R3AEVKwdo=;
+        b=novPsnkxWxFRYzv+TtuimtN+gs+g67l1tX8jpuS/GqXYwlmdNtrNdlizwFlVRF3nMU
+         +MLOSPrClR4dRNkc8+wQ+cuTtXxwOytqc5BxvqjOvwJkaysTbd8dWusPp/jILF6oXNxo
+         AESp5z9W8tpeVxe/+AhYYOejwavIwOZwGyYM/3uZ1QoGQKoUsPoa8pDn2yn+9unZWamb
+         obqeNYYnB+30g1kZAU+UA/hZFcCYDyQIKT2Je3HIrWUgAXZGB1PSCFP6sqgi7Ptl31aD
+         Co2X0LIYCGHjphW7uCDILOGLi6qBTIHVFdiZY5UMyssT7j01bu0dlHg5o+KWWpFy7TYg
+         ICrw==
+Received: by 10.50.47.129 with SMTP id d1mr11424146ign.45.1346688686747;
+        Mon, 03 Sep 2012 09:11:26 -0700 (PDT)
+Return-Path: <prjemian@gmail.com>
+Received: from [192.168.0.105] ([75.18.65.94])
+        by mx.google.com with ESMTPS id va9sm9399432igb.17.2012.09.03.09.11.25
+        (version=TLSv1/SSLv3 cipher=OTHER);
+        Mon, 03 Sep 2012 09:11:26 -0700 (PDT)
+Message-ID: <5044D661.5070108@gmail.com>
+Date: Mon, 03 Sep 2012 11:10:09 -0500
+From: Pete Jemian <prjemian@gmail.com>
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64; rv:15.0) Gecko/20120824 Thunderbird/15.0
+MIME-Version: 1.0
+To: Mark Koennecke <Mark.Koennecke@psi.ch>
+CC: John Hammonds <JPHammonds@anl.gov>
+Subject: Re: [NeXus-committee] Upcoming Code Camp and NIAC Meeting
+References: <502CA285.8060206@psi.ch>
+In-Reply-To: <502CA285.8060206@psi.ch>
+Content-Type: text/plain; charset=ISO-8859-1; format=flowed
+Content-Transfer-Encoding: 7bit
+X-OriginalArrivalTime: 03 Sep 2012 16:11:28.0254 (UTC) FILETIME=[C61BB9E0:01CD89EE]
+
+Below are my responses to the questionnaire.
+
+Pete
+
+
+On 8/16/2012 2:34 AM, Mark Koennecke wrote:
+ > as all of you know there will be a NeXus Code Camp and a NIAC
+ > meeting before NOBUGS in Coseners House. The dates are: september
+ > 18-19 for the code camp and september, 20-21 for the NIAC meeting.
+ > In this e-mail you will find three things:
+ >
+ > * A draft agenda for the Code Camp
+ > * A draft agenda for the NIAC meeting
+ > * A questionaire which we ask you to fill in in order to better
+ >    prepare for the NIAC meeting
+
+  ...
+
+> The Questionaire
+> ===================
+>
+> This should be filled in by every participating facility. This questionaire
+> is also a good place to let us know additional topics for the NIAC meeting.
+>
+> * Facility name
+
+Advanced Photon Source
+
+> * Number of files/beamlines/instruments producing NeXus files
+
+Over the course of APS operations, APS has produced O(10^6) NeXus files.
+
+APS has ~60 operating beam lines.  Apart from the areaDetector usage 
+noted below, perhaps two or three instruments might be using NeXus.
+
+Tough to answer how instruments might be using NeXus as usage is not 
+coordinated by the facility.  The selection of a scientific data format 
+is up to each instrument scientist who provides data reduction and 
+analysis software.  EPICS software support for areaDetectors (as part of 
+the data acquisition system) is the most common producer of NeXus files. 
+  Out of 100 such detectors, perhaps 10-25% routinely produce NeXus/HDF5 
+data files.
+
+> * Number of files/beamlines/instruments producing NeXus files in 2 years
+> time
+
+No major changes are anticipated
+
+> * Barriers found for increasing NeXus use
+
+* Education (too hard to learn how to use this)
+* preconceived notions
+   * looks too complex for my need
+   * tried it years ago but it was inefficient for my needs
+   * It's been here so long and not so many use it,
+       so there must be something wrong with it
+* organization of the NeXus hierarchy does not fit my problem
+* too hard to read/write it
+* implementing it brings no advantage to my instrument
+* The NAPI has many dependencies,
+     too hard to get it working on my machine
+
+> * Priorities for the NeXus community should be
+
+* Focus more on the class hierarchy
+* Ensure that validation tools are available (conspicuous, even)
+* the NAPI is a distraction to the data format
+   * Few people use it as-is, even amongst the NIAC!
+   * It uses precious volunteer labor resources
+* Simplify, reduce the apparent complexity
+* stop selling it so hard
+* demonstrate its real use with science
+* evaluate NeXus against its perceived advantages and revise
+   * common format to convert between many
+   * common data exchange format
+   * common format analysis of data from many instruments
+   * storage of raw instrument data
+   * storage of reduced data for a scientific method
+
+(To revise, evaluate the performance of NeXus in these areas and revise 
+our expectations for a NeXus standard)
+
+

@@ -1,0 +1,16 @@
+Feedback from Dectris
+
+rate_correction retracted, goes into private 
+
+They want to keep gain_setting. This has to do how the detector is run, 
+how fast it operates. 
+
+number_of_cycles keep, exposures_per_frame is actually wrong!
+
+flat_field_error[nx,ny] in addition
+
+
+
+
+
+

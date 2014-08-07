@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><umlet_diagram><element><type>com.umlet.element.base.Relation</type><coordinates><x>490</x><y>210</y><w>90</w><h>230</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>20;20;20;210;70;210</additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>490</x><y>210</y><w>90</w><h>160</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>20;20;20;140;70;140</additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>490</x><y>210</y><w>90</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>20;20;20;70;70;70</additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>330</x><y>210</y><w>200</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>180;20;180;70;20;70</additional_attributes></element><element><type>com.umlet.element.base.Class</type><coordinates><x>560</x><y>390</y><w>210</w><h>50</h></coordinates><panel_attributes>NXfourcircle
+--
+sample:NXsingle_crystal</panel_attributes><additional_attributes></additional_attributes></element><element><type>com.umlet.element.base.Class</type><coordinates><x>560</x><y>320</y><w>210</w><h>50</h></coordinates><panel_attributes>NXpowder
+--
++detector:NXlinear_detector</panel_attributes><additional_attributes></additional_attributes></element><element><type>com.umlet.element.base.Class</type><coordinates><x>70</x><y>320</y><w>280</w><h>80</h></coordinates><panel_attributes>NXmonotof
+--
++fermi_chopper:NXmaster_chopper
++chopper:NXslave_chopper
++detector:NXlinear_tofdetector:[1..n]</panel_attributes><additional_attributes></additional_attributes></element><element><type>com.umlet.element.base.Class</type><coordinates><x>70</x><y>240</y><w>280</w><h>60</h></coordinates><panel_attributes>NXtas
+--
++analyzer:NXmonochromator
++sample:NXsingle_crystal</panel_attributes><additional_attributes></additional_attributes></element><element><type>com.umlet.element.base.Class</type><coordinates><x>560</x><y>240</y><w>210</w><h>60</h></coordinates><panel_attributes>NXsans
+--
++detector:NXarea_detector
++beam_stop:NXbeamstop
+</panel_attributes><additional_attributes></additional_attributes></element><element><type>com.umlet.element.base.Class</type><coordinates><x>360</x><y>180</y><w>270</w><h>50</h></coordinates><panel_attributes>NXmonochromatic_instrument
+--
++monochromator:NXmonochromator</panel_attributes><additional_attributes></additional_attributes></element><element><type>com.umlet.element.base.Class</type><coordinates><x>370</x><y>0</y><w>240</w><h>160</h></coordinates><panel_attributes>NXinstrument
+--
++meta:NXarchive
++source:NXsource
++control:NXcontrolmonitor
++sample:NXsample
++detector:NXcomponent[1..n]
++monitor:NXmonitor:[0..n]
++slit:NXaperture:[0..n]
++collimator:NXcollimator:[0..n]</panel_attributes><additional_attributes></additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>490</x><y>140</y><w>40</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>20;20;20;40</additional_attributes></element><element><type>com.umlet.element.base.Relation</type><coordinates><x>330</x><y>210</y><w>200</w><h>180</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>180;20;180;160;20;160</additional_attributes></element></umlet_diagram>

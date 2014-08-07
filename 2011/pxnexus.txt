@@ -1,0 +1,43 @@
+entry:NXentry
+   definition
+   instrument:NXinstrument
+     detector:NXdetector
+       polar_angle
+       beam_center_x
+       beam_center_y
+       data[np,number of x pixels,number of y pixels]
+       @signal=1
+       x_pixel_size
+       y_pixel_size
+       distance
+       frame_start_number
+      timestamp[np]
+   attenuator:NXattenuator
+     attenuator_transmission
+   source:NXsource
+     type
+     name
+     probe
+   monochromator:NXmonochromator
+     wavelength
+   sample:NXsample
+     rotation_angle[np]
+     @axis=1
+     rotation_angle_step[np]
+     @axis=1
+     name
+     orientation_matrix[3,3]
+     unit_cell[6]
+     temperature[np]
+     x_translation[np]
+     y_translation[np]
+     z_translation[np]
+   data:NXdata
+     rotation_angle --> /NXentry/NXsample/rotation_angle
+     data --> /NXentry/NXinstrument/NXdetector/data
+   title
+   start_time
+   control:NXmonitor
+     mode
+     preset
+     integral

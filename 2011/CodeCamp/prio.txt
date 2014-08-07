@@ -1,0 +1,37 @@
+To Discuss:
+Multi dimensional scans   (long)   6 deferred
+Cleanup of NeXus applications      2
+Releases: NAPI, NXDL               6
+NXdict design                      0
+Stack overflow 
+
+To Do:
+WWW-site from Manual               7
+PyTree-API Tests                   4  
+NXvalidate                         6 
+
+==================
+Done!!
+==================
+
+NXdetector and Dectris             
+NX_UNLIMITED
+Sphinx conversion discussion
+     NeXus WWW from Docbook this Code Camp
+     Switch to sphinx for next year
+Lunch time shakeup
+64 bit dimensions
+HDF-5 1.6 to 1.8                   
+NeXus file in plain HDF-5 for manual               
+PHDF not useful
+C++ Tree-API, Eugen keeps us in the loop
+Cmake, stay with autoconf for now, build W32 with cmake, 
+   shift to cmake longterm
+Axis Dependency: consensus on NXdependency, Tobias checks and kicks CBF people
+NXImpatient: defined layout, half done writing it
+NEW, Up To Date WWW-site!!!!! It is mobile friendly!
+Phython tests, 30 %
+Paul and Ray tidied up the tree API
+A mans month worth of work, accelerated by collaboration
+
+

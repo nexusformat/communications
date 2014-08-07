@@ -1,0 +1,1564 @@
+%PDF-1.4
+%“Œ‹ž ReportLab Generated PDF document http://www.reportlab.com
+% 'BasicFonts': class PDFDictionary 
+1 0 obj
+% The standard fonts dictionary
+<< /F1 2 0 R
+ /F2 3 0 R
+ /F3 4 0 R
+ /F4 6 0 R >>
+endobj
+% 'F1': class PDFType1Font 
+2 0 obj
+% Font Helvetica
+<< /BaseFont /Helvetica
+ /Encoding /WinAnsiEncoding
+ /Name /F1
+ /Subtype /Type1
+ /Type /Font >>
+endobj
+% 'F2': class PDFType1Font 
+3 0 obj
+% Font Helvetica-Bold
+<< /BaseFont /Helvetica-Bold
+ /Encoding /WinAnsiEncoding
+ /Name /F2
+ /Subtype /Type1
+ /Type /Font >>
+endobj
+% 'F3': class PDFType1Font 
+4 0 obj
+% Font Helvetica-Oblique
+<< /BaseFont /Helvetica-Oblique
+ /Encoding /WinAnsiEncoding
+ /Name /F3
+ /Subtype /Type1
+ /Type /Font >>
+endobj
+% 'Page1': class PDFPage 
+5 0 obj
+% Page dictionary
+<< /Contents 23 0 R
+ /MediaBox [ 0
+ 0
+ 595.2756
+ 841.8898 ]
+ /Parent 22 0 R
+ /Resources << /Font 1 0 R
+ /ProcSet [ /PDF
+ /Text
+ /ImageB
+ /ImageC
+ /ImageI ] >>
+ /Rotate 0
+ /Trans <<  >>
+ /Type /Page >>
+endobj
+% 'F4': class PDFType1Font 
+6 0 obj
+% Font Helvetica-BoldOblique
+<< /BaseFont /Helvetica-BoldOblique
+ /Encoding /WinAnsiEncoding
+ /Name /F4
+ /Subtype /Type1
+ /Type /Font >>
+endobj
+% 'Page2': class PDFPage 
+7 0 obj
+% Page dictionary
+<< /Contents 24 0 R
+ /MediaBox [ 0
+ 0
+ 595.2756
+ 841.8898 ]
+ /Parent 22 0 R
+ /Resources << /Font 1 0 R
+ /ProcSet [ /PDF
+ /Text
+ /ImageB
+ /ImageC
+ /ImageI ] >>
+ /Rotate 0
+ /Trans <<  >>
+ /Type /Page >>
+endobj
+% 'Page3': class PDFPage 
+8 0 obj
+% Page dictionary
+<< /Contents 25 0 R
+ /MediaBox [ 0
+ 0
+ 595.2756
+ 841.8898 ]
+ /Parent 22 0 R
+ /Resources << /Font 1 0 R
+ /ProcSet [ /PDF
+ /Text
+ /ImageB
+ /ImageC
+ /ImageI ] >>
+ /Rotate 0
+ /Trans <<  >>
+ /Type /Page >>
+endobj
+% 'R9': class PDFCatalog 
+9 0 obj
+% Document Root
+<< /Outlines 11 0 R
+ /PageLabels 26 0 R
+ /PageMode /UseNone
+ /Pages 22 0 R
+ /Type /Catalog >>
+endobj
+% 'R10': class PDFInfo 
+10 0 obj
+<< /Author ()
+ /CreationDate (D:20121005154233+00'00')
+ /Creator (\(unspecified\))
+ /Keywords ()
+ /Producer (ReportLab PDF Library - www.reportlab.com)
+ /Subject (\(unspecified\))
+ /Title (Minutes from NOBUGS 2012) >>
+endobj
+% 'R11': class PDFOutlines 
+11 0 obj
+<< /Count 12
+ /First 12 0 R
+ /Last 13 0 R
+ /Type /Outlines >>
+endobj
+% 'Outline.0': class OutlineEntryObject 
+12 0 obj
+<< /Dest [ 5 0 R
+ /XYZ
+ 62.69291
+ 695.0236
+ 0 ]
+ /Next 13 0 R
+ /Parent 11 0 R
+ /Title (Attendees) >>
+endobj
+% 'Outline.1': class OutlineEntryObject 
+13 0 obj
+<< /Count 8
+ /Dest [ 5 0 R
+ /XYZ
+ 62.69291
+ 494.0236
+ 0 ]
+ /First 14 0 R
+ /Last 21 0 R
+ /Parent 11 0 R
+ /Prev 12 0 R
+ /Title (Agenda) >>
+endobj
+% 'Outline.11.0': class OutlineEntryObject 
+14 0 obj
+<< /Dest [ 5 0 R
+ /XYZ
+ 62.69291
+ 284.0236
+ 0 ]
+ /Next 15 0 R
+ /Parent 13 0 R
+ /Title (Elect a chair) >>
+endobj
+% 'Outline.11.1': class OutlineEntryObject 
+15 0 obj
+<< /Dest [ 5 0 R
+ /XYZ
+ 62.69291
+ 236.0236
+ 0 ]
+ /Next 16 0 R
+ /Parent 13 0 R
+ /Prev 14 0 R
+ /Title (Review of membership) >>
+endobj
+% 'Outline.11.2': class OutlineEntryObject 
+16 0 obj
+<< /Dest [ 7 0 R
+ /XYZ
+ 62.69291
+ 465.0236
+ 0 ]
+ /Next 17 0 R
+ /Parent 13 0 R
+ /Prev 15 0 R
+ /Title (Select venue for NOBUGS X 2014) >>
+endobj
+% 'Outline.11.3': class OutlineEntryObject 
+17 0 obj
+<< /Count 3
+ /Dest [ 7 0 R
+ /XYZ
+ 62.69291
+ 366.0236
+ 0 ]
+ /First 18 0 R
+ /Last 20 0 R
+ /Next 21 0 R
+ /Parent 13 0 R
+ /Prev 16 0 R
+ /Title (Consitution) >>
+endobj
+% 'Outline.12.0': class OutlineEntryObject 
+18 0 obj
+<< /Dest [ 7 0 R
+ /XYZ
+ 62.69291
+ 285.0236
+ 0 ]
+ /Next 19 0 R
+ /Parent 17 0 R
+ /Title (NOBUGS prize and honourary member) >>
+endobj
+% 'Outline.12.1': class OutlineEntryObject 
+19 0 obj
+<< /Dest [ 7 0 R
+ /XYZ
+ 62.69291
+ 198.0236
+ 0 ]
+ /Next 20 0 R
+ /Parent 17 0 R
+ /Prev 18 0 R
+ /Title (Merge NOBUGS and ICALEPCS) >>
+endobj
+% 'Outline.12.2': class OutlineEntryObject 
+20 0 obj
+<< /Dest [ 8 0 R
+ /XYZ
+ 62.69291
+ 738.0236
+ 0 ]
+ /Parent 17 0 R
+ /Prev 19 0 R
+ /Title (Critique of architectures and applications) >>
+endobj
+% 'Outline.11.4': class OutlineEntryObject 
+21 0 obj
+<< /Dest [ 8 0 R
+ /XYZ
+ 62.69291
+ 537.0236
+ 0 ]
+ /Parent 13 0 R
+ /Prev 17 0 R
+ /Title (AOB) >>
+endobj
+% 'R22': class PDFPages 
+22 0 obj
+% page tree
+<< /Count 3
+ /Kids [ 5 0 R
+ 7 0 R
+ 8 0 R ]
+ /Type /Pages >>
+endobj
+% 'R23': class PDFStream 
+23 0 obj
+% page stream
+<< /Length 8697 >>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 62.69291 741.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 4 Tm /F2 20 Tf 24 TL 100.4749 0 Td (Minutes from NOBUGS 2012) Tj T* -100.4749 0 Td ET
+Q
+Q
+q
+1 0 0 1 62.69291 707.0236 cm
+q
+BT 1 0 0 1 0 14 Tm 2.677126 Tw 12 TL /F1 10 Tf 0 0 0 rg (This is an account of the NOBUGS committee meeting and the resulting actions completed during) Tj T* 0 Tw (NOBUGS 2012 at RAL.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 674.0236 cm
+q
+BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Attendees) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 662.0236 cm
+Q
+q
+1 0 0 1 62.69291 662.0236 cm
+Q
+q
+1 0 0 1 62.69291 650.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Peter Peterson SNS) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 644.0236 cm
+Q
+q
+1 0 0 1 62.69291 632.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Mark Koennecke PSI) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 626.0236 cm
+Q
+q
+1 0 0 1 62.69291 614.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Kevin Knowles ISIS) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 608.0236 cm
+Q
+q
+1 0 0 1 62.69291 596.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Toshiya Otomo KEK) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 590.0236 cm
+Q
+q
+1 0 0 1 62.69291 578.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Tobias Richter DLS) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 572.0236 cm
+Q
+q
+1 0 0 1 62.69291 560.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Bill Pulford DLS) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 554.0236 cm
+Q
+q
+1 0 0 1 62.69291 542.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Bob Sweet BNL) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 536.0236 cm
+Q
+q
+1 0 0 1 62.69291 524.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (John Skinner BNL) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 524.0236 cm
+Q
+q
+1 0 0 1 62.69291 506.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL (Facilities with two attendees had only one vote only.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 473.0236 cm
+q
+BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Agenda) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 461.0236 cm
+Q
+q
+1 0 0 1 62.69291 296.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 0 2 Tm  T* ET
+q
+1 0 0 1 20 159 cm
+Q
+q
+1 0 0 1 20 159 cm
+Q
+q
+1 0 0 1 20 147 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 5.66 0 Td (1.) Tj T* -5.66 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Elect a chair) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 141 cm
+Q
+q
+1 0 0 1 20 129 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 5.66 0 Td (2.) Tj T* -5.66 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Review of membership) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 123 cm
+Q
+q
+1 0 0 1 20 111 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 5.66 0 Td (3.) Tj T* -5.66 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Select venue for NOBUGS X 2014) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 105 cm
+Q
+q
+1 0 0 1 20 93 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 5.66 0 Td (4.) Tj T* -5.66 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Consitution) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 87 cm
+Q
+q
+1 0 0 1 20 18 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 54 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 5.66 0 Td (5.) Tj T* -5.66 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 54 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F2 10 Tf 12 TL (Discuss and Vote on Proposals) Tj T* ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 0 44 Tm  T* ET
+q
+1 0 0 1 20 48 cm
+Q
+q
+1 0 0 1 20 48 cm
+Q
+q
+1 0 0 1 20 36 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 5.66 0 Td (a.) Tj T* -5.66 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (NOBUGS prize and honourary member) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 30 cm
+Q
+q
+1 0 0 1 20 18 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 5.66 0 Td (b.) Tj T* -5.66 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Merge NOBUGS and ICALEPCS) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 12 cm
+Q
+q
+1 0 0 1 20 0 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 6.22 0 Td (c.) Tj T* -6.22 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Critique of architectures and applications) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 0 cm
+Q
+q
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 12 cm
+Q
+q
+1 0 0 1 20 0 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 5.66 0 Td (6.) Tj T* -5.66 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (AOB) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 0 cm
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 296.0236 cm
+Q
+q
+1 0 0 1 62.69291 266.0236 cm
+q
+BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (Elect a chair) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 248.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Tobias Richter \(DLS\) was elected with 5 for 1 abstain.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 218.0236 cm
+q
+BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (Review of membership) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 200.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (From the \(draft\) constitution:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 194.0236 cm
+Q
+q
+1 0 0 1 62.69291 146.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 0 2 Tm  T* ET
+q
+1 0 0 1 20 0 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 38 Tm /F1 10 Tf 12 TL 1.252126 Tw (The membership term is not limited. However, if a member of the NOBUGS International Advisory) Tj T* 0 Tw 1.505814 Tw (Committee fails to attend two successive NOBUGS conferences the membership in the NOBUGS) Tj T* 0 Tw 2.379974 Tw (International Advisory Committee will automatically expire. Each NOBUGS International Advisory) Tj T* 0 Tw (Committee member can appoint a substitute to attend a particular meeting or conference.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 146.0236 cm
+Q
+q
+1 0 0 1 62.69291 128.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The committee acknowledged that the following facilities have an expired representation:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 122.0236 cm
+Q
+q
+1 0 0 1 62.69291 122.0236 cm
+Q
+q
+1 0 0 1 62.69291 110.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (ALS) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 104.0236 cm
+Q
+q
+1 0 0 1 62.69291 92.02362 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (JINR) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 86.02362 cm
+Q
+ 
+endstream
+endobj
+% 'R24': class PDFStream 
+24 0 obj
+% page stream
+<< /Length 9078 >>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 62.69291 753.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (NIST) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 747.0236 cm
+Q
+q
+1 0 0 1 62.69291 735.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (U Virginia) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 735.0236 cm
+Q
+q
+1 0 0 1 62.69291 717.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The following replacements for members have been recruited during the meeting:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 711.0236 cm
+Q
+q
+1 0 0 1 62.69291 711.0236 cm
+Q
+q
+1 0 0 1 62.69291 699.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Nicholas Schwarz APS+ANL) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 693.0236 cm
+Q
+q
+1 0 0 1 62.69291 681.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Olof Svensson ESRF) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 675.0236 cm
+Q
+q
+1 0 0 1 62.69291 663.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Joachim Wuttke JCNS) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 657.0236 cm
+Q
+q
+1 0 0 1 62.69291 645.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (John Skinner BNL) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 645.0236 cm
+Q
+q
+1 0 0 1 62.69291 627.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Newly represented facilities:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 621.0236 cm
+Q
+q
+1 0 0 1 62.69291 621.0236 cm
+Q
+q
+1 0 0 1 62.69291 609.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Alain Buteau Soleil) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 603.0236 cm
+Q
+q
+1 0 0 1 62.69291 591.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (David Fernandez Carreiras ALBA) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 585.0236 cm
+Q
+q
+1 0 0 1 62.69291 573.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Elder Matias CLS) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 567.0236 cm
+Q
+q
+1 0 0 1 62.69291 555.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Thomas Rod ESS) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 555.0236 cm
+Q
+q
+1 0 0 1 62.69291 525.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL .81186 Tw (So for the moment the geographic footprint is slightly reduced and we are centering around Europe, but) Tj T* 0 Tw (we are attractive to new facilities and the numbers are stable.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 519.0236 cm
+Q
+q
+1 0 0 1 62.69291 504.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F2 10 Tf 12 TL 38.59937 0 Td (Action:) Tj T* -38.59937 0 Td ET
+Q
+Q
+q
+1 0 0 1 91.03937 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (for the chairman to inform expired members) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 477.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 15 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F2 10 Tf 12 TL 38.59937 0 Td (Action:) Tj T* -38.59937 0 Td ET
+Q
+Q
+q
+1 0 0 1 91.03937 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL 2.366399 Tw (chairman to try and expand reach geographically \(Asia, South America\) and to) Tj T* 0 Tw (fel/x-fel facilities for NOBUGS X 2014) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 447.0236 cm
+q
+BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (Select venue for NOBUGS X 2014) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 417.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL .351318 Tw (Bid from Toshiya Otomo for hosting at J-PARC KEK was accepted \(all for\). Needs management approval) Tj T* 0 Tw (because of clash with ICNAS meeting.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 399.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Backup would be a European bid by Roberto Pugliese from Elettra.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 393.0236 cm
+Q
+q
+1 0 0 1 62.69291 378.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F2 10 Tf 12 TL 38.59937 0 Td (Action:) Tj T* -38.59937 0 Td ET
+Q
+Q
+q
+1 0 0 1 91.03937 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Toshiya Otomo to confirm venue by the end of 2012) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 348.0236 cm
+q
+BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (Consitution) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 318.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL .565703 Tw (The consitution is currently in a draft status. It was handed out in print, but in the short space of time the) Tj T* 0 Tw (attendees could not build an informed opinion in order to ratify.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 312.0236 cm
+Q
+q
+1 0 0 1 62.69291 297.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F2 10 Tf 12 TL 38.59937 0 Td (Action:) Tj T* -38.59937 0 Td ET
+Q
+Q
+q
+1 0 0 1 91.03937 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (chairman to organise review and vote on constitution by email) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 270.0236 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F4 12.5 Tf 0 0 0 rg (NOBUGS prize and honourary member) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 252.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Ideas were discussed and the alternative proposal of a poster prize and accepted \(all in favour\).) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 210.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 26 Tm /F1 10 Tf 12 TL .06936 Tw (Poster prize should be awarded by a vote from the committee member at the conference's poster session.) Tj T* 0 Tw .406457 Tw (The prize would consist of a certificate and useful item of moderate value \(e.g. Amazon voucher\) paid for) Tj T* 0 Tw (by the conference budget. Prize would be bestowed in the closing session.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 183.0236 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F4 12.5 Tf 0 0 0 rg (Merge NOBUGS and ICALEPCS) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 153.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL 1.941751 Tw (This was discussed in detail. A quick survey found only one \(1\) attendee had previously been to an) Tj T* 0 Tw (ICALEPCS meeting.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 135.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Amoung the points raised:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 129.0236 cm
+Q
+q
+1 0 0 1 62.69291 129.0236 cm
+Q
+q
+1 0 0 1 62.69291 117.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (little cross section between both communities) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 111.0236 cm
+Q
+q
+1 0 0 1 62.69291 99.02362 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (smaller, more intimate meeting at NOBUGS was seen more suitable for fostering new collaborations) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 93.02362 cm
+Q
+q
+1 0 0 1 62.69291 81.02362 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (resourcing was not seen as a problem as long as facilities are willing to host NOBUGS) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 81.02362 cm
+Q
+q
+1 0 0 1 62.69291 76.86614 cm
+Q
+ 
+endstream
+endobj
+% 'R25': class PDFStream 
+25 0 obj
+% page stream
+<< /Length 2786 >>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 62.69291 750.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F2 10 Tf 12 TL 48.03937 0 Td (Vote:) Tj T* -48.03937 0 Td ET
+Q
+Q
+q
+1 0 0 1 91.03937 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0 for, 0 abstain, 6 against) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 723.0236 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F4 12.5 Tf 0 0 0 rg (Critique of architectures and applications) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 705.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F2 10 Tf 12 TL (From the proposal:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 654.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 0 38 Tm  T* ET
+q
+1 0 0 1 20 0 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 38 Tm /F1 10 Tf 12 TL .943984 Tw (We seem to be sharing similar architectural concepts, but not sharing code e.g. workflows and real) Tj T* 0 Tw 1.775366 Tw (time data analysis. Can the NOBUGS committee discuss how we might review architectures and) Tj T* 0 Tw .387318 Tw (implementations, with a view to showing how an application or system that has been implemented at) Tj T* 0 Tw (one facility could be implemented at another. Think of it as a software peer review.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 624.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL .721984 Tw (The committee saw the resources required to perform extensive reviews as a problem. Lack of authority) Tj T* 0 Tw (on the facility level to adopt the outcome was also seen as an issue.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 570.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 38 Tm /F1 10 Tf 12 TL 1.472485 Tw (It was proposed the NOBUGS web page should provide a platform to present and highlight the larger) Tj T* 0 Tw .292209 Tw (collaborations of the community. E.g. \(but not limited to\) Mantid, Dawn and GDA. The idea is to simplify a) Tj T* 0 Tw 2.359269 Tw (side-by-side comparison by any interested party outside of the conference, so all projects would be) Tj T* 0 Tw (allowed equal presentation \(descriptive page and link to project landing page\).) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 564.0236 cm
+Q
+q
+1 0 0 1 62.69291 549.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F2 10 Tf 12 TL 38.59937 0 Td (Action:) Tj T* -38.59937 0 Td ET
+Q
+Q
+q
+1 0 0 1 91.03937 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (chairman to initiate) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 519.0236 cm
+q
+BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (AOB) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 489.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL .12061 Tw (It was suggested all members of the community should raise the awareness of NOBUGS by inviting peers) Tj T* 0 Tw (to come.) Tj T* ET
+Q
+Q
+ 
+endstream
+endobj
+% 'R26': class PDFPageLabels 
+26 0 obj
+% Document Root
+<< /Nums [ 0
+ 27 0 R
+ 1
+ 28 0 R
+ 2
+ 29 0 R ] >>
+endobj
+% 'R27': class PDFPageLabel 
+27 0 obj
+% None
+<< /S /D
+ /St 1 >>
+endobj
+% 'R28': class PDFPageLabel 
+28 0 obj
+% None
+<< /S /D
+ /St 2 >>
+endobj
+% 'R29': class PDFPageLabel 
+29 0 obj
+% None
+<< /S /D
+ /St 3 >>
+endobj
+xref
+0 30
+0000000000 65535 f
+0000000113 00000 n
+0000000245 00000 n
+0000000410 00000 n
+0000000585 00000 n
+0000000764 00000 n
+0000001045 00000 n
+0000001232 00000 n
+0000001511 00000 n
+0000001790 00000 n
+0000001948 00000 n
+0000002220 00000 n
+0000002346 00000 n
+0000002515 00000 n
+0000002726 00000 n
+0000002902 00000 n
+0000003100 00000 n
+0000003308 00000 n
+0000003539 00000 n
+0000003735 00000 n
+0000003938 00000 n
+0000004143 00000 n
+0000004290 00000 n
+0000004413 00000 n
+0000013209 00000 n
+0000022386 00000 n
+0000025275 00000 n
+0000025394 00000 n
+0000025471 00000 n
+0000025548 00000 n
+trailer
+<< /ID 
+ % ReportLab generated PDF document -- digest (http://www.reportlab.com) 
+ [(\325X\030\016\204\375\372-\374/.\035\274\266\273\330) (\325X\030\016\204\375\372-\374/.\035\274\266\273\330)] 
+
+ /Info 10 0 R
+ /Root 9 0 R
+ /Size 30 >>
+startxref
+25595
+%%EOF

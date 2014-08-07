@@ -1,0 +1,8 @@
+
+    NeXus for Neutrons
+
+NeXus is a dataformat for neutron, X-ray and muSR scattering. NeXus is 
+based on HDF-4, HDF-5 and XML as physical file formats. It adds to those 
+file formats rules to organize data in the file and dictionaries of names 
+to use which make sense for neutron scattering. An overview will be given 
+on NeXus and  its recent developments. 
