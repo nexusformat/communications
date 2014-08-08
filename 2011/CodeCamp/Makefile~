@@ -1,6 +1,0 @@
-.c.o:
-	$(CC) -g -c $*
-
-
-nx5hwrite: nxh5write.o
-	$(CC) -o nxh5write nxh5write.o -lhdf5 -lz -lsz -lm
