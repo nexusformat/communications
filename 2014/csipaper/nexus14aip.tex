@@ -55,14 +55,14 @@ Laboratory for Development and Methods\\Paul Scherrer Institute\\5232 Villigen-P
 \author{Herbert J Bernstein}
 \affiliation{imgCIF, Dowling College USA}
 
-\author{Aaron Brewster}
-\affiliation{Lawrence Berkeley Laboratory, USA}
+\author{Aaron S. Brewster}
+\affiliation{Lawrence Berkeley National Laboratory, USA}
 
 \author{Bjoern Clausen}
 \affiliation{Los Alamos National Laboratory, USA}
 
 \author{Stephen Cottrell}
-\affiliation{SICS, Rutherford Appleton Laboratory, UK}
+\affiliation{ISIS, Rutherford Appleton Laboratory, UK}
 
 \author{Jens Uwe Hoffmann}
 \affiliation{Helmholtz Zentrum Berlin, Germany}
@@ -110,8 +110,7 @@ defined domain-specific field names. The NeXus data format has two purposes.  Fi
 format that can serve as a container for all relevant data associated
 with a beamline, an increasingly important function.  Second, NeXus
 defines standards in the form of \emph{application definitions} for the
-representation of information defining various experimental
-techniques NeXus provided structures for raw experimental data as well as for processed data.  
+exchange of data between applications.  NeXus provides structures for raw experimental data as well as for processed data.  
 \end{abstract}
 
 %%\pacs{Valid PACS appear here}% PACS, the Physics and Astronomy
@@ -246,12 +245,12 @@ to add type information to the group name, which is provided by the NeXus class 
 with the prefix NX. Each NeXus group describing a beamline component contains further groups and fields describing the component. 
 A field can contain a single number, a text string or an array, as appropriate to the data to be described.  
 
-The requirement to store multiple related experiments in the same file or to capture 
+The requirement to store multiple related scans or runs  in the same file or to capture 
 a complete workflow in a file causes the beamline component hierarchy to be pushed one level deeper into an NXentry 
-group in the hierarchy. The NXentry  group thus represents one experiment (or a processed data entry, as will be discussed later). 
+group in the hierarchy. The NXentry  group thus represents one scan or run (or a processed data entry, as will be discussed later). 
 The NXentry group also holds the experiment metadata, such as the date and time at which it was performed. 
 
-The user requirement to be able to access sample information and counting information such as monitors quickly 
+The requirement to access sample information and counting information such as monitors quickly 
 pulled this information out of the beamline hierarchy and into the NXentry level.
 
 Another requirement was to provide easy access to a default visualization of the data. This idea was realised with the 
@@ -263,7 +262,7 @@ file system.  The NXdata group is intended to hold such links to the relevant pi
 
 \subsubsection{Multiple Method Instruments}
 
-Especially at X-ray sources, some beamlines implement multiple techniques in the same instrument. 
+Particularly at X-ray sources, some beamlines implement multiple techniques in the same instrument. 
 For example small-angle scattering (SAS) and powder diffraction in the same beamline are sometimes measured 
 simultaneously (such as SAXS/WAXS). This poses a problem for an automatic data analysis tool to find its data 
 for processing.  NeXus solves this problem through a scheme involving these steps:
@@ -273,7 +272,6 @@ for processing.  NeXus solves this problem through a scheme involving these step
   NXsubentry groups have the same hierarchy as the  NXentry group. NXsubentry holds only the data relevant 
   for the experimental method it describes. In order to avoid data duplication, links into the main NXentry 
   hierarchy are used. 
-  % This is still awkward without referring to NXDL (which adds jargon).  NXDL is described later.
   NXsubentry usually only holds the 20-30 data items required by its corresponding NeXus 
   application definition.  
 \end{enumerate} 
@@ -393,7 +391,7 @@ output:NXparameter\\
 
 \subsection{Processed Data}
 
-On request of the user community, NeXus created a simplified structure for storing the result of data 
+At the request of the user community, NeXus created a simplified structure for storing the result of data 
 processing: be it reduction or analysis. In many cases even the reduced data is big enough to need 
 an efficient binary representation. A good example is a tomography reconstruction. A tabular representation 
 of the NeXus processed data file structure is given in Table \ref{procfile}. 
@@ -421,8 +419,8 @@ are dictionaries of allowed names. A common misconception is that NeXus users ha
 names in a NeXus base class. This is not the case; only those applicable to the instrument and situation at hand need 
 to be written to the file.
 
-The NeXus base classes are encoded in NeXus Description Language (NXDL).
-NXDL is an XML file that specifies the content of the NeXus base class.
+The NeXus base classes are encoded in NeXus Description Language (NXDL)\cite{nxman}. NXDL is 
+just another application of XML. Thus a NXDL file is an XML file that specifies the content of the NeXus base classes. 
 
 Procedures are in place to extend NeXus base classes quickly when necessary.
 
@@ -464,10 +462,20 @@ canSAS, NeXus, and the IUCr Commission on Small-Angle Scattering.
 
 NeXus is already in use as the main data format at facilities like Soleil, Diamond, SINQ, SNS, Lujan/LANL 
 and KEK. Other facilities like ISIS, DESY and the muSR community are in the process of moving towards 
-NeXus as  data format. The adoption of NeXus took time. The reason is that NeXus is often chosen whenever 
+NeXus as  data format. At LBNL, NeXus is currently being adapted for XFEL serial crystallographic data. 
+
+
+The adoption of NeXus took time. The reason is that NeXus is often chosen whenever 
 a facility starts operation or undergoes major refurbishments. For those facilities where there is an existing and working 
 pipeline from data acquisition to data analysis,  the resources are usually lacking to move 
 towards NeXus.
+
+This is reflected in the experience of the muon community. For the ISIS source, the move to a Windows PC-based data acquisition 
+system in 2002 required a new data format, providing an ideal opportunity to exploit the emerging NeXus standard\cite{muon1}. In 
+contrast, sources at PSI, TRIUMF and KEK continued to make good use of existing formats and software. More recently, funding 
+from the EU has enabled the community to develop the Application Definition as a common exchange format for muon data\cite{muon2}. 
+Whether used as the main or an intermediate format, users will soon be able to produce compatible NeXus files for data written 
+across all facilities, enhancing the uptake of NeXus within the community.
 
 \section{NeXus Governance}
 
