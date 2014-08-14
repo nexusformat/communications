@@ -168,7 +168,7 @@ For each of these different application,
 a specific subset of the standardized NeXus entities 
 (data groups and fields) is needed.
 These subsets, and their hierarchical structure, are standardized
-in the NeXus application definitions (Sect.~\ref{sect_appdef}).
+in the NeXus application definitions (Sect~\ref{sect_appdef}).
 
 \section{NeXus File Hierarchies}
 NeXus data files are organized into a hierarchy of groups which, in turn, can contain further groups or fields, 
@@ -431,6 +431,8 @@ At base class level, NeXus has no mechanism to mark some fields as obligatory.
 All allowed fields are optional.
 Which of them are written into data files must be decided
 according to application needs.
+These decisions can be standardized in form of
+application definitions (see below, Sect~\ref{sect_appdef}).
 
 NeXus does not specify the \emph{rank} of a data field.
 For many, but not all fields it is possible to infer from
@@ -446,17 +448,20 @@ just another application of XML. Thus a NXDL file is an XML file that specifies 
 \section{NeXus Application Definitions}
   \label{sect_appdef}
 
-An application definition is a standard for a certain use case of NeXus,
-wherein domain-specific fields 
-for that use case are described as well as their locations within the NeXus file.
-Use cases can be experimental techniques like SAS or 
-powder diffraction, while processed data use cases such as tomography reconstructions or $S(Q,\omega)$, 
-or even administrative use cases such as archiving. This scheme works because data in a NeXus file 
-can be searched for. Thus it is trivial to ignore data which is not of interest for a particular use case.
+An application definition specifies a data structure
+for a given application domain.
+The data structure consists of a hierarchy of NeXus groups.
+For each group, a \emph{minimum} content is specified.
+Application definitions are therefore complementary
+to base class definitions, which specify the \emph{maximum} content of groups.
 
-Another way to look at a NeXus application definition is as a contract between file writers and file consumers 
-about the minimum content of the file necessary to fulfill that particular use case as well as a map of where the 
-data should be located and its format.
+Typically, an application definition addresses one type of instrument,
+like x-ray reflectometer,
+or direct-geometry neutron time-of-flight spectrometer.
+Therefore application definitions were originally named \emph{instrument definitions}.
+However, as NeXus can also be used for processed data
+like a tomography reconstruction or a dynamic scattering law $S(Q,\omega)$, 
+the more generic term \emph{application definition} is preferred.
 
 NeXus application definitions are expressed in NXDL.  They may be parsed either by humans or by software and 
 they may be validated for syntax and content.  The NXDL files are used to validate the structure of
