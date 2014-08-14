@@ -309,10 +309,10 @@ All data from multiple methods &
 \hline
 \multicolumn{2}{l}{\texttt{NXdata}}\\
 \hline
-\multicolumn{2}{l}{\texttt{\bf{NXsubentry}}}\\
+\multicolumn{2}{l}{\texttt{\textbf{NXsubentry}}}\\
 \multicolumn{2}{p{3.0cm}}{SAS specification}\\
 \hline
-\multicolumn{2}{l}{\texttt{\bf{NXsubentry}}}\\
+\multicolumn{2}{l}{\texttt{\textbf{NXsubentry}}}\\
 \multicolumn{2}{p{3.0cm}}{powder diffraction specification}\\
 \end{tabular}\\
 \end{tabular}\\
@@ -344,7 +344,7 @@ Scans are stored in NeXus following these conventions:
  deemed worth recording in addition to that, reading the \texttt{NXdata} group alone. 
 \end{itemize}
 
-NeXus allows multi dimensional scans too. This makes it very simple to produce meaningful slices through data 
+NeXus allows multi-dimensional scans too. This makes it very simple to produce meaningful slices through data 
 volmes even with NeXus-agnostic software (like hdfview). Interrupting a multi-dimensional scan may, depending 
 on the software used, leave some of the data in an uninitialised state (usually the HDF5 fill value).
 
@@ -418,7 +418,7 @@ As can be seen from the discussion of the NeXus file hierarchy, NeXus arranges d
 type descriptor, a NeXus base class name, associated with them
 (technically, this name is the value of the HDF5 attribute \texttt{NXclass}).
 The term \emph{base class} is not meant in the sense of 
-objet-oriented programming languages;
+object-oriented programming languages;
 in particular, there is no inheritance.
 A NeXus base class is rather a dictionary of allowed keywords.
 These keywords designate data fields that can be stored within a group.
@@ -442,16 +442,12 @@ understood as string type.
 The NeXus base classes are encoded in NeXus Description Language (NXDL)\cite{nxman}. NXDL is 
 just another application of XML. Thus a NXDL file is an XML file that specifies the content of the NeXus base classes. 
 
-Procedures are in place to extend NeXus base classes quickly when necessary
-\textbf{(needs to be elaborated)}.
-
 
 \section{NeXus Application Definitions}
   \label{sect_appdef}
 
-The NeXus approach to standardization is unique for a standard. At first NeXus asks you to store 
-as much relevant information about your data as possible. In a second step NeXus then defines a 
-standard for a certain use case of NeXus, an application definition, wherein domain-specific fields 
+An application definition is a standard for a certain use case of NeXus,
+wherein domain-specific fields 
 for that use case are described as well as their locations within the NeXus file.
 Use cases can be experimental techniques like SAS or 
 powder diffraction, while processed data use cases such as tomography reconstructions or $S(Q,\omega)$, 
@@ -499,11 +495,19 @@ from the EU has enabled the community to develop the Application Definition as a
 Whether used as the main or an intermediate format, users will soon be able to produce compatible NeXus files for data written 
 across all facilities, enhancing the uptake of NeXus within the community.
 
+
 \section{NeXus Governance}
 
-The development of NeXus is overseen by the NeXus International Advisory Committee (NIAC).
-In the NIAC, most major neutron, x-ray, and muon facilities are represented.
+The development of NeXus is overseen
+by the NeXus International Advisory Committee (NIAC).
+The NIAC seek balanced representation of the international community.
+Most major neutron, x-ray, and muon facilities have already appointed delegates.
 Other facilities are invited to join.
+
+The NIAC reviews proposed amendments to the NeXus base classes and
+application definitions, and holds online votes to ratify changes.
+For instrument types for which an application definition does not yet exist,
+the NIAC waits for proposals to emerge from the community.
 
 \section{Backwards Compatibility}
 
@@ -513,6 +517,7 @@ application/programmer interface (NeXus-API) was provided.
 This API is maintained at a bug fix level.
 On request of the community, we now concentrate our efforts only
 on the HDF5 files and tools.
+\textbf{What API do we recommend now? The frozen NeXus API, or a vanilla HDF5 emitter/parser?}
 
 \section{Summary}
 
