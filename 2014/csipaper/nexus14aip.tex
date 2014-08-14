@@ -140,6 +140,7 @@ platform independent, in the public domain and well supported by both commercial
 NeXus adds to HDF5:
 \begin{itemize}
 \item Rules for organizing domain-specific data within a HDF5 file
+\item A link structure to enable quick default visualization
 \item A dictionary of documented domain-specific field names
 \item Definitions of standards that can be validated
 \end{itemize}
@@ -257,12 +258,12 @@ the debatable decision was taken to move NXmonitor
 out of NXinstrument to the higher hierarchy level of NXentry,
 in order to facilitate quick inspection by humans.
 
-Another requirement was to provide easy access to a default visualization of the data. This idea was realised with the 
-NXdata type group at NXentry level. The NXdata group contains the data and axes data necessary to create a default plot of 
-the data in the entry. This is data which will typically live in the NXdetector or other groups in the 
-beamline component list. HDF5 links are used to avoid duplicating data. A link 
-is a pointer to data sitting at another place in the file hierarchy, like a symbolic link in a unix 
-file system.  The NXdata group is intended to hold such links to the relevant pieces of information.
+The requirement to enable a simple default visualization of the data
+is met by the NXdata group at NXentry level.
+It contains information about plot axes and links to the data
+(which typically reside in the NXdetector group).
+Such links are supported by HDF5,
+and work like symbolic links in the Unix file system.
 
 \subsubsection{Multiple Method Instruments}
 
