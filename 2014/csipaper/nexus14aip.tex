@@ -46,9 +46,8 @@ rsi,
 
 
 \author{Mark K\"onnecke}
-\affiliation{ 
-Laboratory for Development and Methods\\Paul Scherrer Institute\\5232 Villigen-PSI\\Switzerland
-}
+\affiliation{Laboratory for Development and Methods, Paul Scherrer Institute, 5232 Villigen-PSI, Switzerland}
+
 \author{Frederick Akeroyd}
 \affiliation{ISIS, Rutherford Appleton Labortaory, UK}
 
@@ -85,7 +84,6 @@ Laboratory for Development and Methods\\Paul Scherrer Institute\\5232 Villigen-P
 \author{Jiro Suzuki}
 \affiliation{KEK, Japan}
 
-
 \author{Bejmanin Watts}
 \affiliation{Swiss Light Source, Paul Scherrer Institute, 5232 Villigen-PSI, Switzerland}
 
@@ -93,7 +91,7 @@ Laboratory for Development and Methods\\Paul Scherrer Institute\\5232 Villigen-P
 \affiliation{DESY, Germany}
 
 \author{Joachim Wuttke}
-\affiliation{FRMII, JCNS, Germany}
+\affiliation{Forschungszentrum J\"ulich, JCNS at MLZ, Garching, Germany}
 
 
 \collaboration{NeXus International Advisory Committee}
@@ -104,8 +102,8 @@ Laboratory for Development and Methods\\Paul Scherrer Institute\\5232 Villigen-P
 \begin{abstract}
 NeXus is an effort by an international group of scientists to define 
  a common data exchange format for neutron, muon and x-ray experiments.   
-NeXus is built on top of the scientific data format HDF-5 and adds domain 
-specific rules for organizing data within HDF-5 files as well as a dictionary of well 
+NeXus is built on top of the scientific data format HDF5 and adds domain 
+specific rules for organizing data within HDF5 files as well as a dictionary of well 
 defined domain-specific field names. The NeXus data format has two purposes.  First, NeXus defines a
 format that can serve as a container for all relevant data associated
 with a beamline, an increasingly important function.  Second, NeXus
@@ -115,7 +113,7 @@ exchange of data between applications.  NeXus provides structures for raw experi
 
 %%\pacs{Valid PACS appear here}% PACS, the Physics and Astronomy
                              % Classification Scheme.
-\keywords{NeXus, data format, HDF-5, x-ray, neutron,data analysis, data management}
+\keywords{NeXus, data format, HDF5, x-ray, neutron,data analysis, data management}
 \maketitle
 
 
@@ -127,7 +125,7 @@ refinement and enhancement as described in this paper.
 Historically, neutron and x-ray facilities choose to store their data in a plethora of 
 home-grown data formats. This scheme has a number of drawbacks addressed by NeXus: 
 \begin{itemize}
-\item It makes the life of the traveling scientist more difficult then it needs to be as they have to deal with multiple files 
+\item It makes the life of traveling scientists unnecessarily difficult as they have to deal with multiple files 
  in different formats, file converters and such in order to extract scientific information from the data.
  \item An unnecessary burden is imposed on data analysis software producers as they have to accommodate so many different formats.  
 \item The whole idea of open access to data is sabotaged if the data is in a format which cannot be easily understood.
@@ -136,12 +134,12 @@ home-grown data formats. This scheme has a number of drawbacks addressed by NeXu
 \end{itemize}
 
 The first necessity for a data format is a physical file format: how is the data written to disk? Rather than inventing  
-yet another format, NeXus chose HDF-5\cite{hdf5} as the binary container format. HDF-5 is efficient, self describing, 
+yet another format, NeXus chose HDF5\cite{hdf5} as the binary container format. HDF5 is efficient, self describing, 
 platform independent, in the public domain and well supported by both commercial and free software tools. 
 
-NeXus adds to HDF-5:
+NeXus adds to HDF5:
 \begin{itemize}
-\item Rules for organizing domain-specific data within a HDF-5 file
+\item Rules for organizing domain-specific data within a HDF5 file
 \item A dictionary of documented domain-specific field names
 \item Definitions of standards that can be validated
 \end{itemize}
@@ -160,9 +158,6 @@ facility or software,  not the user. Thus this is no problem for the user.
 
 Consistent with the container file objective, it is always possible to add data, even non-NeXus data, 
 to a NeXus data file without breaking NeXus. 
-
-Of course, NeXus strives for platform independence, a self describing efficient file format, public 
-domain specifications and tools. These aims were the reasons for choosing HDF-5 as the physical file format.
 
 A NeXus container file may contain hundreds of fields. Often, all that is needed for data reduction or analysis are a small fraction 
 of these - perhaps fewer than 20 fields. These necessary fields are dependent on the experimental technique and NeXus provides a way to 
@@ -241,7 +236,9 @@ discern different components: beam optic components, sample position, detectors 
 separation with a logical arrangement of storing the data from each component in a separate group. This approach explains the 
 list of beamline components in the NXinstrument group presented in Table\ref{rawfile}. 
 As there can be multiple instances of the same kind of equipment, like slits or detectors, in a given beamline it becomes necessary
-to add type information to the group name, which is provided by the NeXus class name. By convention NeXus class names start 
+to add type information to the group name,
+which is provided by a HDF5 attribute, the NeXus class name.
+By convention NeXus class names start 
 with the prefix NX. Each NeXus group describing a beamline component contains further groups and fields describing the component. 
 A field can contain a single number, a text string or an array, as appropriate to the data to be described.  
 
@@ -256,7 +253,7 @@ pulled this information out of the beamline hierarchy and into the NXentry level
 Another requirement was to provide easy access to a default visualization of the data. This idea was realised with the 
 NXdata type group at NXentry level. The NXdata group contains the data and axes data necessary to create a default plot of 
 the data in the entry. This is data which will typically live in the NXdetector or other groups in the 
-beamline component list. HDF-5 links are used to avoid duplicating data. A link 
+beamline component list. HDF5 links are used to avoid duplicating data. A link 
 is a pointer to data sitting at another place in the file hierarchy, like a symbolic link in a unix 
 file system.  The NXdata group is intended to hold such links to the relevant pieces of information.
 
@@ -323,7 +320,7 @@ cannot be known in advance since it is possible that a scan may be interrupted o
 before its planned number of observations. 
 Thus, it is a challenge to standardize a scan.
 NeXus solves these difficulties through 
-a couple of conventions and the use of a HDF-5 feature called unlimited dimensions. With the HDF-5 
+a couple of conventions and the use of a HDF5 feature called unlimited dimensions. With the HDF5 
 unlimited dimensions feature, one axis of the data is allowed to expand without limit and 
 the size of a data array does not need to be declared in advance. Data can be appended 
 to an array along the unlimited dimension as required. 
@@ -331,7 +328,7 @@ to an array along the unlimited dimension as required.
 Scans are stored in NeXus following these conventions: 
 \begin{itemize}
 \item Each variable varied or collected in the scan is stored at its appropriate place in the NeXus beamline 
- hierarchy as an array. The array's first dimension is the number of scan points. This is the unlimited dimension in 
+ hierarchy as an array. The array's first dimension is the scan axis. This is the unlimited dimension in 
  the implementation and data is appended at each scan point to the array. 
 \item The NXdata group holds links to all the variables varied or collected during the scan. 
  This creates something equivalent or better than the tabular representation people are used to for scans. 
@@ -341,8 +338,8 @@ Scans are stored in NeXus following these conventions:
 
 NeXus allows multi dimensional scans too. This makes it very simple to produce meaningful slices through data 
 volmes even with NeXus-agnostic software (like hdfview). Interrupting a multi-dimensional scan may, depending 
-on the software used, leave some of the data in an uninitialised state (usually the HDF-5 fill value). 
-This is behaviour is currently undefined in NeXus.
+on the software used, leave some of the data in an uninitialised state (usually the HDF5 fill value). 
+This behaviour is currently undefined in NeXus.
 
 \subsubsection{Coordinate System and Positioning of Components}
 
@@ -412,12 +409,11 @@ for storing the input and output parameters of the program used to perform the p
 
 As can be seen from the discussion of the NeXus file hierarchy, NeXus arranges data into groups which have a 
 type descriptor, the NeXus base class, associated with them. For each of these NeXus base classes, there 
-exists a description of all the fields and groups possible within such a NeXus base class as well as definitions 
+exists a description of all the fields and groups allowed within such a NeXus base class as well as definitions 
 of the scientific meaning of each field. The collection of these NeXus base classes constitute the NeXus dictionary. 
 The term class is a little misleading: NeXus base classes are not classes in strict object oriented notation, but 
-are dictionaries of allowed names. A common misconception is that NeXus users have to give values for all the 
-names in a NeXus base class. This is not the case; only those applicable to the instrument and situation at hand need 
-to be written to the file.
+are dictionaries of allowed group and field keywords. A common misconception is that NeXus users have to give values for all the allowed keywords.
+This is not the case; only those applicable to the instrument and situation at hand need to be written to the file.
 
 The NeXus base classes are encoded in NeXus Description Language (NXDL)\cite{nxman}. NXDL is 
 just another application of XML. Thus a NXDL file is an XML file that specifies the content of the NeXus base classes. 
@@ -430,9 +426,9 @@ Procedures are in place to extend NeXus base classes quickly when necessary.
 The NeXus approach to standardization is unique for a standard. At first NeXus asks you to store 
 as much relevant information about your data as possible. In a second step NeXus then defines a 
 standard for a certain use case of NeXus, an application definition, wherein domain-specific fields 
-for that use case are described as well as their locations within the NeXus file. This 
-definition is the NeXus application definition. Use cases can be experimental techniques like SAS or 
-powder diffraction, while processed data use cases such as tomography reconstructions or S(Q,Omega), 
+for that use case are described as well as their locations within the NeXus file.
+Use cases can be experimental techniques like SAS or 
+powder diffraction, while processed data use cases such as tomography reconstructions or $S(Q,\omega)$, 
 or even administrative use cases such as archiving. This scheme works because data in a NeXus file 
 can be searched for. Thus it is trivial to ignore data which is not of interest for a particular use case.
 
@@ -479,28 +475,28 @@ across all facilities, enhancing the uptake of NeXus within the community.
 
 \section{NeXus Governance}
 
-The development of NeXus is overseen by the NeXus International Advisory Committee (NIAC). 
-In the NIAC, most relevant facilities are represented. It is easy to join the NIAC if 
-there is justified interest. 
+The development of NeXus is overseen by the NeXus International Advisory Committee (NIAC).
+In the NIAC, most major neutron, X-ray, and muon facilities are represented.
+Other facilities are invited to join.
 
 \section{Backwards Compatibility}
 
-In the past, NeXus supported data files in HDF-4, HDF-5, and XML file formats. 
+In the past, NeXus supported data files in HDF-4, HDF5, and XML file formats. 
 To support writing software to write and read these file formats, the NeXus
 application/programmer interface (NeXus-API) was provided.
-This API still exists and is maintained at a bug fix level.
+This API is maintained at a bug fix level.
 On request of the community, we now concentrate our efforts only
-on the HDF-5 files and tools.
+on the HDF5 files and tools.
 
 \section{Summary}
 
 NeXus has matured considerably over the last 10 years and is now in use in many facilities. NeXus 
 is flexible enough to accommodate a wide variety of instruments and scientific applications. 
 Yet it is efficient enough to 
-handle the data coming from modern high speed detectors. For more information,
-do not hesitate to consult the NeXus WWW--site\cite{nxwww} or to contact
-the members of the NIAC. 
-
+handle the data coming from modern high speed detectors.
+More information, including a full PDF manual, can be found on
+  the project web site.\cite{nxwww}
+Also, do not hesitate to contact members of the NIAC.
 
 
 \nocite{*}
