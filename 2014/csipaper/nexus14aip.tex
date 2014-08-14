@@ -212,7 +212,7 @@ each relevant instrument component&
 \multicolumn{2}{l}{User information}\\
 \hline
 \multicolumn{2}{l}{\texttt{NXdata}}\\
-\multicolumn{2}{p{3.0cm}}{Links to plottable data in the NXdetector group --
+\multicolumn{2}{p{3.0cm}}{Links to plottable data in the \texttt{NXdetector} group --
  one instance for each detector bank. This provides support for generating a
 typical plot automatically}\\
 \end{tabular}\\
@@ -412,21 +412,38 @@ in the \texttt{NXprocess} group. The \texttt{NXprocess} group can hold additiona
 for storing the input and output parameters of the program used to perform the processing. 
 
 
-\section{The NeXus Dictionary}
+\section{NeXus base classes}
 
 As can be seen from the discussion of the NeXus file hierarchy, NeXus arranges data into groups which have a 
 type descriptor, a NeXus base class name, associated with them
-(technically, this name is the value of the HDF5 attribute \texttt{NXclass}). For each of these NeXus base classes, there 
-exists a description of all the fields and groups allowed within such a NeXus base class as well as definitions 
-of the scientific meaning of each field. The collection of these NeXus base classes constitute the NeXus dictionary. 
-The term class is a little misleading: NeXus base classes are not classes in strict object oriented notation, but 
-are dictionaries of allowed group and field keywords. A common misconception is that NeXus users have to give values for all the allowed keywords.
-This is not the case; only those applicable to the instrument and situation at hand need to be written to the file.
+(technically, this name is the value of the HDF5 attribute \texttt{NXclass}).
+The term \emph{base class} is not meant in the sense of 
+objet-oriented programming languages;
+in particular, there is no inheritance.
+A NeXus base class is rather a dictionary of allowed keywords.
+These keywords designate data fields that can be stored within a group.
+A data field can have a simple type (like integer, float, date/time, binary),
+or it can be a NeXus subgroup.
+The base class definition also contains informal annotations
+about the semantics of each field.
+
+At base class level, NeXus has no mechanism to mark some fields as obligatory.
+All allowed fields are optional.
+Which of them are written into data files must be decided
+according to application needs.
+
+NeXus does not specify the \emph{rank} of a data field.
+For many, but not all fields it is possible to infer from
+the field name or from an explicit annotation
+whether the field is a scalar or what its array dimensionality is.
+The character data type \texttt{NXchar} is almost always to be
+understood as string type.
 
 The NeXus base classes are encoded in NeXus Description Language (NXDL)\cite{nxman}. NXDL is 
 just another application of XML. Thus a NXDL file is an XML file that specifies the content of the NeXus base classes. 
 
-Procedures are in place to extend NeXus base classes quickly when necessary.
+Procedures are in place to extend NeXus base classes quickly when necessary
+\textbf{(needs to be elaborated)}.
 
 
 \section{NeXus Application Definitions}
@@ -466,7 +483,7 @@ canSAS, NeXus, and the IUCr Commission on Small-Angle Scattering.
 \section{Uptake of NeXus} 
 
 NeXus is already in use as the main data format at facilities like Soleil, Diamond, SINQ, SNS, Lujan/LANL 
-and KEK. Other facilities like ISIS, DESY and the muSR community are in the process of moving towards 
+and KEK. Other facilities like ISIS, DESY and the $\mu$SR community are in the process of moving towards 
 NeXus as  data format. At LBNL, NeXus is currently being adapted for XFEL serial crystallographic data. 
 
 
