@@ -258,11 +258,11 @@ the debatable decision was taken to move NXmonitor
 out of NXinstrument to the higher hierarchy level of NXentry,
 in order to facilitate quick inspection by humans.
 
-The requirement to enable a simple default visualization of the data
-is met by the NXdata group at NXentry level.
+To enable a simple default visualization,
+a NXdata group must be provided at NXentry level.
 It contains information about plot axes and links to the data
 (which typically reside in the NXdetector group).
-Such links are supported by HDF5,
+Links are supported by HDF5,
 and work like symbolic links in the Unix file system.
 
 \subsubsection{Multiple Method Instruments}
