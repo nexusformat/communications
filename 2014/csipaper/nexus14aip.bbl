@@ -7,7 +7,7 @@
 %Control: year (1) truncated
 %Control: production of eprint (0) enabled
 \providecommand{\noopsort}[1]{}\providecommand{\singleletter}[1]{#1}%
-\begin{thebibliography}{8}%
+\begin{thebibliography}{10}%
 \makeatletter
 \providecommand \@ifxundefined [1]{%
  \@ifx{#1\undefined}
@@ -51,23 +51,12 @@
 \providecommand \BibitemShut  [1]{\csname bibitem#1\endcsname}%
 \let\auto@bib@innerbib\@empty
 %</preamble>
-\bibitem [{\citenamefont {Campbell}\ \emph {et~al.}(2006)\citenamefont
-  {Campbell}, \citenamefont {Cadogan}, \citenamefont {Furusaka}, \citenamefont
-  {Hauser}, \citenamefont {James}, \citenamefont {Osborn},\ and\ \citenamefont
-  {Wilson}}]{nxold}%
+\bibitem [{\citenamefont {K\"onnecke}(2006)}]{nxold}%
   \BibitemOpen
-  \bibinfo {editor} {\bibfnamefont {S.}~\bibnamefont {Campbell}}, \bibinfo
-  {editor} {\bibfnamefont {J.}~\bibnamefont {Cadogan}}, \bibinfo {editor}
-  {\bibfnamefont {M.}~\bibnamefont {Furusaka}}, \bibinfo {editor}
-  {\bibfnamefont {N.}~\bibnamefont {Hauser}}, \bibinfo {editor} {\bibfnamefont
-  {M.}~\bibnamefont {James}}, \bibinfo {editor} {\bibfnamefont
-  {R.}~\bibnamefont {Osborn}}, \ and\ \bibinfo {editor} {\bibfnamefont
-  {C.}~\bibnamefont {Wilson}},\ eds.,\ \href@noop {} {\emph {\bibinfo {title}
-  {Proceedings of the Eigth International Conference on Neutron Scattering:
-  ICNS 2005}}},\ \bibinfo {series} {Physica B Condensed Matter}, Vol.\ \bibinfo
-  {volume} {385-386}\ (\bibinfo  {publisher} {Elsevier},\ \bibinfo {year}
-  {2006})\ \bibinfo {note} {the State of the NeXus data format}\BibitemShut
-  {NoStop}%
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {M.}~\bibnamefont
+  {K\"onnecke}},\ }\href@noop {} {\bibfield  {journal} {\bibinfo  {journal}
+  {Physica B}\ }\textbf {\bibinfo {volume} {385-386}},\ \bibinfo {pages} {1343}
+  (\bibinfo {year} {2006})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {Hdfgroup}(2014)}]{hdf5}%
   \BibitemOpen
   \bibfield  {author} {\bibinfo {author} {\bibnamefont {Hdfgroup}},\
@@ -119,6 +108,29 @@
   (\bibinfo {year} {2014 (accessed july 2014)}),\ \bibinfo {note}
   {\url{http://www.cansas.org/formats/canSAS2012/1.0/doc/}}\BibitemShut
   {NoStop}%
+\bibitem [{\citenamefont {D.~Flannery}(2003)}]{muon1}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {P.~K.}\ \bibnamefont
+  {D.~Flannery}, \bibfnamefont {S.P.~Cottrell}},\ }\href@noop {} {\bibfield
+  {journal} {\bibinfo  {journal} {Physica B}\ }\textbf {\bibinfo {volume}
+  {326}},\ \bibinfo {pages} {238} (\bibinfo {year} {2003})}\BibitemShut
+  {NoStop}%
+\bibitem [{\citenamefont {Cottrell}\ \emph {et~al.}(2012)\citenamefont
+  {Cottrell}, \citenamefont {Pratt}, \citenamefont {Hillier}, \citenamefont
+  {King}, \citenamefont {Akeroyd}, \citenamefont {Markvardsen}, \citenamefont
+  {Draper}, \citenamefont {Yao},\ and\ \citenamefont {Blundell}}]{muon2}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {S.~P.}\ \bibnamefont
+  {Cottrell}}, \bibinfo {author} {\bibfnamefont {F.}~\bibnamefont {Pratt}},
+  \bibinfo {author} {\bibfnamefont {A.}~\bibnamefont {Hillier}}, \bibinfo
+  {author} {\bibfnamefont {P.}~\bibnamefont {King}}, \bibinfo {author}
+  {\bibfnamefont {F.}~\bibnamefont {Akeroyd}}, \bibinfo {author} {\bibfnamefont
+  {A.}~\bibnamefont {Markvardsen}}, \bibinfo {author} {\bibfnamefont
+  {N.}~\bibnamefont {Draper}}, \bibinfo {author} {\bibfnamefont
+  {Y.}~\bibnamefont {Yao}}, \ and\ \bibinfo {author} {\bibfnamefont
+  {S.}~\bibnamefont {Blundell}},\ }\href@noop {} {\bibfield  {journal}
+  {\bibinfo  {journal} {Physics Procedia}\ }\textbf {\bibinfo {volume} {30}},\
+  \bibinfo {pages} {20} (\bibinfo {year} {2012})}\BibitemShut {NoStop}%
 \bibitem [{\citenamefont {NIAC}(2014{\natexlab{b}})}]{nxwww}%
   \BibitemOpen
   \bibfield  {author} {\bibinfo {author} {\bibnamefont {NIAC}},\ }\href@noop {}
