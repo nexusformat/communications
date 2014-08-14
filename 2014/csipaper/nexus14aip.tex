@@ -252,8 +252,10 @@ a complete workflow in a file causes the beamline component hierarchy to be push
 group in the hierarchy. The NXentry  group thus represents one scan or run (or a processed data entry, as will be discussed later). 
 The NXentry group also holds the experiment metadata, such as the date and time at which it was performed. 
 
-The requirement to access sample information and counting information such as monitors quickly 
-pulled this information out of the beamline hierarchy and into the NXentry level.
+In the course of NeXus history,
+the debatable decision was taken to move NXmonitor
+out of NXinstrument to the higher hierarchy level of NXentry,
+in order to facilitate quick inspection by humans.
 
 Another requirement was to provide easy access to a default visualization of the data. This idea was realised with the 
 NXdata type group at NXentry level. The NXdata group contains the data and axes data necessary to create a default plot of 
