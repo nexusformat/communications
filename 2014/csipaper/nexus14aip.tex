@@ -148,16 +148,18 @@ The development of NeXus is overseen by a committee, the NeXus International Adv
 
 \section{NeXus Design Principles}
 
+The authors of data-acquisition and instrument-control software are encouraged to generate exactly \emph{one} NeXus container file per measurement
+(a measurement is either a data accumulation under fixed conditions,
+or a scan).
+This file includes not only the detector and monitor data,
+but also metadata, information on the state of the beamline, parameter logs, and more.
+Authors of data-reduction and data-analysis software can use NeXus to
+store processed data along with metadata and a processing log.
 
-NeXus encourages its users to store all relevant data associated with their experiment or data analysis 
-in a NeXus container file. This includes the state of the beamline, detector data, metadata, sample environment 
-logs  and more.  The general idea is for users to have to read only one logical file. 
-That enables the user to analyse data in ways yet unforeseen because the necessary additional 
-fields have been stored. The burden of writing complete files is usually with the producing 
-facility or software,  not the user. Thus this is no problem for the user. 
-
-Consistent with the container file objective, it is always possible to add data, even non-NeXus data, 
-to a NeXus data file without breaking NeXus. 
+As a container format, NeXus allows files to be extended at any moment by
+additional entries.
+A special field type, NXcollection, exempts its contents from validation
+and thereby allows inclusion of whatever data in arbitrary non-NeXus formats.
 
 A NeXus container file may contain hundreds of fields. Often, all that is needed for data reduction or analysis are a small fraction 
 of these - perhaps fewer than 20 fields. These necessary fields are dependent on the experimental technique and NeXus provides a way to 
