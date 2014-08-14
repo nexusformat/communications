@@ -161,10 +161,13 @@ additional entries.
 A special field type, NXcollection, exempts its contents from validation
 and thereby allows inclusion of whatever data in arbitrary non-NeXus formats.
 
-A NeXus container file may contain hundreds of fields. Often, all that is needed for data reduction or analysis are a small fraction 
-of these - perhaps fewer than 20 fields. These necessary fields are dependent on the experimental technique and NeXus provides a way to 
-describe a set of necessary fields as a NeXus application definition. Files can be validated against such an application definition
-by checking for the presence of the required fields. This is the way in which NeXus expresses file standards. 
+NeXus can be used for many different experimental techniques,
+and at different levels of data processing.
+For each of these different application,
+a specific subset of the standardized NeXus entities 
+(data groups and fields) is needed.
+These subsets, and their hierarchical structure, are standardized
+in the NeXus application definitions (Sect.~\ref{sect_appdef}).
 
 \section{NeXus File Hierarchies}
 NeXus data files are organized into a hierarchy of groups which, in turn, can contain further groups or fields, 
@@ -424,6 +427,7 @@ Procedures are in place to extend NeXus base classes quickly when necessary.
 
 
 \section{NeXus Application Definitions}
+  \label{sect_appdef}
 
 The NeXus approach to standardization is unique for a standard. At first NeXus asks you to store 
 as much relevant information about your data as possible. In a second step NeXus then defines a 
