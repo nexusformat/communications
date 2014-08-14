@@ -240,7 +240,7 @@ equipment, or processed only as required to provide physically meaningful values
 The NeXus raw data file hierarchy is the consequence of some practical considerations. When looking at a beamline it is easy to 
 discern different components: beam optic components, sample position, detectors and such. It is quite natural to mirror this physical 
 separation with a logical arrangement of storing the data from each component in a separate group. This approach explains the 
-list of beamline components in the NXinstrument group presented in Table\ref{rawfile}. 
+list of beamline components in the NXinstrument group presented in Table~\ref{rawfile}. 
 As there can be multiple instances of the same kind of equipment, like slits or detectors, in a given beamline it becomes necessary
 to add type information to the group name,
 which is provided by a HDF5 attribute, the NeXus class name.
@@ -267,20 +267,20 @@ and work like symbolic links in the Unix file system.
 
 \subsubsection{Multiple Method Instruments}
 
-Particularly at x-ray sources, some beamlines implement multiple techniques in the same instrument. 
-For example small-angle scattering (SAS) and powder diffraction in the same beamline are sometimes measured 
-simultaneously (such as SAXS/WAXS). This poses a problem for an automatic data analysis tool to find its data 
-for processing.  NeXus solves this problem through a scheme involving these steps:
-\begin{enumerate}
-\item All the data is stored in one NXentry hierarchy
-\item At entry level, for each experimental method of the beamline an NXsubentry group is introduced. The 
-  NXsubentry groups have the same hierarchy as the  NXentry group. NXsubentry holds only the data relevant 
-  for the experimental method it describes. In order to avoid data duplication, links into the main NXentry 
-  hierarchy are used. 
-  NXsubentry usually only holds the 20-30 data items required by its corresponding NeXus 
-  application definition.  
-\end{enumerate} 
-These steps are represented in the overview of Table \ref{multimethod}.
+Particularly at x-ray sources,
+some instruments offer multiple techniques that can be used in parallel.
+For example small-angle scattering and powder diffraction 
+can be measured simultaneously at a SAXS/WAXS beamline.
+We recommend to store the results from all subinstruments in \emph{one} file.
+All data are stored in one and the same NXentry hierarchy
+(Table~\ref{multimethod}).
+Information that applies to all subinstruments is stored
+at NXentry level as before.
+Information that is peculiar for one experimental technique
+is moved down into a NXsubentry.
+Aside from this,
+each subentry follows the application definition that is pertinent
+for its experimental technique.
 
 \begin{table}
 \caption{Overview of the structure of a NeXus raw data file for an instrument with multiple methods \label{multimethod}}
