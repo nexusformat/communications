@@ -278,7 +278,7 @@ Information that applies to all subinstruments is stored
 at NXentry level as before.
 Information that is peculiar for one experimental technique
 is moved down into a NXsubentry.
-Aside from this,
+Aside from this rearrangement,
 each subentry follows the application definition that is pertinent
 for its experimental technique.
 
@@ -415,7 +415,8 @@ for storing the input and output parameters of the program used to perform the p
 \section{The NeXus Dictionary}
 
 As can be seen from the discussion of the NeXus file hierarchy, NeXus arranges data into groups which have a 
-type descriptor, the NeXus base class, associated with them. For each of these NeXus base classes, there 
+type descriptor, a NeXus base class name, associated with them
+(technically, this name is the value of the HDF5 attribute NXclass). For each of these NeXus base classes, there 
 exists a description of all the fields and groups allowed within such a NeXus base class as well as definitions 
 of the scientific meaning of each field. The collection of these NeXus base classes constitute the NeXus dictionary. 
 The term class is a little misleading: NeXus base classes are not classes in strict object oriented notation, but 
