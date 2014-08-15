@@ -172,54 +172,11 @@ in the NeXus application definitions (Sect~\ref{sect_appdef}).
 
 \section{NeXus File Hierarchies}
 NeXus data files are organized into a hierarchy of groups which, in turn, can contain further groups or fields, 
-very much like an internal file system. For an overview of the NeXus data file structure for raw experimental data see Table \ref{rawfile}.
-\begin{table}
-\caption{Overview of the structure of a NeXus raw data file \label{rawfile}}
-\begin{tabular}{|p{1cm}|p{6.5cm}|}
-\hline
-\multicolumn{2}{|l|}{\texttt{NXroot}}\\
-\hline
-The root level of a NeXus file & 
-\begin{tabular}{p{1.5cm}|p{4.8cm}}
-\multicolumn{2}{l}{\texttt{NXentry}}\\
-\hline
-All data belonging to one scan or run. A given NeXus file
-can contain multiple related scans or runs &
-\begin{tabular}{p{1.5cm}|p{3.1cm}}
-\multicolumn{2}{l}{\texttt{NXinstrument}}\\
-\hline
-The data needed to describe an instrument. Contains groups for
-each relevant instrument component&
-\begin{tabular}{p{3.0cm}}
-\texttt{NXsource}\\
-\hline
-\texttt{NXcollimator}\\
-\hline
-\texttt{NXattenuator}\\
-\hline
-\texttt{NXdetector}\\
-\hline
-\ldots\\
-\end{tabular}\\
-\hline
-\multicolumn{2}{l}{\texttt{NXsample}}\\
-\multicolumn{2}{p{3.0cm}}{All the information about the sample}\\
-\hline
-\multicolumn{2}{l}{\texttt{NXmonitor}}\\
-\multicolumn{2}{l}{Intensity monitor}\\
-\hline
-\multicolumn{2}{l}{\texttt{NXuser}}\\
-\multicolumn{2}{l}{User information}\\
-\hline
-\multicolumn{2}{l}{\texttt{NXdata}}\\
-\multicolumn{2}{p{3.0cm}}{Links to plottable data in the \texttt{NXdetector} group --
- one instance for each detector bank. This provides support for generating a
-typical plot automatically}\\
-\end{tabular}\\
-\end{tabular}\\
-\hline
-\end{tabular}
-\end{table}
+very much like an internal file system. For an overview of the NeXus data file structure for raw experimental data see FIG.~\ref{rawfile}.
+\begin{figure}
+\includegraphics[width=\columnwidth]{figure1}
+\caption{\label{rawfile}Overview of the structure of a NeXus raw data file.}
+\end{figure}
 
 In the following sections, we will describe some of the rules that define the overall structure of NeXus files. Many fine details 
 of the NeXus format have been thoroughly discussed and are now well defined, but for the sake of brevity, we will not present an 
@@ -240,7 +197,7 @@ equipment, or processed only as required to provide physically meaningful values
 The NeXus raw data file hierarchy is the consequence of some practical considerations. When looking at a beamline it is easy to 
 discern different components: beam optic components, sample position, detectors and such. It is quite natural to mirror this physical 
 separation with a logical arrangement of storing the data from each component in a separate group. This approach explains the 
-list of beamline components in the \texttt{NXinstrument} group presented in Table~\ref{rawfile}. 
+list of beamline components in the \texttt{NXinstrument} group presented in FIG.~\ref{rawfile}. 
 As there can be multiple instances of the same kind of equipment, like slits or detectors, in a given beamline it becomes necessary
 to add type information to the group name,
 which is provided by a HDF5 attribute, the NeXus class name.
@@ -273,7 +230,7 @@ For example small-angle scattering and powder diffraction
 can be measured simultaneously at a SAXS/WAXS beamline.
 We recommend to store the results from all subinstruments in \emph{one} file.
 All data are stored in one and the same \texttt{NXentry} hierarchy
-(Table~\ref{multimethod}).
+(FIG.~\ref{multimethod}).
 Information that applies to all subinstruments is stored
 at \texttt{NXentry} level as before.
 Information that is peculiar for one experimental technique
@@ -282,43 +239,10 @@ Aside from this rearrangement,
 each subentry follows the application definition that is pertinent
 for its experimental technique.
 
-\begin{table}
-\caption{Overview of the structure of a NeXus raw data file for an instrument with multiple methods \label{multimethod}}
-\begin{tabular}{|p{1cm}|p{6.5cm}|}
-\hline
-\multicolumn{2}{|l|}{\texttt{NXroot}}\\
-\hline
-... &
-\begin{tabular}{p{1.5cm}|p{4.8cm}}
-\multicolumn{2}{l}{\texttt{NXentry}}\\
-\hline
-All data from multiple methods &
-\begin{tabular}{p{1.5cm}|p{3.1cm}}
-\multicolumn{2}{l}{\texttt{NXinstrument}}\\
-\hline
-...&
-\begin{tabular}{p{3.0cm}}
-\texttt{NXsource}\\
-\hline
-\ldots\\
-\end{tabular}\\
-\hline
-\multicolumn{2}{l}{\texttt{NXsample}}\\
-\hline
-\multicolumn{2}{l}{\texttt{NXuser}}\\
-\hline
-\multicolumn{2}{l}{\texttt{NXdata}}\\
-\hline
-\multicolumn{2}{l}{\texttt{\textbf{NXsubentry}}}\\
-\multicolumn{2}{p{3.0cm}}{SAS specification}\\
-\hline
-\multicolumn{2}{l}{\texttt{\textbf{NXsubentry}}}\\
-\multicolumn{2}{p{3.0cm}}{powder diffraction specification}\\
-\end{tabular}\\
-\end{tabular}\\
-\hline
-\end{tabular}
-\end{table}
+\begin{figure}
+\includegraphics[width=\columnwidth]{figure2}
+\caption{\label{multimethod}Overview of the structure of a NeXus raw data file for an instrument with multiple methods.}
+\end{figure}
 
 \subsubsection{Scans}
 
@@ -360,45 +284,18 @@ of the translations and rotations necessary to move a given component from the z
 system to its actual position. As coordinate transformations are not commutative, the order of transformations 
 must also be stored.
 
-\begin{table}
-\caption{Overview of the structure of a NeXus processed data file \label{procfile}}
-\begin{tabular}{|p{1cm}|p{6.5cm}|}
-\hline
-\multicolumn{2}{|l|}{\texttt{NXroot}}\\
-\hline
-The root level of a NeXus file & 
-\begin{tabular}{p{1.5cm}|p{4.8cm}}
-\multicolumn{2}{l}{\texttt{NXentry}}\\
-\hline
-All data belonging to this processed data entry&
-\begin{tabular}{p{1.5cm}|p{3.0cm}}
-\multicolumn{2}{l}{\texttt{NXprocess}}\\
-\hline
-The data needed to describe this processing step&
-\begin{tabular}{p{3.0cm}}
-input:\texttt{NXparameter}\\
-\hline
-output:\texttt{NXparameter}\\
-\hline
-\end{tabular}\\
-\hline
-\multicolumn{2}{l}{\texttt{NXsample}}\\
-\multicolumn{2}{p{3.0cm}}{All the information about the sample}\\
-\hline
-\multicolumn{2}{l}{\texttt{NXdata}}\\
-\multicolumn{2}{p{3.0cm}}{The result data from the data processing including its axes}\\
-\end{tabular}\\
-\end{tabular}\\
-\hline
-\end{tabular}
-\end{table}
 
 \subsection{Processed Data}
 
 At the request of the user community, NeXus created a simplified structure for storing the result of data 
 processing: be it reduction or analysis. In many cases even the reduced data is big enough to need 
 an efficient binary representation. A good example is a tomography reconstruction. A tabular representation 
-of the NeXus processed data file structure is given in Table \ref{procfile}. 
+of the NeXus processed data file structure is given in FIG.~\ref{procfile}. 
+
+\begin{figure}
+\includegraphics[width=\columnwidth]{figure3}
+\caption{\label{procfile}Overview of the structure of a NeXus processed data file.}
+\end{figure}
 
 The hierarchy is much reduced as it is not important to carry all experimental information in the data 
 reduction. In contrast to the raw data file structure, \texttt{NXdata} in the processed file structure is the place 
