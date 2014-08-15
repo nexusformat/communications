@@ -157,9 +157,17 @@ but also metadata, information on the state of the beamline, parameter logs, and
 Authors of data-reduction and data-analysis software can use NeXus to
 store processed data along with metadata and a processing log.
 
+NeXus data files are built using basic HDF5 storage elements: 
+data groups (like file system folders), 
+data fields (such as strings, floats, integers, and arrays), 
+attributes (additional descriptors of groups and fields), 
+and links (like file system links).  These basic storage elements are used to
+build the \emph{base classes}, \emph{application definitions},
+and \emph{contributed definitions} that elaborate the NeXus standard.
+
 As a container format, NeXus allows files to be extended at any moment by
 additional entries.
-A special field type, \texttt{NXcollection}, exempts its contents from validation
+A special base class, \texttt{NXcollection}, exempts its contents from validation
 and thereby allows inclusion of whatever data in arbitrary non-NeXus formats.
 
 NeXus can be used for many different experimental techniques,
@@ -172,7 +180,9 @@ in the NeXus application definitions (Sect~\ref{sect_appdef}).
 
 \section{NeXus File Hierarchies}
 NeXus data files are organized into a hierarchy of groups which, in turn, can contain further groups or fields, 
-very much like an internal file system. For an overview of the NeXus data file structure for raw experimental data see FIG.~\ref{rawfile}.
+very much like an internal file system. The content of each NeXus group is defined by either a base class, 
+application definition, or contributed definition.
+For an overview of the NeXus data file structure for raw experimental data see FIG.~\ref{rawfile}.
 \begin{figure}
 \includegraphics[width=\columnwidth]{figure1}
 \caption{\label{rawfile}Overview of the structure of a NeXus raw data file.}
