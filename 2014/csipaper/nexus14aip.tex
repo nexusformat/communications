@@ -66,7 +66,7 @@ rsi,
 \author{Jens Uwe Hoffmann}
 \affiliation{Helmholtz Zentrum Berlin, Germany}
 
-\author{Pete Jemian}
+\author{Pete R. Jemian}
 \affiliation{Advanced Photon Source, Argonne National Laboratory, USA}
 
 \author{David M\"annicke}
@@ -84,7 +84,7 @@ rsi,
 \author{Jiro Suzuki}
 \affiliation{KEK, Japan}
 
-\author{Bejmanin Watts}
+\author{Benjamin Watts}
 \affiliation{Swiss Light Source, Paul Scherrer Institute, 5232 Villigen-PSI, Switzerland}
 
 \author{Eugen Wintersberger}
@@ -130,7 +130,7 @@ home-grown data formats. This scheme has a number of drawbacks addressed by NeXu
  in different formats, file converters and such in order to extract scientific information from the data.
  \item An unnecessary burden is imposed on data analysis software producers as they have to accommodate so many different formats.  
 \item The whole idea of open access to data is sabotaged if the data is in a format which cannot be easily understood.
-\item Modern high speed detectors produce data at such a rate that many older single image storage schemes 
+\item Modern high speed detectors produce data at such a high rate that many older single image storage schemes 
  have become impractical and 
  an efficient container format is a necessity. 
 \end{itemize}
@@ -192,7 +192,7 @@ For an overview of the NeXus data file structure for raw experimental data see F
 
 In the following sections, we will describe some of the rules that define the overall structure of NeXus files. Many fine details 
 of the NeXus format have been thoroughly discussed and are now well defined, but for the sake of brevity, we will not present an 
-exhaustive view of NeXus here. A full listing of NeXus rules are given in the NeXus manual\cite{nxman}. Some examples of these 
+exhaustive view of NeXus here. A full listing of NeXus rules is given in the NeXus manual\cite{nxman}. Some examples of these 
 additional rules include those governing:
 \begin{itemize}
 \item How axes are associated with data
@@ -231,7 +231,7 @@ To enable a simple default visualization,
 a \texttt{NXdata} group must be provided at \texttt{NXentry} level.
 It contains information about plot axes and links to the data
 (which typically reside in the \texttt{NXdetector} group).
-Links are supported by HDF5,
+Links are supported by HDF5
 and work like symbolic links in the Unix file system.
 
 \subsubsection{Multiple Method Instruments}
@@ -276,8 +276,11 @@ Scans are stored in NeXus following these conventions:
  the implementation and data is appended at each scan point to the array. 
 \item The \texttt{NXdata} group holds links to all the variables varied or collected during the scan. 
  This creates something equivalent to or better than the tabular representation people are used to for scans. 
- The main detector data scan be plotted against any scanned parameter as well as against everything that was 
- deemed worth recording in addition to that, reading the \texttt{NXdata} group alone. 
+ The main detector data can be plotted against any scanned parameter as well as against everything that was 
+ deemed worth recording in addition to that.  The necessary data is all gathered together in the \texttt{NXdata}
+ group either directly or via links, so that other groups do not
+ normally have to be searched to do this plotting.
+ 
 \end{itemize}
 
 NeXus allows multi-dimensional scans too. This makes it very simple to produce meaningful slices through data 
@@ -341,7 +344,7 @@ All allowed fields are optional.
 Which of them are written into data files must be decided
 according to application needs.
 These decisions can be standardized in form of
-application definitions (see below, Sect~\ref{sect_appdef}).
+application definitions (see below, Sect.~\ref{sect_appdef}).
 
 NeXus does not specify the \emph{rank} of a data field.
 For many, but not all fields it is possible to infer from
@@ -381,7 +384,7 @@ NeXus data files. A tool exists to perform such validation.%
 % is there a JAR file available?
 
 The process of drafting and ratifying application definitions
-is ongoing (see also below, Sect~\ref{sect_gov}).
+is ongoing (see also below, Sect.~\ref{sect_gov}).
 Currently, scientists representing both
 the NeXus International Advisory Committee and the IUCr Committee on the Maintenance
 of the CIF standard 
@@ -396,7 +399,7 @@ canSAS, NeXus, and the IUCr Commission on Small-Angle Scattering.
 
 NeXus is already in use as the main data format at facilities like Soleil, Diamond, SINQ, SNS, Lujan/LANL 
 and KEK. Other facilities like ISIS, DESY and the $\mu$SR community are in the process of moving towards 
-NeXus as  data format. At LBNL, NeXus is currently being adapted for XFEL serial crystallographic data. 
+NeXus as their data format. At LBNL, NeXus is currently being adapted for XFEL serial crystallographic data. 
 
 
 The adoption of NeXus took time. The reason is that NeXus is often chosen whenever 
