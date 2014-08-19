@@ -107,7 +107,7 @@ domain-specific
 rules for organizing data within HDF5 files in addition to a dictionary of well-defined 
 domain-specific field names. The NeXus data format has two purposes.  First, NeXus defines a
 format that can serve as a container for all relevant data associated
-with a beamline, an increasingly important function.  Second, NeXus
+with a beamline. This is a very important use case.  Second, NeXus
 defines standards in the form of \emph{application definitions} for the
 exchange of data between applications.  NeXus provides structures for raw experimental data as well as for processed data.  
 \end{abstract}
@@ -130,6 +130,7 @@ home-grown data formats. This scheme has a number of drawbacks addressed by NeXu
  in different formats, file converters and such in order to extract scientific information from the data.
  \item An unnecessary burden is imposed on data analysis software producers as they have to accommodate so many different formats.  
 \item The whole idea of open access to data is sabotaged if the data is in a format which cannot be easily understood.
+\item Scientific integrity is jeopardized if the data cannot be understood. Or important elements are missing.
 \item Modern high speed detectors produce data at such a high rate that many older single image storage schemes 
  have become impractical and 
  an efficient container format is a necessity. 
@@ -184,26 +185,15 @@ in the NeXus application definitions (Sect.~\ref{sect_appdef}).
 NeXus data files are organized into a hierarchy of groups which, in turn, can contain further groups or fields, 
 very much like an internal file system. The content of each NeXus group is defined by either a base class, 
 an application definition, or a contributed definition.
+
+
+\subsection{NeXus Raw Data File Hierarchy}
 For an overview of the NeXus data file structure for raw experimental data see FIG.~\ref{rawfile}.
 \begin{figure}
 \includegraphics[width=\columnwidth]{figure1}
 \caption{\label{rawfile}Overview of the structure of a NeXus raw data file.}
 \end{figure}
 
-In the following sections, we will describe some of the rules that define the overall structure of NeXus files. Many fine details 
-of the NeXus format have been thoroughly discussed and are now well defined, but for the sake of brevity, we will not present an 
-exhaustive view of NeXus here. A full listing of NeXus rules is given in the NeXus manual\cite{nxman}. Some examples of these 
-additional rules include those governing:
-\begin{itemize}
-\item How axes are associated with data
-\item That units must be given with the data
-\item How data is to be stored in NeXus fields
-\item How to describe array data which is not in ANSI C storage order
-\end{itemize}
-
-
-
-\subsection{NeXus Raw Data File Hierarchy}
 The major focus of NeXus has been the recording of ``raw'' experimental data, i.e. information taken directly from the experimental 
 equipment, or processed only as required to provide physically meaningful values.
 The NeXus raw data file hierarchy is the consequence of some practical considerations. When looking at a beamline it is easy to 
@@ -211,8 +201,7 @@ discern different components: beam optic components, sample position, detectors 
 separation with a logical arrangement of storing the data from each component in a separate group. This approach explains the 
 list of beamline components in the \texttt{NXinstrument} group presented in FIG.~\ref{rawfile}. 
 As there can be multiple instances of the same kind of equipment, like slits or detectors, in a given beamline it becomes necessary
-to add type information to the group name,
-which is provided by a HDF5 attribute, the NeXus class name.
+to add type information to the group name. This type information is provided by a HDF5 attribute, the NeXus class name.
 By convention NeXus class names start 
 with the prefix \texttt{NX}. Each NeXus group describing a beamline component contains further groups and fields describing the component. 
 A field can contain a single number, a text string or an array, as appropriate to the data to be described.  
@@ -223,7 +212,7 @@ group in the hierarchy. The \texttt{NXentry}  group thus represents one scan or 
 The \texttt{NXentry} group also holds the experiment metadata, such as the date and time at which it was performed. 
 
 In the course of NeXus history,
-the debatable decision was taken to move \texttt{NXmonitor}
+the decision was taken to move \texttt{NXmonitor}
 out of \texttt{NXinstrument} to the higher hierarchy level of \texttt{NXentry},
 in order to facilitate quick inspection by humans.
 
@@ -231,8 +220,7 @@ To enable a simple default visualization,
 a \texttt{NXdata} group must be provided at \texttt{NXentry} level.
 It contains information about plot axes and links to the data
 (which typically reside in the \texttt{NXdetector} group).
-Links are supported by HDF5
-and work like symbolic links in the Unix file system.
+Links are supported by HDF5 and work like symbolic links in the Unix file system.
 
 \subsubsection{Multiple Method Instruments}
 
@@ -242,14 +230,14 @@ For example small-angle scattering and powder diffraction
 can be measured simultaneously at a SAXS/WAXS beamline.
 We recommend storing the results from all subinstruments in \emph{one} file.
 All data are stored in one and the same \texttt{NXentry} hierarchy
-(FIG.~\ref{multimethod}).
-Information that applies to all subinstruments is stored
-at the \texttt{NXentry} level as before.
+(FIG.~\ref{multimethod}). All information from all detectors, logs and 
+such are collected in one \texttt{NXentry} to keep the data together.
 Information that is peculiar for one experimental technique
-is moved down into a \texttt{NXsubentry}.
-Aside from this rearrangement,
-each subentry follows the application definition that is pertinent
-for its experimental technique.
+is linked  into a \texttt{NXsubentry}. The NXsubentry follows the hierarchy of 
+\texttt{NXentry}. But it will typically only links to the data required by the 
+application definition for the specific experimental technique. The point of this scheme 
+is that human and computerized users can easily locate method specific data. But thereby 
+maintaing the full view of the experiment.   
 
 \begin{figure}
 \includegraphics[width=\columnwidth]{figure2}
@@ -287,17 +275,6 @@ NeXus allows multi-dimensional scans too. This makes it very simple to produce m
 volumes even with NeXus-agnostic software (like hdfview). Interrupting a multi-dimensional scan may, depending 
 on the software used, leave some of the data in an uninitialised state (usually the HDF5 fill value).
 
-\subsubsection{Coordinate System and Positioning of Components}
-
-For analysing data it is often necessary to know the exact position and orientation of beamline components. 
-The first thing needed is a reference coordinate system. NeXus chose to use same coordinate system as the 
-neutron beamline simulation software McStas\cite{mcstas}. 
-
-For describing the placement and orientation of components, NeXus stores the same information as used for the 
-same purpose in the Crystallographic Interchange Format (CIF)\cite{ITCVG}. CIF (and NeXus) stores the details 
-of the translations and rotations necessary to move a given component from the zero point of the coordinate 
-system to its actual position. As coordinate transformations are not commutative, the order of transformations 
-must also be stored.
 
 
 \subsection{Processed Data}
@@ -323,15 +300,36 @@ the date of processing, and other metadata
 in the \texttt{NXprocess} group. The \texttt{NXprocess} group can hold additional \texttt{NXparameter} groups which are containers 
 for storing the input and output parameters of the program used to perform the processing. 
 
+\section{Coordinate Systems, Positioning of Components and Further Rules}
 
-\section{NeXus base classes}
+For analysing data it is often necessary to know the exact position and orientation of beamline components. 
+The first thing needed is a reference coordinate system. NeXus chose to use same coordinate system as the 
+neutron beamline simulation software McStas\cite{mcstas}. 
+
+For describing the placement and orientation of components, NeXus stores the same information as used for the 
+same purpose in the Crystallographic Interchange Format (CIF)\cite{ITCVG}. CIF (and NeXus) stores the details 
+of the translations and rotations necessary to move a given component from the zero point of the coordinate 
+system to its actual position. As coordinate transformations are not commutative, the order of transformations 
+must also be stored.
+
+Many fine details of the NeXus format have been thoroughly discussed and are now well defined, but for the sake 
+of brevity, we will not present an exhaustive view of NeXus here. A full listing of NeXus rules is given in the 
+NeXus manual\cite{nxman}. Some examples of these additional rules include those governing:
+\begin{itemize}
+\item How axes are associated with data
+\item That units must be given with the data
+\item How data is to be stored in NeXus fields
+\item How to describe array data which is not in ANSI C storage order
+\end{itemize}
+
+
+\section{NeXus Base Classes}
 
 As can be seen from the discussion of the NeXus file hierarchy, NeXus arranges data into groups which have a 
-type descriptor, a NeXus base class name, associated with them
-(technically, this name is the value of the HDF5 attribute \texttt{NXclass}).
-The term \emph{base class} is not meant in the sense of 
-object-oriented programming languages;
-in particular, there is no inheritance.
+type descriptor, a NeXus base class name, associated with them.
+Technically, the class name is the value of the HDF5 attribute \texttt{NXclass}.
+The term \emph{base class} is not used in the same sense as in  
+object-oriented programming languages; in particular, there is no inheritance.
 A NeXus base class is rather a dictionary of allowed keywords.
 These keywords designate data fields that can be stored within a group.
 A data field can have a simple type (like integer, float, date/time, binary),
@@ -346,15 +344,9 @@ according to application needs.
 These decisions can be standardized in form of
 application definitions (see below, Sect.~\ref{sect_appdef}).
 
-NeXus does not specify the \emph{rank} of a data field.
-For many, but not all fields it is possible to infer from
-the field name or from an explicit annotation
-whether the field is a scalar or what its array dimensionality is.
-The character data type \texttt{NXchar} is almost always to be
-understood as string type.
-
 The NeXus base classes are encoded in NeXus Description Language (NXDL)\cite{nxman}. NXDL is 
-just another application of XML. Thus a NXDL file is an XML file that specifies the content of the NeXus base classes. 
+just another application of XML. Thus a NXDL file is an XML file that specifies the content 
+of the NeXus base classes. 
 
 
 \section{NeXus Application Definitions}
@@ -434,7 +426,7 @@ For each of these, the NeXus team seeks community approval.
 
 Historically, NeXus supported reading and writing data files in HDF4, HDF5 and
 XML formats by use of the NeXus Application Programming Interface
-(NeXus-API or NAPI).  NAPI is still available, but frozen except for bug fixes.
+(NeXus-API or NAPI).  The NAPI is still available, but frozen except for bug fixes.
 After consultation with the community the currently recommended use of
 NeXus is solely in terms of the HDF5 file format, using standard HDF5 tools.
 That is expected to remain the basis for NeXus software development and
