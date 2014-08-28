@@ -57,7 +57,7 @@ rsi,
 \author{Aaron S. Brewster}
 \affiliation{Lawrence Berkeley National Laboratory, USA}
 
-\author{Bjoern Clausen}
+\author{Bj{\o}rn Clausen}
 \affiliation{Los Alamos National Laboratory, USA}
 
 \author{Stephen Cottrell}
@@ -128,7 +128,7 @@ home-grown data formats. This scheme has a number of drawbacks addressed by NeXu
 \begin{itemize}
 \item It makes the life of traveling scientists unnecessarily difficult as they have to deal with multiple files 
  in different formats, file converters and such in order to extract scientific information from the data.
- \item An unnecessary burden is imposed on data analysis software producers as they have to accommodate so many different formats.  
+ \item An unnecessary burden is imposed on data analysis software producers as they have to accommodate many different formats.  
 \item The whole idea of open access to data is sabotaged if the data is in a format which cannot be easily understood.
 \item Scientific integrity is jeopardized if the data cannot be understood. Or important elements are missing.
 \item Modern high speed detectors produce data at such a high rate that many older single image storage schemes 
@@ -234,7 +234,7 @@ All data are stored in one and the same \texttt{NXentry} hierarchy
 such are collected in one \texttt{NXentry} to keep the data together.
 Information that is peculiar for one experimental technique
 is linked  into a \texttt{NXsubentry}. The NXsubentry follows the hierarchy of 
-\texttt{NXentry}. But it will typically only links to the data required by the 
+\texttt{NXentry}. But it will typically only link to the data required by the 
 application definition for the specific experimental technique. The point of this scheme 
 is that human and computerized users can easily locate method specific data. But thereby 
 maintaing the full view of the experiment.   
