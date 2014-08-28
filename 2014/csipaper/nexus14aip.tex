@@ -51,7 +51,7 @@ rsi,
 \author{Frederick Akeroyd}
 \affiliation{ISIS, Rutherford Appleton Laboratory, UK}
 
-\author{Herbert J Bernstein}
+\author{Herbert J. Bernstein}
 \affiliation{imgCIF, Dowling College, USA}
 
 \author{Aaron S. Brewster}
@@ -123,7 +123,7 @@ Increasingly, major neutron and X-ray facilities have chosen to store their data
 Since 2006, NeXus\cite{nxold} has undergone substantial refocusing, 
 refinement and enhancement as described in this paper.  
 
-Historically, neutron and X-ray facilities choose to store their data in a plethora of 
+Historically, neutron and X-ray facilities have chosen to store their data in a plethora of 
 home-grown data formats. This scheme has a number of drawbacks addressed by NeXus: 
 \begin{itemize}
 \item It makes the life of traveling scientists unnecessarily difficult as they have to deal with multiple files 
@@ -236,8 +236,8 @@ Information that is peculiar for one experimental technique
 is linked  into a \texttt{NXsubentry}. The NXsubentry follows the hierarchy of 
 \texttt{NXentry}. But it will typically only link to the data required by the 
 application definition for the specific experimental technique. The point of this scheme 
-is that human and computerized users can easily locate method specific data. But thereby 
-maintaing the full view of the experiment.   
+is that human and computerized users can easily locate method specific data while 
+maintaining the full view of the experiment.   
 
 \begin{figure}
 \includegraphics[width=\columnwidth]{figure2}
@@ -272,7 +272,7 @@ Scans are stored in NeXus following these conventions:
 \end{itemize}
 
 NeXus allows multi-dimensional scans too. This makes it very simple to produce meaningful slices through data 
-volumes even with NeXus-agnostic software (like hdfview). Interrupting a multi-dimensional scan may, depending 
+volumes even with NeXus-agnostic software ({\it e.g.} hdfview). Interrupting a multi-dimensional scan may, depending 
 on the software used, leave some of the data in an uninitialised state (usually the HDF5 fill value).
 
 
@@ -389,8 +389,8 @@ canSAS, NeXus, and the IUCr Commission on Small-Angle Scattering.
 
 \section{Uptake of NeXus} 
 
-NeXus is already in use as the main data format at facilities like Soleil, Diamond, SINQ, SNS, Lujan/LANL 
-and KEK. Other facilities like ISIS, DESY and the $\mu$SR community are in the process of moving towards 
+NeXus is already in use as the main data format at many facilities including Soleil, Diamond, SINQ, SNS, Lujan/LANL 
+and KEK. Other facilities including ISIS, DESY and the $\mu$SR community are in the process of moving towards 
 NeXus as their data format. At LBNL, NeXus is currently being adapted for XFEL serial crystallographic data. 
 
 
