@@ -330,8 +330,13 @@ type descriptor, a NeXus base class name, associated with them.
 Technically, the class name is the value of the HDF5 attribute \texttt{NXclass}.
 The term \emph{base class} is not used in the same sense as in  
 object-oriented programming languages; in particular, there is no inheritance.
-A NeXus base class is rather a dictionary of allowed keywords.
-These keywords designate data fields that can be stored within a group.
+The NeXus base classes provide a comprehensive dictionary of terms 
+that can be used for each class. The expected spelling and definition 
+of each term is specified in the base classes. It is neither expected 
+nor required to provide all the terms specified in a base class. 
+Terms with other names are permitted but might not be recognized 
+by standard software.
+These terms designate data fields that can be stored within a group.
 A data field can have a simple type (like integer, float, date/time, binary),
 or it can be a NeXus subgroup.
 The base class definition also contains informal annotations
@@ -356,8 +361,9 @@ An application definition specifies a data structure
 for a given application domain.
 The data structure consists of a hierarchy of NeXus groups.
 For each group, a \emph{minimum} content is specified.
-Application definitions are therefore complementary
-to base class definitions, which specify the \emph{maximum} content of groups.
+Application definitions are therefore different than
+base class definitions, which specify a comprehensive 
+dictionary of terms that can be used.
 
 Typically, an application definition addresses one type of instrument,
 like X-ray reflectometer,
