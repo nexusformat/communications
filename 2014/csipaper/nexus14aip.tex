@@ -284,8 +284,10 @@ Scans are stored in NeXus following these conventions:
 \end{itemize}
 
 NeXus allows multi-dimensional scans too. This makes it very simple to produce meaningful slices through data 
-volumes even with NeXus-agnostic software ({\it e.g.} hdfview). Interrupting a multi-dimensional scan may, depending 
-on the software used, leave some of the data in an uninitialised state (usually the HDF5 fill value).
+volumes even with NeXus-agnostic software ({\it e.g.} hdfview). 
+% FIXME: this pathology is not necessary to describe, not unique to NeXus, too much detail for this manuscript
+%Interrupting a multi-dimensional scan may, depending 
+%on the software used, leave some of the data in an uninitialised state (usually the HDF5 fill value).
 
 
 
