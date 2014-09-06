@@ -375,7 +375,7 @@ of the NeXus base classes.
 \section{Application Definitions}
   \label{sect_appdef}
 
-An application definition specifies a data structure
+An application definition, expressed in NXDL, specifies a data structure
 for a given application domain.
 The data structure consists of a hierarchy of NeXus groups.
 For each group, a \emph{minimum} content is specified.
@@ -391,7 +391,7 @@ However, as NeXus can also be used for processed data
 like a tomography reconstruction or a dynamic scattering law $S(Q,\omega)$, 
 the more generic term \emph{application definition} is preferred.
 
-NeXus application definitions are expressed in NXDL.  They may be parsed either by humans or by software and 
+They may be parsed either by humans or by software and 
 they may be validated for syntax and content.  The NXDL files are used to validate the structure of
 NeXus data files. A tool exists to perform such validation.%
 % TODO: can we please add some kind of reference to where the validation tool can be found?
