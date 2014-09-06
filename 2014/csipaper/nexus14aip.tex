@@ -204,7 +204,7 @@ and the first \texttt{NXdata} group) are actually required.  The other content i
 
 When looking at a beamline it is easy to 
 discern different components: beam optic components, sample position, detectors and such. It is quite natural to replicate this physical 
-separation with a logical arrangement of storing the data from each component in a separate group. This approach explains the 
+separation with a logical arrangement of storing the data from each component into a separate group. This approach explains the 
 list of beamline components in the \texttt{NXinstrument} group presented in FIG.~\ref{rawfile}. 
 As there can be multiple instances of the same kind of equipment, like slits or detectors, in a given beamline it becomes necessary
 to add type information to the group name. This type information is provided by a HDF5 attribute, the NeXus class name.
