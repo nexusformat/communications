@@ -368,8 +368,14 @@ These decisions can be standardized in the form of
 application definitions (see below, Sect.~\ref{sect_appdef}).
 
 The NeXus base classes are encoded in NeXus Description Language (NXDL)\cite{nxman}. NXDL is 
-just another application of XML. Thus a NXDL file is an XML file that specifies the content 
-of the NeXus base classes. 
+just another form of XML. Thus each NXDL file is an XML file that specifies the content 
+of a NeXus base class. 
+NXDL files may be parsed either by humans or by software and 
+may be validated for syntax and content.  The NXDL files are used to validate the structure of
+NeXus data files. Java source code of a GUI tool has been prepared\cite{nxvalidate} to perform such validation.%
+% The JAR file available, but it needs maintenance and vastly improved documentation how to use it
+% before it is ready for general release.
+% TODO: *** good high-priority item for 2014 Code Camp ***
 
 
 \section{Application Definitions}
@@ -390,14 +396,6 @@ Therefore application definitions were originally named \emph{instrument definit
 However, as NeXus can also be used for processed data
 like a tomography reconstruction or a dynamic scattering law $S(Q,\omega)$, 
 the more generic term \emph{application definition} is preferred.
-
-They may be parsed either by humans or by software and 
-they may be validated for syntax and content.  The NXDL files are used to validate the structure of
-NeXus data files. A tool exists to perform such validation.%
-% TODO: can we please add some kind of reference to where the validation tool can be found?
-% JAVA source code is here:
-% https://github.com/nexusformat/code/tree/master/applications/NXvalidate
-% is there a JAR file available?
 
 The process of drafting and ratifying application definitions
 is ongoing (see also below, Sect.~\ref{sect_gov}).
