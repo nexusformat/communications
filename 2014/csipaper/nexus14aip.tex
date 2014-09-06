@@ -171,8 +171,8 @@ and \emph{contributed definitions} that elaborate the NeXus standard.
 
 As a container format, NeXus allows files to be extended at any moment by
 additional content.
-A special base class, \texttt{NXcollection}, exempts its contents from validation
-and thereby allows inclusion of whatever data in arbitrary non-NeXus formats.
+% TODO: explain here how to extend
+% TODO: point ahead to description additional content
 
 NeXus can be used for many different experimental techniques,
 and at different levels of data processing.
@@ -222,6 +222,9 @@ a \texttt{NXdata} group must be provided at \texttt{NXentry} level.
 It contains information about plot axes and links to the data
 (which typically reside in the \texttt{NXdetector} group).
 Links are supported by HDF5 and work like symbolic links in the Unix file system.
+
+A special base class, \texttt{NXcollection}, exempts its contents from validation
+and thereby allows inclusion of whatever data in arbitrary non-NeXus formats.
 
 \subsubsection{Multiple Method Instruments}
 
