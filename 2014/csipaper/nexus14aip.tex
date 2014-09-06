@@ -189,7 +189,7 @@ an application definition, or a contributed definition.
 
 
 \subsection{Raw Data File Hierarchy}
-For an overview of the NeXus data file structure for raw experimental data see FIG.~\ref{rawfile}.
+
 \begin{figure}
 \includegraphics[width=\columnwidth]{figure1}
 \caption{\label{rawfile}Overview of the structure of a NeXus raw data file.}
@@ -197,7 +197,12 @@ For an overview of the NeXus data file structure for raw experimental data see F
 
 The major focus of NeXus has been the recording of ``raw'' experimental data, i.e. information taken directly from the experimental 
 equipment, or processed only as required to provide physically meaningful values.
-The NeXus raw data file hierarchy is the consequence of some practical considerations. When looking at a beamline it is easy to 
+The NeXus raw data file hierarchy is the consequence of some practical considerations. 
+An overview of the NeXus data file structure for raw experimental data is shown in FIG.~\ref{rawfile}.
+Note that only a small part of this structure (the first \texttt{NXentry} group 
+and the first \texttt{NXdata} group) are actually required.  The other content is optional.
+
+When looking at a beamline it is easy to 
 discern different components: beam optic components, sample position, detectors and such. It is quite natural to mirror this physical 
 separation with a logical arrangement of storing the data from each component in a separate group. This approach explains the 
 list of beamline components in the \texttt{NXinstrument} group presented in FIG.~\ref{rawfile}. 
