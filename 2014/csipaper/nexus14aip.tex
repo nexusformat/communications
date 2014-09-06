@@ -207,7 +207,7 @@ discern different components: beam optic components, sample position, detectors 
 separation with a logical arrangement of storing the data from each component into a separate group. This approach explains the 
 list of beamline components in the \texttt{NXinstrument} group presented in FIG.~\ref{rawfile}. 
 As there can be multiple instances of the same kind of equipment, like slits or detectors, in a given beamline it becomes necessary
-to add type information to the group name. This type information is provided by a HDF5 attribute, the NeXus class name.
+to add type information to the group name. This type information, the NeXus class name, is provided by a HDF5 attribute.
 By convention NeXus class names start 
 with the prefix \texttt{NX}. Each NeXus group describing a beamline component contains further groups and fields describing the component. 
 A field can contain a single number, a text string or an array, as appropriate to the data to be described.  
