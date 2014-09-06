@@ -192,12 +192,12 @@ an application definition, or a contributed definition.
 \caption{\label{rawfile}Overview of the structure of a NeXus raw data file.}
 \end{figure}
 
-The major focus of NeXus has been the recording of ``raw'' experimental data, i.e. information taken directly from the experimental 
+The major focus of NeXus has been the recording of \emph{raw} experimental data, i.e. information taken directly from the experimental 
 equipment, or processed only as required to provide physically meaningful values.
 The NeXus raw data file hierarchy is the consequence of some practical considerations. 
 An overview of the NeXus data file structure for raw experimental data is shown in FIG.~\ref{rawfile}.
 Note that only a small part of this structure (the first \texttt{NXentry} group 
-and the first \texttt{NXdata} group) are actually required.  The other content is optional.
+and the first \texttt{NXdata} group) is actually required.  The other content is optional.
 
 When looking at a beamline it is easy to 
 discern different components: beam optic components, sample position, detectors and such. It is quite natural to replicate this physical 
@@ -234,11 +234,11 @@ Particularly at X-ray sources,
 some instruments offer multiple techniques that can be used in parallel.
 For example small-angle scattering and powder diffraction 
 can be measured simultaneously at a SAXS/WAXS beamline.
-We recommend storing the data from all methods in \emph{one} file.
-All data are stored in one and the same \texttt{NXentry} hierarchy
+We recommend storing the data from all methods in \emph{one} file,
+in a \emph{single} \texttt{NXentry} hierarchy
 (FIG.~\ref{multimethod}). All information from all detectors, logs and 
-such are collected in one \texttt{NXentry} to keep the data together.
-Information that is peculiar for one experimental technique
+such are collected in this one \texttt{NXentry} group to keep the data together.
+Information that is particular for one experimental technique
 is linked  into a \texttt{NXsubentry}. The \texttt{NXsubentry} follows the hierarchy of 
 \texttt{NXentry}. But it will typically only link to the data required by the 
 application definition for the specific experimental technique. The point of this scheme 
@@ -253,18 +253,18 @@ maintaining the full view of the experiment.
 \subsubsection{Scans}
 
 Scans come in all shapes and sizes. Almost anything can be scanned against anything. 
-An additional consideration is that, in practice, the number of scan points in the scan 
+An additional consideration is that, in practice, the final number of scan points in the scan 
 cannot be known in advance since it is possible that a scan may be interrupted or terminated
 before its planned number of observations. 
 Thus, it is a challenge to standardize a scan.
 %NeXus solves these difficulties through 
 %a couple of conventions and the use of a HDF5 feature called unlimited dimensions. 
 NeXus addresses this challenge through use of HDF5 \emph{unlimited dimensions} and
-additional conventions described below.
+additional conventions as described below.
 With the HDF5 
-unlimited dimensions feature, one axis of the data is allowed to expand without limit and 
-the size of a data array does not need to be declared in advance. Data can be appended 
-to an array along the unlimited dimension as required. 
+unlimited dimensions feature, one axis of the data is allowed to expand without limit.  
+Thus, the size of a data array does not need to be declared in advance. 
+Data can be appended to an array along the unlimited dimension as required. 
 
 Scans are stored in NeXus following these conventions: 
 \begin{itemize}
@@ -281,7 +281,7 @@ Scans are stored in NeXus following these conventions:
 \end{itemize}
 
 NeXus allows multi-dimensional scans too. This makes it very simple to produce meaningful slices through data 
-volumes even with NeXus-agnostic software ({\it e.g.} hdfview). 
+volumes even with NeXus-agnostic software ({\it e.g.} HDFView\cite{hdfview}). 
 % FIXME: this pathology is not necessary to describe, not unique to NeXus, too much detail for this manuscript
 %Interrupting a multi-dimensional scan may, depending 
 %on the software used, leave some of the data in an uninitialised state (usually the HDF5 fill value).
@@ -305,13 +305,13 @@ An overview of the NeXus structure for processed data is given in FIG.~\ref{proc
 
 The hierarchy is much reduced as it is not important to carry all experimental information in the data 
 reduction. In contrast to the raw data file structure, \texttt{NXdata} in the processed file structure is the place 
-to store the results of the processing, together with its associated axes if the result is a multi-dimensional array.   
- 
-Information about the sample and instrument can be stored in \texttt{NXsample} and \texttt{NXinstrument} groups as required. 
+to store the results of the processing, together with its associated axes if the result is a multi-dimensional array.  
 
-In addition, there is a new structure to store details about the processing such as the program used, its version, 
-the date of processing, and other metadata 
-in the \texttt{NXprocess} group. The \texttt{NXprocess} group can hold additional \texttt{NXparameter} groups which are containers 
+In addition to the \texttt{NXdata} and \texttt{NXsample} groups, 
+the \texttt{NXprocess} group provides structure to store details 
+about the processing, such as the program used, its version, 
+the date of processing, and other metadata. 
+The \texttt{NXprocess} group can hold additional \texttt{NXparameter} groups which are containers 
 for storing the input and output parameters of the program used to perform the processing. 
 
 \section{Coordinate Systems, Positioning of Components and Further Rules}
@@ -328,10 +328,10 @@ must also be stored.
 
 Detailed consideration has been given to the composition of the NeXus format, 
 with a comprehensive set of rules for creating a NeXus file now being well defined. 
-For the sake of brevity, an exhaustive description of the format is not given here.
-Instead, the reader is referred to the NeXus manual\cite{nxman} where a full listing of the 
+For the sake of brevity here, a complete description of the format is 
+provided elsewhere in the NeXus manual\cite{nxman} where a full listing of the 
 rules is presented. However, to illustrate the attention to detail given in the 
-definition of the format, example rules include:
+definition of the format, the rules include these considerations:
 \begin{itemize}
 \item How axes are associated with data
 \item That units must be given with the data
@@ -371,8 +371,7 @@ These decisions can be standardized in the form of
 application definitions (see below, Sect.~\ref{sect_appdef}).
 
 The NeXus base classes are encoded in NeXus Description Language (NXDL)\cite{nxman}. NXDL is 
-just another form of XML. Thus each NXDL file is an XML file that specifies the content 
-of a NeXus base class. 
+just another form of an XML file that specifies the content of a NeXus base class. 
 NXDL files may be parsed either by humans or by software and 
 may be validated for syntax and content.  The NXDL files are used to validate the structure of
 NeXus data files. Java source code of a GUI tool has been prepared\cite{nxvalidate} to perform such validation.%
@@ -385,20 +384,19 @@ NeXus data files. Java source code of a GUI tool has been prepared\cite{nxvalida
   \label{sect_appdef}
 
 An application definition, expressed in NXDL, specifies a data structure
-for a given application domain.
+for a given application domain such as a scientific technique or a specific type of instrument.
 The data structure consists of a hierarchy of NeXus groups.
 For each group, a \emph{minimum} content is specified.
 Application definitions are therefore different than
 base class definitions, which specify a comprehensive 
 dictionary of terms that can be used.
 
-Typically, an application definition addresses one type of instrument,
-like X-ray reflectometer,
-or direct-geometry neutron time-of-flight spectrometer.
-Therefore application definitions were originally named \emph{instrument definitions}.
+Historically, an application definition addressed one type of instrument,
+like X-ray reflectometer, or direct-geometry neutron time-of-flight spectrometer.
+Thus, application definitions were originally named \emph{instrument definitions}.
 However, as NeXus can also be used for processed data
 like a tomography reconstruction or a dynamic scattering law $S(Q,\omega)$, 
-the more generic term \emph{application definition} is preferred.
+the more generic term \emph{application definition} has been adopted.
 
 The process of drafting and ratifying application definitions
 is ongoing (see also below, Sect.~\ref{sect_gov}).
@@ -417,8 +415,8 @@ canSAS, NeXus, and the IUCr Commission on Small-Angle Scattering.
 
 The development of NeXus is overseen
 by the NeXus International Advisory Committee (NIAC)\cite{niac}.
-The NIAC seek balanced representation of the international community.
-Most major neutron, X-ray, and muon facilities have already appointed delegates.
+The NIAC seeks a balanced representation of the international community.
+Most major neutron, X-ray, and muon facilities have appointed delegates.
 Other facilities are invited to join.
 
 The NIAC reviews proposed amendments to the NeXus base classes and
@@ -440,13 +438,14 @@ Also, some commerical manufacturers of area detectors now write acquired images 
 The adoption of NeXus has taken some time. The reason is that NeXus is often chosen whenever 
 a facility starts operation or undergoes major refurbishments. For those facilities where there is an existing and working 
 pipeline from data acquisition to data analysis,  the resources are usually lacking to move 
-towards NeXus.
+towards NeXus as the only data file format.
 
 This is reflected in the experience of the muon community. For the ISIS source, the move to a Windows PC-based data acquisition 
 system in 2002 required a new data format, providing an ideal opportunity to exploit the emerging NeXus standard\cite{muon1}. In 
 contrast, sources at PSI, TRIUMF and KEK continued to make good use of existing formats and software. More recently, funding 
 from the EU has enabled the community to develop the Application Definition as a common exchange format for muon data\cite{muon2}. 
-Whether used as the main or an intermediate format, users will soon be able to produce compatible NeXus files for data written 
+
+Whether used as the main or an intermediate format, users are able to produce compatible NeXus files for data written 
 across all facilities, enhancing the uptake of NeXus within the community.
 
 
@@ -455,7 +454,7 @@ across all facilities, enhancing the uptake of NeXus within the community.
 Historically, NeXus supported reading and writing data files in HDF4, HDF5 and
 XML formats by use of the NeXus Application Programming Interface
 (NeXus-API or NAPI).  The NAPI is still available, but frozen except for bug fixes.
-After consultation with the community the currently recommended use of
+After consultation with the community, the currently recommended use of
 NeXus is solely in terms of the HDF5 file format, using standard HDF5 tools.
 That is expected to remain the basis for NeXus software development and
 file creation in the future.
@@ -466,7 +465,7 @@ NeXus has matured considerably over the last ten years and is now in use in many
 is flexible enough to accommodate a wide variety of instruments and scientific applications,
 yet efficient enough to handle the data coming from modern high speed detectors.
 More information, including a full PDF manual, can be found on the project 
-website\cite{nxwww}, while members of the NIAC\cite{niac}
+website\cite{nxwww}.  Members of the NIAC\cite{niac}
 always welcome correspondence concerning the development of the NeXus data format.
 
 
