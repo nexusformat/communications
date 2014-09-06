@@ -260,8 +260,11 @@ An additional consideration is that, in practice, the number of scan points in t
 cannot be known in advance since it is possible that a scan may be interrupted or terminated
 before its planned number of observations. 
 Thus, it is a challenge to standardize a scan.
-NeXus solves these difficulties through 
-a couple of conventions and the use of a HDF5 feature called unlimited dimensions. With the HDF5 
+%NeXus solves these difficulties through 
+%a couple of conventions and the use of a HDF5 feature called unlimited dimensions. 
+NeXus addresses this challenge through use of HDF5 \emph{unlimited dimensions} and
+additional conventions described below.
+With the HDF5 
 unlimited dimensions feature, one axis of the data is allowed to expand without limit and 
 the size of a data array does not need to be declared in advance. Data can be appended 
 to an array along the unlimited dimension as required. 
