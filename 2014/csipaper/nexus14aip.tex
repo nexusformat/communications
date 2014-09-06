@@ -362,6 +362,9 @@ about the semantics of each field.
 
 At base class level, NeXus has no mechanism to mark some fields as obligatory.
 \emph{All allowed fields are optional.}
+%%% note: let's not state this, but keep in manuscript as a comment
+% except, of course: /NXentry/NXdata/{data}/@signal=1
+%%%
 Which of them are written into data files must be decided
 according to application needs.
 These decisions can be standardized in the form of
@@ -375,7 +378,7 @@ may be validated for syntax and content.  The NXDL files are used to validate th
 NeXus data files. Java source code of a GUI tool has been prepared\cite{nxvalidate} to perform such validation.%
 % The JAR file available, but it needs maintenance and vastly improved documentation how to use it
 % before it is ready for general release.
-% TODO: *** good high-priority item for 2014 Code Camp ***
+% TODO: *** good HIGH-PRIORITY item for 2014 Code Camp ***
 
 
 \section{Application Definitions}
