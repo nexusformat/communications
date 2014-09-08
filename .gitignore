@@ -1,1 +1,4 @@
 *~
+_build/latex
+_build/epub
+_build/doctrees
