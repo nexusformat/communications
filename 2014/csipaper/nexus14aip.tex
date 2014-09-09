@@ -401,6 +401,10 @@ However, as NeXus can also be used for processed data
 like a tomography reconstruction or a dynamic scattering law $S(Q,\omega)$, 
 the more generic term \emph{application definition} has been adopted.
 
+
+\section{Contributed Definitions}
+  \label{sect_contribdef}
+
 The process of drafting and ratifying application definitions
 is ongoing (see also below, Sect.~\ref{sect_gov}).
 Currently, scientists representing both
@@ -411,6 +415,13 @@ CBFlib\cite{cbflib} is being extended to work with NeXus-MX format. This work wi
 Work on another NeXus application definition for reduced small-angle scattering data
 is also in progress\cite{cansas}  by scientists representing
 canSAS, NeXus, and the IUCr Commission on Small-Angle Scattering.
+
+All such proposals from the scientific community to extend NeXus 
+with new application definitions and base classes are added to 
+NeXus, initially, as contributed definitions either in incubation 
+or a special case not for general use. The NIAC is charged to 
+review any new contributed definitions and provide feedback to the 
+authors before ratification and acceptance.
 
 
 \section{Governance}
@@ -434,8 +445,8 @@ NeXus is already in use as the main data format at many facilities including Sol
 and KEK. Other facilities including ISIS, DESY and the $\mu$SR community are in the process of moving towards 
 NeXus as their data format. At LBNL, NeXus is currently being adapted for XFEL serial crystallographic data. 
 APS is storing some of its data collection using NeXus.
-The EPICS\cite{epicsad} area detector software has a plugin to write acquired images into NeXus data files.
-Also, some commerical manufacturers of area detectors now write acquired images into NeXus data files.
+The EPICS\cite{epicsad} area detector software has a plug-in to write acquired images into NeXus data files.
+Also, some commercial manufacturers of area detectors now write acquired images into NeXus data files.
 % NOTE: do NOT name the companies or else we must add disclaimers to the bottom of the manuscript
 
 The adoption of NeXus has taken some time. The reason is that NeXus is often chosen whenever 
