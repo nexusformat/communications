@@ -101,11 +101,10 @@
 <h2>Why NeXus?<a class="headerlink" href="#why-nexus" title="Permalink to this headline">¶</a></h2>
 <div class="admonition-see-also admonition seealso">
 <p class="first admonition-title">See also</p>
-<p>This document is available in different formats:
-<a class="reference external" href="http://svn.nexusformat.org/definitions/trunk/misc/impatient/_build/html/index.html">HTML (online)</a>,
-<a class="reference download internal" href="_downloads/NXImpatient.pdf"><tt class="xref download docutils literal"><span class="pre">PDF</span></tt></a>, or
-<a class="reference download internal" href="_downloads/NXImpatient.epub"><tt class="xref download docutils literal"><span class="pre">EPUB</span></tt></a>.</p>
-<p class="last"><a class="reference external" href="http://svn.nexusformat.org/definitions/trunk/misc/impatient/_build/html/index.html">http://svn.nexusformat.org/definitions/trunk/misc/impatient/_build/html/index.html</a></p>
+<p class="last">This document is available in different formats:
+<a class="reference external" href="http://htmlpreview.github.com/?https://github.com/nexusformat/definitions/blob/master/misc/impatient/_build/html/index.html">HTML (online)</a>
+or
+<a class="reference download internal" href="_downloads/NXImpatient.pdf"><tt class="xref download docutils literal"><span class="pre">PDF</span></tt></a>.</p>
 </div>
 <p>The NeXus data format <a class="footnote-reference" href="#nexus" id="id1">[1]</a> is a tool which has been designed to
 solve the problems of travelling scientists,
@@ -694,9 +693,9 @@ including IDL, Igor, Mathematica and R.</p>
 <span class="p">{</span>
   <span class="kt">float</span> <span class="o">*</span><span class="n">two_theta</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
   <span class="kt">int</span> <span class="o">*</span><span class="n">counts</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">,</span>  <span class="n">rank</span><span class="p">,</span> <span class="n">i</span><span class="p">;</span>
-  <span class="n">hid_t</span> <span class="n">fid</span><span class="p">,</span> <span class="n">dataid</span><span class="p">,</span> <span class="n">fapl</span><span class="p">;</span>
-  <span class="n">hsize_t</span> <span class="o">*</span><span class="n">dim</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
-  <span class="n">hid_t</span> <span class="n">datatype</span><span class="p">,</span> <span class="n">dataspace</span><span class="p">,</span> <span class="n">memdataspace</span><span class="p">;</span>
+  <span class="kt">hid_t</span> <span class="n">fid</span><span class="p">,</span> <span class="n">dataid</span><span class="p">,</span> <span class="n">fapl</span><span class="p">;</span>
+  <span class="kt">hsize_t</span> <span class="o">*</span><span class="n">dim</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+  <span class="kt">hid_t</span> <span class="n">datatype</span><span class="p">,</span> <span class="n">dataspace</span><span class="p">,</span> <span class="n">memdataspace</span><span class="p">;</span>
 
   <span class="cm">/*</span>
 <span class="cm">   * Open file, thereby enforcing proper file close</span>
@@ -713,7 +712,7 @@ including IDL, Igor, Mathematica and R.</p>
   <span class="n">dataid</span> <span class="o">=</span> <span class="n">H5Dopen</span><span class="p">(</span><span class="n">fid</span><span class="p">,</span><span class="s">&quot;/scan/data/counts&quot;</span><span class="p">);</span>
   <span class="n">dataspace</span> <span class="o">=</span> <span class="n">H5Dget_space</span><span class="p">(</span><span class="n">dataid</span><span class="p">);</span>
   <span class="n">rank</span> <span class="o">=</span> <span class="n">H5Sget_simple_extent_ndims</span><span class="p">(</span><span class="n">dataspace</span><span class="p">);</span>
-  <span class="n">dim</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="n">rank</span><span class="o">*</span><span class="k">sizeof</span><span class="p">(</span><span class="n">hsize_t</span><span class="p">));</span>
+  <span class="n">dim</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="n">rank</span><span class="o">*</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">hsize_t</span><span class="p">));</span>
   <span class="n">H5Sget_simple_extent_dims</span><span class="p">(</span><span class="n">dataspace</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
   <span class="n">counts</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="n">dim</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
   <span class="n">memdataspace</span> <span class="o">=</span> <span class="n">H5Tcopy</span><span class="p">(</span><span class="n">H5T_NATIVE_INT32</span><span class="p">);</span>
@@ -728,7 +727,7 @@ including IDL, Igor, Mathematica and R.</p>
   <span class="n">dataid</span> <span class="o">=</span> <span class="n">H5Dopen</span><span class="p">(</span><span class="n">fid</span><span class="p">,</span><span class="s">&quot;/scan/data/two_theta&quot;</span><span class="p">);</span>
   <span class="n">dataspace</span> <span class="o">=</span> <span class="n">H5Dget_space</span><span class="p">(</span><span class="n">dataid</span><span class="p">);</span>
   <span class="n">rank</span> <span class="o">=</span> <span class="n">H5Sget_simple_extent_ndims</span><span class="p">(</span><span class="n">dataspace</span><span class="p">);</span>
-  <span class="n">dim</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="n">rank</span><span class="o">*</span><span class="k">sizeof</span><span class="p">(</span><span class="n">hsize_t</span><span class="p">));</span>
+  <span class="n">dim</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="n">rank</span><span class="o">*</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">hsize_t</span><span class="p">));</span>
   <span class="n">H5Sget_simple_extent_dims</span><span class="p">(</span><span class="n">dataspace</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
   <span class="n">two_theta</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="n">dim</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">float</span><span class="p">));</span>
   <span class="n">memdataspace</span> <span class="o">=</span> <span class="n">H5Tcopy</span><span class="p">(</span><span class="n">H5T_NATIVE_FLOAT</span><span class="p">);</span>
@@ -893,7 +892,7 @@ find on the NeXus WWW site.</p>
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2012, http://nexusformat.org.
+        &copy; Copyright 2014, http://nexusformat.org.
       Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
     </div>
   </body>

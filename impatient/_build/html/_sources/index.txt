@@ -1,5 +1,3 @@
-.. $Id: index.rst 1191 2013-01-10 20:48:11Z Pete Jemian $
-   NeXus definitions trac ticket #200
 
 .. image:: NeXus-logo.png
   :height: 250px
@@ -15,11 +13,12 @@ Why NeXus?
 .. seealso:: 
 
    This document is available in different formats:
-   `HTML (online) <http://svn.nexusformat.org/definitions/trunk/misc/impatient/_build/html/index.html>`_,
-   :download:`PDF <NXImpatient.pdf>`, or
-   :download:`EPUB <NXImpatient.epub>`.
+   `HTML (online) <http://htmlpreview.github.com/?https://github.com/nexusformat/definitions/blob/master/misc/impatient/_build/html/index.html>`_
+   or
+   :download:`PDF <NXImpatient.pdf>`.
    
-   http://svn.nexusformat.org/definitions/trunk/misc/impatient/_build/html/index.html
+   ..
+      http://htmlpreview.github.com/?https://github.com/nexusformat/definitions/blob/master/misc/impatient/_build/html/index.html
 
 The NeXus data format [#NeXus]_ is a tool which has been designed to
 solve the problems of travelling scientists, 
