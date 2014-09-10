@@ -76,7 +76,7 @@ rsi,
 \affiliation{ANSTO, Australia}
 
 \author{Raymond Osborn}
-\affiliation{Argonne National Laboratory, USA}
+\affiliation{Materials Science Division, Argonne National Laboratory, USA}
 
 \author{Peter F. Peterson}
 \affiliation{Spallation Neutron Source, USA}
@@ -110,7 +110,7 @@ domain-specific
 rules for organizing data within HDF5 files in addition to a dictionary of well-defined 
 domain-specific field names. The NeXus data format has two purposes.  First, NeXus defines a
 format that can serve as a container for all relevant data associated
-with a beamline. This is a very important use case.  Second, NeXus
+with an experiment. Second, NeXus
 defines standards in the form of \emph{application definitions} for the
 exchange of data between applications.  NeXus provides structures for raw experimental data as well as for processed data.  
 \end{abstract}
@@ -122,17 +122,17 @@ exchange of data between applications.  NeXus provides structures for raw experi
 
 
 \section{Introduction}
-Increasingly, major neutron and X-ray facilities have chosen to store data using the NeXus data format. 
-Since 2006, NeXus\cite{nxold} has undergone substantial refocusing, 
+Increasingly, major neutron and X-ray facilities have chosen to store data using the NeXus data format\cite{nxold,Klosowski:1997fk}. 
+Since 2006, NeXus has undergone substantial refocusing, 
 refinement and enhancement as described in this paper.  
 
 Historically, neutron and X-ray facilities have chosen to store data in a plethora of 
 home-grown data formats. This scheme has a number of drawbacks addressed by NeXus: 
 \begin{itemize}
 \item It makes the life of traveling scientists unnecessarily difficult as they must deal with multiple files 
- in different formats, file converters and such in order to extract scientific information from the data.
+ in different formats or use file converters, in order to extract scientific information from the data.
  \item An unnecessary burden is imposed on data analysis software producers to accommodate many different formats.  
-\item The whole idea of open access to data is sabotaged if the data is in a format which cannot be easily understood.
+\item The whole idea of open access to data is sabotaged if the data is in a format that cannot be easily understood.
 \item Scientific integrity is jeopardized if the data cannot be understood or important elements are missing.
 \item Modern high speed detectors produce data at such a high rate that many older single image storage schemes 
  have become impractical and 
@@ -196,7 +196,7 @@ an application definition, or a contributed definition.
 }
 \end{figure}
 
-The major focus of NeXus has been the recording of \emph{raw} experimental data, i.e. information taken directly from the experimental 
+A major focus of NeXus has been the recording of \emph{raw} experimental data, i.e. information taken directly from the experimental 
 equipment or processed only as required to provide physically meaningful values.
 The NeXus raw data file hierarchy is the consequence of some practical considerations. 
 An overview of the NeXus data file structure for raw experimental data is shown in FIG.~\ref{rawfile}.
@@ -220,12 +220,12 @@ The \texttt{NXentry} group also holds the experiment metadata, such as the date 
 In the course of NeXus history,
 the decision was taken to move \texttt{NXmonitor}
 out of \texttt{NXinstrument} to the higher hierarchy level of \texttt{NXentry},
-in order to facilitate quick inspection by humans.
+in order to facilitate quick inspection.
 
 To enable a simple default visualization,
 a \texttt{NXdata} group must be provided at \texttt{NXentry} level.
 It contains information about plot axes and links to the data
-(which typically reside in the \texttt{NXdetector} group).
+(which often reside in the \texttt{NXdetector} group).
 Links are supported by HDF5 and work like symbolic links in the Unix file system.
 
 A special base class, \texttt{NXcollection}, exempts its contents from validation
