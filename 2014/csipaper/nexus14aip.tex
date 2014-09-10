@@ -130,7 +130,7 @@ Historically, neutron and X-ray facilities have chosen to store data in a pletho
 home-grown data formats. This scheme has a number of drawbacks addressed by NeXus: 
 \begin{itemize}
 \item It makes the life of traveling scientists unnecessarily difficult as they must deal with multiple files 
- in different formats or use file converters, in order to extract scientific information from the data.
+ in different formats, file converters, etc., in order to extract scientific information from the data.
  \item An unnecessary burden is imposed on data analysis software producers to accommodate many different formats.  
 \item The whole idea of open access to data is sabotaged if the data is in a format that cannot be easily understood.
 \item Scientific integrity is jeopardized if the data cannot be understood or important elements are missing.
@@ -184,9 +184,8 @@ in the NeXus application definitions (Sect.~\ref{sect_appdef}).
 
 \section{File Hierarchies}
 NeXus data files are organized into a hierarchy of groups which, in turn, can contain further groups or fields, 
-very much like an internal file system. The content of each NeXus group is defined by a base class, or 
-an application definition, or a contributed definition.
-
+very much like an internal file system. The possible contents of each NeXus group are defined by a base class, while an application definition,
+or a contributed definition, is used to specify which of these fields and groups are required for a particular type of analysis.
 
 \subsection{Raw Data File Hierarchy}
 
@@ -202,13 +201,13 @@ The NeXus raw data file hierarchy is the consequence of some practical considera
 An overview of the NeXus data file structure for raw experimental data is shown in FIG.~\ref{rawfile}.
 
 
-When looking at a beamline it is easy to 
-discern different components: beam optic components, sample position, detectors and such. It is quite natural to replicate this physical 
-separation with a logical arrangement of storing the data from each component into a separate group. This approach explains the 
+When looking at a beamline, it is easy to 
+discern different components: beam optic components, sample position, detectors, etc. It is quite natural to replicate this physical 
+separation with a logical arrangement, in which metadata from each component are stored a separate group. This approach explains the 
 list of beamline components in the \texttt{NXinstrument} group presented in FIG.~\ref{rawfile}. 
-As there can be multiple instances of the same kind of equipment, like slits or detectors, in a given beamline it becomes necessary
+As there can be multiple instances of the same kind of equipment, like slits or detectors, in a given beamline, it becomes necessary
 to add type information to the group name. This type information, the NeXus class name, is provided by a HDF5 attribute.
-By convention NeXus class names start 
+By convention, NeXus class names start 
 with the prefix \texttt{NX}. Each NeXus group describing a beamline component contains further groups and fields describing the component. 
 A field can contain a single number, a text string or an array, as appropriate to the data to be described.  
 
@@ -217,16 +216,15 @@ a complete workflow in a file causes the beamline component hierarchy to be push
 group in the hierarchy. The \texttt{NXentry}  group thus represents one scan or run (or a processed data entry, as will be discussed later). 
 The \texttt{NXentry} group also holds the experiment metadata, such as the date and time at which it was performed. 
 
-In the course of NeXus history,
-the decision was taken to move \texttt{NXmonitor}
-out of \texttt{NXinstrument} to the higher hierarchy level of \texttt{NXentry},
-in order to facilitate quick inspection.
+To enable default visualization of the experimental data,
+at least one \texttt{NXdata} group should be provided at the \texttt{NXentry} level.
+It contains the plottable data, or links to the data, which often reside in the \texttt{NXdetector} group (links are supported by HDF5 and work like 
+symbolic links in the Unix file system).  It also contains information about plot axes, using attributes to define what 
+the data should be plotted against.
 
-To enable a simple default visualization,
-a \texttt{NXdata} group must be provided at \texttt{NXentry} level.
-It contains information about plot axes and links to the data
-(which often reside in the \texttt{NXdetector} group).
-Links are supported by HDF5 and work like symbolic links in the Unix file system.
+The \texttt{NXentry} group may also contain one or more \texttt{NXmonitor} groups, containing data from beamline monitors. Since they may
+also contain plottable data, it uses the same attribute scheme to associate the monitor data with its plotting axes. Its location in the
+\texttt{NXentry} group facilitates quick inspection for beamline diagnostics.
 
 A special base class, \texttt{NXcollection}, exempts its contents from validation
 and thereby allows inclusion of whatever data in arbitrary non-NeXus formats.
