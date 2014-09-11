@@ -48,3 +48,5 @@ force:
 spellcheck:
 	ispell -C -d american $(MAINDOC).tex
 
+clean:
+	$(RM) $(MAINDOC).pdf $(MAINDOC).aux $(MAINDOC).bbl $(MAINDOC).blg $(MAINDOC).log $(MAINDOC)Notes.bib
