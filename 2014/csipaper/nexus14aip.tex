@@ -130,7 +130,7 @@ Historically, neutron and X-ray facilities have chosen to store data in a pletho
 home-grown data formats. This scheme has a number of drawbacks addressed by NeXus: 
 \begin{itemize}
 \item It makes the life of traveling scientists unnecessarily difficult as they must deal with multiple files 
- in different formats, file converters, \textit{etc}., in order to extract scientific information from the data.
+ in different formats, file converters, \emph{etc}., in order to extract scientific information from the data.
  \item An unnecessary burden is imposed on data analysis software producers to accommodate many different formats.  
 \item The whole idea of open access to data is sabotaged if the data is in a format that cannot be easily understood.
 \item Scientific integrity is jeopardized if the data cannot be understood or important elements are missing.
@@ -156,12 +156,12 @@ The development of NeXus is overseen by a committee, the NeXus International Adv
 
 \section{Design Principles}
 
-NeXus data files are built using basic HDF5 storage elements, \textit{i.e.}, groups (like file system folders), fields (such as strings, floats, integers, and arrays), 
-attributes (additional descriptors of groups and fields), and links (like file system links), but follows certain design principles to make it easy to navigate even the 
+NeXus data files are built using basic HDF5 storage elements, \emph{i.e.}, groups (like file system folders), fields (such as strings, floats, integers, and arrays), 
+attributes (additional descriptors of groups and fields), and links (like file system links), but follow certain design principles to make it easy to navigate even the 
 most complex of HDF5 files. Data and associated
 metadata are stored as fields within groups that have a logical (and often physical) association with the experiment (see FIG.~\ref{rawfile}). 
 HDF5 attributes are  used to define the types, or classes, of these groups. For example, sample information is stored in a group of class \texttt{NXsample}, 
-instrumental information in a group of class \texttt{NXinstrument}, \textit{etc}. The beamline components that form the instrument,
+instrumental information in a group of class \texttt{NXinstrument}, \emph{etc}. The beamline components that form the instrument,
 such as monochromators, collimators, and detectors, are stored as sub-groups within the \texttt{NXinstrument} group. This
 hierarchical structure makes NeXus extremely flexible, capable of accommodating new types of instrument as they are developed, 
 and extremely scalable, capable of storing data from single point-detectors to complex multi detector configurations. It can also, 
@@ -173,7 +173,7 @@ groups within a single file if needed. Each NeXus file is required to contain at
 
 Each \texttt{NXentry} group should
 contain at least one \texttt{NXdata} group, which contains the measured (or processed or simulated) data along with the other information required to plot it, 
-\textit{e.g.}, the plotting axis or axes. The NeXus design allows default plots of \texttt{NXdata} groups to be generated without any prior knowledge of the
+\emph{e.g.}, the plotting axis or axes. The NeXus design allows default plots of \texttt{NXdata} groups to be generated without any prior knowledge of the
 type of measurement. This feature was implemented in NeXus before HDF5 introduced dimension scales, which provide similar functionality. 
 
 As well as defining a logical group structure, NeXus provides a dictionary of names that can be used to define specific fields within each class of
@@ -199,14 +199,14 @@ sharing of data between collaborators and long-term data curation.
 }
 \end{figure}
 
-A major focus of NeXus has been the recording of \emph{raw} experimental data, \textit{i.e.}, information taken directly from the experimental 
+A major focus of NeXus has been the recording of \emph{raw} experimental data, \emph{i.e.}, information taken directly from the experimental 
 equipment or processed only as required to provide physically meaningful values.
 The NeXus raw data file hierarchy is the consequence of some practical considerations. 
 An overview of the NeXus data file structure for raw experimental data is shown in FIG.~\ref{rawfile}.
 
 
 When looking at a beamline, it is easy to 
-discern different components: beam optic components, sample position, detectors, \textit{etc}. It is quite natural to replicate this physical 
+discern different components: beam optic components, sample position, detectors, \emph{etc}. It is quite natural to replicate this physical 
 separation with a logical arrangement, in which metadata from each component are stored a separate group. This approach explains the 
 list of beamline components in the \texttt{NXinstrument} group presented in FIG.~\ref{rawfile}. 
 As there can be multiple instances of the same kind of equipment, like slits or detectors, in a given beamline, it becomes necessary
@@ -230,8 +230,8 @@ The \texttt{NXentry} group may also contain one or more \texttt{NXmonitor} group
 also contain plottable data, it uses the same attribute scheme to associate the monitor data with its plotting axes. Its location in the
 \texttt{NXentry} group facilitates quick inspection for beamline diagnostics.
 
-Most NeXus files will also contain a \texttt{NXsample} group containing information about the sample being measured in the experiment, \textit{e.g.}, 
-its chemical composition, mass, unit cell parameters, \textit{etc}. It may also contain information about the sample environment, such as
+Most NeXus files will also contain a \texttt{NXsample} group containing information about the sample being measured in the experiment, \emph{e.g.}, 
+its chemical composition, mass, unit cell parameters, \emph{etc}. It may also contain information about the sample environment, such as
 temperature or pressure. If one or more of these parameters is varied in an experiment, these could be used as scanned variables (see
 Section III.A).
 
@@ -245,7 +245,7 @@ For example small-angle scattering and powder diffraction
 can be measured simultaneously at a SAXS/WAXS beamline.
 We recommend storing the data from all methods in \emph{one} file,
 in a \emph{single} \texttt{NXentry} hierarchy
-(FIG.~\ref{multimethod}). All information from detectors, logs, \textit{etc}.,
+(FIG.~\ref{multimethod}). All information from detectors, logs, \emph{etc}.,
  are collected in this one \texttt{NXentry} group to keep the data together.
 Information that is particular to one experimental technique
 is linked into a \texttt{NXsubentry}. The \texttt{NXsubentry} follows the hierarchy of 
@@ -290,8 +290,8 @@ Scans are stored in NeXus following these conventions:
 \end{itemize}
 
 NeXus allows multi-dimensional scans too. This makes it very simple to produce meaningful slices through data 
-volumes, whether the software is designed for NeXus (\textit{e.g.}, NeXpy\cite{nexpy}) or NeXus-agnostic
- (\textit{e.g.}, HDFView\cite{hdfview}). 
+volumes, whether the software is designed for NeXus (\emph{e.g.}, NeXpy\cite{nexpy}) or NeXus-agnostic
+ (\emph{e.g.}, HDFView\cite{hdfview}). 
 % FIXME: this pathology is not necessary to describe, not unique to NeXus, too much detail for this manuscript
 %Interrupting a multi-dimensional scan may, depending 
 %on the software used, leave some of the data in an uninitialised state (usually the HDF5 fill value).
@@ -405,7 +405,7 @@ Historically, an application definition addressed one type of instrument,
 like an X-ray reflectometer or direct-geometry neutron time-of-flight spectrometer.
 Thus, application definitions were originally named \emph{instrument definitions}.
 However, the same instrument can be used for different types of analysis that require different
-experimental variables; \textit{e.g.}, a powder diffractometer could be used for Rietveld 
+experimental variables; \emph{e.g.}, a powder diffractometer could be used for Rietveld 
 refinements or pair-distribution-function analysis. The more generic term \emph{application definition} has 
 been adopted to signify what data are required for each type of data analysis.
 
