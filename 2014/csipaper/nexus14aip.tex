@@ -21,7 +21,7 @@
 % Use the file aiptemplate.tex as a template for your document.
 \documentclass[%
  aip,
-%jmp,%
+%jmp,%!TEX encoding = UTF-8 Unicode
 %bmf,%
 rsi,
  amsmath,amssymb,
@@ -156,7 +156,9 @@ The development of NeXus is overseen by a committee, the NeXus International Adv
 
 \section{Design Principles}
 
-NeXus utilizes certain design principles to make it easy to navigate even the most complex of HDF5 files. Data and associated
+NeXus data files are built using basic HDF5 storage elements, \textit{i.e.}, groups (like file system folders), fields (such as strings, floats, integers, and arrays), 
+attributes (additional descriptors of groups and fields), and links (like file system links), but follows certain design principles to make it easy to navigate even the 
+most complex of HDF5 files. Data and associated
 metadata are stored as fields within groups that have a logical (and often physical) association with the experiment (see FIG.~\ref{rawfile}). 
 HDF5 attributes are  used to define the types, or classes, of these groups. For example, sample information is stored in a group of class \texttt{NXsample}, 
 instrumental information in a group of class \texttt{NXinstrument}, \textit{etc}. The beamline components that form the instrument,
@@ -165,7 +167,7 @@ hierarchical structure makes NeXus extremely flexible, capable of accommodating 
 and extremely scalable, capable of storing data from single point-detectors to complex multi detector configurations. It can also, 
 just as easily, contain processed data or even theoretical simulations to be stored alongside the experimental results. 
 
-These groups are contained within a root-level group with class \texttt{NXentry}. The \texttt{NXentry} group contains all the data from a single measurement, 
+NeXus groups are contained within a root-level group with class \texttt{NXentry}. The \texttt{NXentry} group contains all the data from a single measurement, 
 which could represent data collected in a certain configuration or in a scan, so multiple measurements can be stored in separate \texttt{NXentry} 
 groups within a single file if needed. Each NeXus file is required to contain at least one \texttt{NXentry} group. 
 
@@ -245,7 +247,7 @@ We recommend storing the data from all methods in \emph{one} file,
 in a \emph{single} \texttt{NXentry} hierarchy
 (FIG.~\ref{multimethod}). All information from detectors, logs, \textit{etc}.,
  are collected in this one \texttt{NXentry} group to keep the data together.
-Information that is peculiar to one experimental technique
+Information that is particular to one experimental technique
 is linked into a \texttt{NXsubentry}. The \texttt{NXsubentry} follows the hierarchy of 
 \texttt{NXentry}, but it will typically only link to the data required by the 
 application definition for the specific experimental technique. The point of this scheme 
@@ -381,8 +383,8 @@ application definitions (see below, Sect.~\ref{sect_appdef}).
 
 The NeXus base classes are defined in XML files using the NeXus Description Language (NXDL)\cite{nxman}. 
 NXDL files may be parsed either by people or by software and 
-may be validated for syntax and content.  The NXDL files may be used to validate the structure of
-NeXus data files. GUI tools have been prepared\cite{nxvalidate} to perform such validation.%
+used to validate NeXus files for syntax and content.  GUI tools have been prepared\cite{nxvalidate} to 
+perform such validation.%
 % The JAR file available, but it needs maintenance and vastly improved documentation how to use it
 % before it is ready for general release.
 % TODO: *** good HIGH-PRIORITY item for 2014 Code Camp ***
@@ -397,7 +399,7 @@ The data structure consists of a hierarchy of NeXus groups.
 For each group, a \emph{minimum} content is specified.
 Application definitions are therefore different than
 base class definitions, which specify a comprehensive 
-dictionary of terms that can be used but does not specify which are required.
+dictionary of terms that can be used according to the context.
 
 Historically, an application definition addressed one type of instrument,
 like an X-ray reflectometer or direct-geometry neutron time-of-flight spectrometer.
