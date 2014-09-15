@@ -49,7 +49,7 @@ rsi,
 \affiliation{Laboratory for Development and Methods, Paul Scherrer Institute, 5232 Villigen-PSI, Switzerland}
 
 \author{Frederick Akeroyd}
-\affiliation{ISIS, Rutherford Appleton Laboratory, UK}
+\affiliation{ISIS Facility, STFC, Rutherford Appleton Laboratory, Didcot, OX11 0QX, UK}
 
 \author{Herbert J. Bernstein}
 \affiliation{imgCIF, Dowling College, USA}
@@ -64,7 +64,7 @@ rsi,
 \affiliation{Los Alamos National Laboratory, USA}
 
 \author{Stephen Cottrell}
-\affiliation{ISIS, Rutherford Appleton Laboratory, UK}
+\affiliation{ISIS Facility, STFC, Rutherford Appleton Laboratory, Didcot, OX11 0QX, UK}
 
 \author{Jens Uwe Hoffmann}
 \affiliation{Helmholtz Zentrum Berlin, Germany}
@@ -117,7 +117,7 @@ exchange of data between applications.  NeXus provides structures for raw experi
 
 %%\pacs{Valid PACS appear here}% PACS, the Physics and Astronomy
                              % Classification Scheme.
-\keywords{NeXus, data format, HDF5, X-ray, neutron, data analysis, data management}
+\keywords{NeXus, data format, HDF5, X-ray, neutron, muon, data analysis, data management}
 \maketitle
 
 
@@ -212,8 +212,8 @@ By convention NeXus class names start
 with the prefix \texttt{NX}. Each NeXus group describing a beamline component contains further groups and fields describing the component. 
 A field can contain a single number, a text string or an array, as appropriate to the data to be described.  
 
-The requirement to store multiple related scans or runs  in the same file or to capture 
-a complete workflow in a file causes the beamline component hierarchy to be pushed one level deeper into an \texttt{NXentry} 
+The requirement to store multiple related scans or runs in the same file, or to capture 
+a complete workflow in a file, causes the beamline component hierarchy to be pushed one level deeper into an \texttt{NXentry} 
 group in the hierarchy. The \texttt{NXentry}  group thus represents one scan or run (or a processed data entry, as will be discussed later). 
 The \texttt{NXentry} group also holds the experiment metadata, such as the date and time at which it was performed. 
 
@@ -243,7 +243,7 @@ in a \emph{single} \texttt{NXentry} hierarchy
 such are collected in this one \texttt{NXentry} group to keep the data together.
 Information that is particular for one experimental technique
 is linked  into a \texttt{NXsubentry}. The \texttt{NXsubentry} follows the hierarchy of 
-\texttt{NXentry}. But it will typically only link to the data required by the 
+\texttt{NXentry}, but it will typically only link to the data required by the 
 application definition for the specific experimental technique. The point of this scheme 
 is that both humans and computerized users can easily locate method-specific data while 
 maintaining the full view of the experiment.   
@@ -275,7 +275,7 @@ Scans are stored in NeXus following these conventions:
  hierarchy as an array. The array's first dimension is the scan axis. This is the unlimited dimension in 
  the implementation and data at each scan point is appended to the array. 
 \item The \texttt{NXdata} group holds links to all the variables varied or collected during the scan. 
- This creates something equivalent to or better than the tabular representation people are used to for scans. 
+ This creates something equivalent to, or better than, the tabular representation people are used to for scans. 
  The main detector data can be plotted against any scanned parameter as well as against everything that was 
  deemed worth recording in addition to that.  The necessary data is all gathered together in the \texttt{NXdata}
  group either directly or via links, so that other groups do not
@@ -356,7 +356,7 @@ that can be used for each class.
 The terms in the dictionary comprise concepts and names common to the topic of the base class.
 The expected spelling and definition of each term is specified in the base classes. 
 It is neither expected nor required to provide all the terms specified in a base class. 
-Terms with other names are permitted but might not be recognized by standard software.
+Terms with other names are permitted, but might not be recognized by standard software.
 These terms designate data fields that can be stored within a group.
 A data field can have a simple type (like integer, float, date/time, binary),
 or it can be a NeXus subgroup.
@@ -484,7 +484,7 @@ always welcome correspondence concerning the development of the NeXus data forma
 
 \begin{acknowledgments}
 The NIAC acknowledges the support of all the institutions contributing to NeXus and their respective 
-funding agencies, most notably DOE, NIH and NSF in the US. The development of the muSR NeXus data format was partly 
+funding agencies, most notably DOE, NIH and NSF in the US. The development of the $\mu$SR NeXus data format was partly 
 funded by the European Commission within the sixth Framework Programme. 
 \end{acknowledgments}
 
