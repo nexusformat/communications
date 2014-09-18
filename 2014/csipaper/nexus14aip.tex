@@ -169,8 +169,8 @@ data groups (like file system folders),
 data fields (such as strings, floats, integers, and arrays), 
 attributes (additional descriptors of groups and fields), 
 and links (like file system links).  These basic storage elements are used to
-build the \emph{base classes}, \emph{application definitions},
-and \emph{contributed definitions} that elaborate the NeXus standard.
+build the \emph{base classes} and \emph{application definitions}
+that elaborate the NeXus standard.
 As a container format, NeXus allows files to be extended at any moment by
 additional content, including NeXus base classes, HDF5 groups, and HDF5 datasets.
 
@@ -184,8 +184,7 @@ in the NeXus application definitions (Sect.~\ref{sect_appdef}).
 
 \section{File Hierarchies}
 NeXus data files are organized into a hierarchy of groups which, in turn, can contain further groups or fields, 
-very much like an internal file system. The content of each NeXus group is defined by a base class, or 
-an application definition, or a contributed definition.
+very much like an internal file system. The content of each NeXus group is defined by a base class or an application definition.
 
 
 \subsection{Raw Data File Hierarchy}
@@ -343,7 +342,9 @@ definition of the format, the rules include these considerations:
 \end{itemize}
 
 
-\section{Base Classes}
+\section{Standardized Data Containers}
+
+\subsection{Base Classes}
 
 As can be seen from the discussion of the NeXus file hierarchy, 
 NeXus arranges data in groups which have a 
@@ -383,7 +384,7 @@ NeXus data files. Java source code of a GUI tool has been prepared\cite{nxvalida
 % TODO: *** good HIGH-PRIORITY item for 2014 Code Camp ***
 
 
-\section{Application Definitions}
+\subsection{Application Definitions}
   \label{sect_appdef}
 
 An application definition, expressed in NXDL, specifies a data structure
@@ -402,13 +403,29 @@ like a tomography reconstruction or a dynamic scattering law $S(Q,\omega)$,
 the more generic term \emph{application definition} has been adopted.
 
 
-\section{Contributed Definitions}
+\section{Evolution of NeXus}
+
+\subsection{Governance}
+  \label{sect_gov}
+
+The development of NeXus is overseen
+by the NeXus International Advisory Committee (NIAC)\cite{niac}.
+The NIAC seeks a balanced representation of the international community.
+Most major neutron, X-ray, and muon facilities have appointed delegates.
+Other facilities are invited to join.
+
+The NIAC reviews proposed amendments to the NeXus base classes and
+application definitions, and holds online votes to ratify changes.
+A great number of candidate NeXus application definitions exist which were derived from our understanding of the technique described.
+For each of these, the NeXus team seeks community approval. 
+
+\subsection{Contributed Definitions}
   \label{sect_contribdef}
 
 The process of drafting and ratifying application definitions
-is ongoing (see also below, Sect.~\ref{sect_gov}).
+is ongoing.
 Currently, scientists representing both
-the NeXus International Advisory Committee and the IUCr Committee on the Maintenance
+the NIAC and the IUCr Committee on the Maintenance
 of the CIF standard 
 are nearly finished with a NeXus application definition for macromolecular crystallography.
 CBFlib\cite{cbflib} is being extended to work with NeXus-MX format. This work will be published in another paper. 
@@ -424,19 +441,15 @@ review any new contributed definitions and provide feedback to the
 authors before ratification and acceptance.
 
 
-\section{Governance}
-  \label{sect_gov}
+\subsection{Backwards Compatibility}
 
-The development of NeXus is overseen
-by the NeXus International Advisory Committee (NIAC)\cite{niac}.
-The NIAC seeks a balanced representation of the international community.
-Most major neutron, X-ray, and muon facilities have appointed delegates.
-Other facilities are invited to join.
-
-The NIAC reviews proposed amendments to the NeXus base classes and
-application definitions, and holds online votes to ratify changes.
-A great number of candidate NeXus application definitions exist which were derived from our understanding of the technique described.
-For each of these, the NeXus team seeks community approval. 
+Historically, NeXus supported reading and writing data files in HDF4, HDF5 and
+XML formats by use of the NeXus Application Programming Interface
+(NeXus-API or NAPI).  The NAPI is still available, but frozen except for bug fixes.
+After consultation with the community, the currently recommended use of
+NeXus is solely in terms of the HDF5 file format, using standard HDF5 tools.
+That is expected to remain the basis for NeXus software development and
+file creation in the future.
 
 
 \section{Uptake of NeXus} 
@@ -462,16 +475,6 @@ from the EU has enabled the community to develop the Application Definition as a
 Whether used as the main or an intermediate format, users are able to produce compatible NeXus files for data written 
 across all facilities, enhancing the uptake of NeXus within the community.
 
-
-\section{Backwards Compatibility}
-
-Historically, NeXus supported reading and writing data files in HDF4, HDF5 and
-XML formats by use of the NeXus Application Programming Interface
-(NeXus-API or NAPI).  The NAPI is still available, but frozen except for bug fixes.
-After consultation with the community, the currently recommended use of
-NeXus is solely in terms of the HDF5 file format, using standard HDF5 tools.
-That is expected to remain the basis for NeXus software development and
-file creation in the future.
 
 \section{Summary}
 
