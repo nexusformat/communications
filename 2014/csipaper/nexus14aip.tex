@@ -154,7 +154,7 @@ of these basic storage elements.
 
 NeXus adds to HDF5:
 \begin{itemize}
-\item Rules for organizing domain-specific data within a HDF5 file. Most notably a hierarchy for arranging data in the file.
+\item Rules for organizing domain-specific data within a HDF5 file. Most notably a data hierarchy for arranging data in the file.
 \item A link structure to enable quick default visualization
 \item A dictionary of documented domain-specific field expressed in the form of \emph{base classes}
 \item Definitions of standards that can be validated in the form of \emph{application definitions}
@@ -183,11 +183,9 @@ As a container format, NeXus allows files to be extended at any moment by
 additional content, including NeXus base classes, HDF5 groups, and HDF5 datasets.
 
 
-\section{File Hierarchies}
-NeXus data files are organized into a hierarchy of groups which, in turn, can contain further groups or fields, 
-very much like an internal file system. The content of each NeXus group is defined by a base class, or 
-an application definition, or a contributed definition.
+\section{Data File Hierarchies}
 
+NeXus uses a group hierarchy for arranging data in an HDF5 file.  Data files may contain raw data or processed data or both, each of which has a hierarchy.  Groups may contain data fields and may also contain other groups.  The content of any NeXus group is defined by either a base class, an application definition, or a contributed definition.
 
 \subsection{Raw Data File Hierarchy}
 
@@ -227,7 +225,7 @@ To enable a simple default visualization,
 a \texttt{NXdata} group must be provided at \texttt{NXentry} level.
 It contains information about plot axes and links to the data
 (which typically reside in the \texttt{NXdetector} group).
-Links are supported by HDF5 and work like symbolic links in the Unix file system.
+Links are supported by HDF5 and work like hard links in the Unix file system.
 
 A special base class, \texttt{NXcollection}, exempts its contents from validation
 and thereby allows inclusion of whatever data in arbitrary non-NeXus formats.
@@ -292,7 +290,7 @@ volumes even with NeXus-agnostic software ({\it e.g.} HDFView\cite{hdfview}).
 
 
 
-\subsection{Processed Data}
+\subsection{Processed Data Hierarchy}
 
 At the request of the user community, NeXus created a simplified structure for storing the result of data 
 processing: be it reduction or analysis. 
