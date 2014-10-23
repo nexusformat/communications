@@ -123,7 +123,7 @@ exchange of data between applications.  NeXus provides structures for raw experi
 
 \section{Introduction}
 Increasingly, major neutron and X-ray facilities have chosen to store data using the NeXus data format. 
-Since 2006, NeXus\cite{nxold} has undergone substantial refocusing, 
+Since the last publication dating from 2006, NeXus\cite{nxold} has undergone substantial refocusing, 
 refinement and enhancement as described in this paper.  
 
 Historically, neutron and X-ray facilities have chosen to store data in a plethora of 
@@ -136,12 +136,12 @@ home-grown data formats. This scheme has a number of drawbacks addressed by NeXu
 \item Scientific integrity is jeopardized if the data cannot be understood or important elements are missing.
 \item Modern high speed detectors produce data at such a high rate that many older single image storage schemes 
  have become impractical and 
- an efficient container format is a necessity. 
+ an efficient container format is mandatory.
 \end{itemize}
 
 The primary necessity for a data format is to define a physical file format: how is the data written to disk? Rather than invent
 yet another format, NeXus chose HDF5\cite{hdf5} as the physical file format. 
-HDF5, a binary file format in the public domain that is well supported by both commercial and free software tools, 
+HDF5 is a binary file format in the public domain and is well supported by both commercial and free software tools. It  
 is efficient, self-describing, and platform-independent.
 
 NeXus data files are built using basic HDF5 storage elements: 
@@ -342,12 +342,12 @@ that can be used for each class.
 The terms in the dictionary comprise concepts and names common to the topic of the base class.
 The expected spelling and definition of each term is specified in the base classes. 
 It is neither expected nor required to provide all the terms specified in a base class. 
-Terms with other names are permitted but might not be recognized by standard software.
 These terms designate data fields that can be stored within a group.
 A data field can have a simple type (like integer, float, date/time, binary),
 or it can be a NeXus subgroup.
 The base class definition also contains informal annotations
-about the semantics of each field.
+about the semantics of each field. Terms with other names are permitted but might
+not be recognized by standard software.
 
 At base class level, NeXus has no mechanism to mark some fields as obligatory.
 \emph{All allowed fields are optional.}
