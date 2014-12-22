@@ -1,0 +1,35 @@
+Code Camp Agenda
+==================
+
+Monday
+--------
+* Reviev
+* Coffee
+* Cansas, Axes, Error
+* Lunch
+* DECTRIS, NXmx etc
+* Coffee
+* NXmx, when time smaller issues
+
+
+Tuesday
+----------
+* Short procedural
+* Coffee
+* Telco with DECTRIS
+* NXcansas
+* Lunch
+* Lightweight tags and interfaces 
+* Coffee
+* Validation tool
+
+
+Wednesday
+------------
+
+* Prepare NIAC
+* Coffee
+* Further items
+* Lunch
+* HDF-5 talk
+* Coffee

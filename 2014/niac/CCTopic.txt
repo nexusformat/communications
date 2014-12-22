@@ -1,0 +1,112 @@
+
+Code Camp Topics
+====================
+
+* Decimation of counts            3 
+* Issue Walkthrough             optional                    
+* NAPI release
+* cmake for sphinx               0      Freddie looks into
+* Manual cleanups                 0
+
+
+DONE
+----------
+* Name clash avoidance         Manual: extensions to base classes:
+                                       talk back to NIAC
+* NeXus Interfaces             4
+* NAPI light, conversion support 7, slim down build of normal NAPI 
+* Procedural questions           (procedures still left)
+* NXcansas                     8 reviewed
+* nexpy       5               DONE, includes spec2NeXus, --> NIAC
+* Thumbnail + provenance text storage for OS --> NIAC 
+* Design Isues
+** Multi file NeXus files       5     DONE: until HDF5 implements virtual datasets
+** Associating axes with data   6     DONE --> NIAC 
+** Optional content in application definitions  Ratify at NIAC
+** Finding default data         Ratify at NIAC
+** Storing errors               4     DONE --> NIAC
+* Class Issues
+** NXmx                         7  --> NIAC
+** Review processesed  NXmx      DONE, further email discussion, base class
+   	  	       		       + appdef, engage with PDB
+*** includes masking
+** NXformula                    Ratify at NIAC
+** NXfluo                       Forward to NIAC
+* Validation tool: reimplement in python, possibly using bits of nexpy, then
+  follow up in ANSI-C ananounce as an effort to rewrite
+* Lightweight tags: reserve the features array as NXentry,
+  NXsubentry as an experimental feature, Mark Basham  and
+  Tobias explore this further. Description for NIAC
+* sequence_index in NXprocess, NXnote in order to store the sequence
+  of operations       --> NIAC
+* Contributed definitions       --> ratify/deprecate 
+* NXstxm                        --> NIAC
+
+
+HDF5
+--------
+
+* Virtual dataset status
+* Ask for experience in setting up standards: funding etc.
+* Distribution of 1.8.11
+* SWMR: Spring 2016?
+
+DECTRIS
+-----------
+* Please fix the bugs
+* Please drop NXgeometry in favour of the more modern transformation scheme
+* Please maintain communication: it is so easy; 2 knowledgeable persons at PSI
+
+
+NeXus Procedures
+-------------------
+
+Priorities:
+
+* Roberts Rule
+** The chairman decides the agenda
+** The agenda can be challenged and changed
+
+Companies:
+* Ask them to engage and become observers
+
+Funding
+
+Possible sources:
+* Detector vendors
+* Facilities contribution
+* Become an ISO standard
+* Investigate: hooking into the RDA (research data alliance)
+* Investigate: hook into IUCR (they are at least friendly)
+
+Needs Business plan:
+
+* Development of NeXus
+** Meetings
+** Fund tutorial and dissemination activities
+** Do actual development work
+*** Maintain the standard
+*** Develop tools on community request
+*** Assist facilities and DA software writers in implementing NeXus
+* We strive for the minimum: we do most our business through email and
+  Telcos but a yearly face to  face meeting is necessary
+
+Better Oversight:
+* Get user representation
+* Invite analysis SW writers
+
+
+Suggestion
+--------------
+
+* More frequent NIAC Telco
+
+
+
+Manual Fix
+--------
+
+* Drop fast/slow_pixel_size in NXdetector_module, came in with NXmx by accident
+
+
+
