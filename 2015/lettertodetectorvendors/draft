@@ -1,0 +1,36 @@
+Dear detector vendor,
+
+We represent the international NeXus data standard in use at major scientific 
+facilities in Europe, Asia, Australia, and North America.  
+At the X-ray and neutron facilities represented in our community 
+we see momentum picking up for moving to HDF5 as a storage container for 
+for detector data for many reasons.
+One of most frequently mentioned reasons is the efficiency for storing data at high rates 
+which is the direction detector to technology is developing in.
+Using common, agreed NeXus conventions on top of HDF5 would allow processing, 
+reduction and analysis software to work on files from any vendor.
+This is a major benefit to the facility users.
+
+As NeXus commnity, we have been developing a standard for MX raw data in 
+NeXus/HDF5 over the last two years. That effort was shared between the scientific 
+stakeholders and the company Dectris as an interested partner. This has so far 
+been very fruitful for both sides.
+
+The NeXus community and committee feel responsible for any technique at neutron 
+or synchrontron light sources and does not wish to be associated exculsively with any
+particular vendor. For this reason we are reaching out to you today. We would like you to:
+
+ * consider HDF5 as a data format for future developments
+ * when doing so follow NeXus conventions 
+ * get in contact with the committee especially if things are unclear or need to be discussed or changed
+
+We are very much interested in continuously devloping the NeXus standard as required
+by new scientific methods or technologys. We believe any competitive advantage that upcoming 
+products may have can be maintained despite using a common data format.
+
+If now or in the future you would like to get in touch about recording data using 
+our standard, please contact me or any member of the NIAC.
+
+Kind regards,
+
+NIAC Chair + List of members
