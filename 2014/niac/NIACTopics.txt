@@ -1,0 +1,23 @@
+
+NIAC 2014 Topics
+====================
+
+* Elect new members
+* Elect new officers
+* Constitution change
+* Future NIAC Meetings
+* NeXus processes
+* Interfaces and tags
+* Deprecate old coordinate systems
+* Ratify variants
+* Rules about uncertainities
+* Proposal to locate default data
+* NXformula
+* Name clash avoidance
+* Multi file NeXus files
+* Ratifications of classes
+** NXtransformations
+** NXmx app def
+** NXfluo
+** NXarpes
+** NXstxm

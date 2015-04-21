@@ -1,0 +1,44 @@
+
+NIAC Agenda
+===============
+
+Thursday
+-------------
+
+- Introduction
+- Confirmation of new members
+
+* Coffee
+
+- Ratifications
+  * NXmx. Done
+  * Deprecate old positioning schemes
+  * Axes & Errors, 
+
+* Lunch
+
+- Ratifications
+
+  * NXstxm
+  * NXfluo
+  * Contributed definitions
+  * NXformula
+  * optional fields in application definitions
+  * sequence_index
+  * Thumbnail storage
+  * Finding default data
+  * Features
+  * Interfaces
+
+Friday
+----------
+
+- NeXus Procedures including Funding, certification etc. 
+- Election of officers
+- Group photo
+- Travel arrangements
+- Github and wiki walkthrough
+
+* 1PM: NIAC terminates
+
+
