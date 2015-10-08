@@ -4,42 +4,53 @@ Reimplementation of NXvalidate
 
 Date: October, 8, 2015, Mark Koennecke
 
+.. "NeXus file" replaced with "NeXus data file"
+   to avoid confusion with other NeXus files, such as
+   XML Schema definitions (.xsd), NXDL (.nxdl.xml),
+   and XML stylesheet translation files (.xsl or .xslt).
+   ALL of these are "NeXus files".
 
 ## Requirements
 
-NXvalidate is a tool to compare a NeXus file an application definition written
-in NXDL, a dialect of XML. The point is to verify that the NeXus file complies
+NXvalidate is a tool to compare a NeXus data file with an application definition written
+in NXDL, a dialect of XML. The point is to verify that the NeXus data file complies
 with the standard defined in the application definition. An earlier
-implementation of NXvalidate was based on XLST transforms and some Java code.
-This implementation never reached maturity and proved to be to complex to
+implementation of NXvalidate was based on XSLT transforms and some Java code.
+This implementation never reached maturity and proved to be too complex to
 maintain. In addition there are new requirements:
 
 * Some aspects of the validation process have become so complex that they can
-  only be implemented in proper code. For example the validation of depends_on
-	chains.
+  only be implemented with algorithms written in higher-level code. 
+  For example the validation of depends_on chains.
 * There is a requirement to have the validation process available as a library
-  to be included into other software. And to be implemented efficiently
-	enough to validate a large number of NeXus files once they are created.
+  to be included into other software. 
+* There is a requirement that validation is to be implemented efficiently
+  so as to validate a large number of NeXus data files once they are created.
+* The validation code must not fail when an arbitrary file is presented
+  that fails either the NeXus standard or even the HDF5 file format.
 
 Therefore the NIAC decided to reimplement NXvalidate in an efficient programming
 language. As of now ANSI-C and python are languages to be considered.
 
-TODO: decide upon the implementation language
+The heart of the validation code should be in C or C++ to allow its inclusion 
+into libraries for use in just about any language and host architecture.
 
 ## Problem Analysis
 
 At first glance the problem looks as simple as expressed in this morsel of
 pseudocode:
 
-    Load the NeXus and the NXDL file
+    Load the NeXus data file 
+        Verify the file is valid HDF5
+        Load the NXDL file
 		Foreach group in the NXDL file:
 		   Create a directory listing of the NXDL group
 			 Foreach entry in the NXDL group listing:
 			     If the entry is a group:
-					      Find that group in the NeXus file, verify it,
+					      Find that group in the NeXus data file, verify it,
 								and recurse into it
 					 If the entry is a field:
-					      Find the field in the NeXus file and compare it with the
+					      Find the field in the NeXus data file and compare it with the
 								NXDL description
 
 Well, this is not really that simple.
@@ -49,10 +60,13 @@ into the log along the way.
 
 ### Loading NeXus and NXDL Files
 
-This is simple for NeXus files. The only question to decide is if we use NAPI
+This is simple for NeXus data files. The only question to decide is if we use NAPI
 or the HDF-5 API.
 
 TODO: Decide NAPI versus HDF-5. The author prefers NAPI.
+
+.. Will the NAPI handle gracefully the case where the file presented is not valid 
+   HDF5 or is valid HDF5 but completely invalid NeXus structure? 
 
 For NXDL files, there are problems:
 
@@ -67,25 +81,29 @@ TODO: opinions on this one?
 
 How do we find NXDL files? Especially with inheritance an automatic way of
 locating NXDL files becomes a necessity. The extends property in the NXDL file
-only holds the name of the parent application definition. Related to this is
+only holds the name of the parent application definition. 
+
+Related to this is
 another bootstrapping problem: by looking for the NXentry/definition or
-NXsubentry/definition fields nxvalidate can validate against the NeXus file
+NXsubentry/definition fields, nxvalidate can validate against the NeXus data file
 alone. In this case we get an URL for the application definition. In principle
 we can make nxvalidate load the application definitions it requires from the
 NeXus WWW-presence. But this falls over when nxvalidate needs to operate in a
 protected network segment.
 
-I checked all the current application definitions and all of them have the
-definition field.
+The root element of All NXDL files is the "definition" field.  This is defined
+in the "nxdl.xsd" XML Schema (the rules for NXDL files).
 
-TODO: make it a rule that the definition field is mandatory for an
-application definition.
-
-TODO find a solution for this. The author suggests to make this overridable in
+TODO: find a solution for this. The author suggests to make this overridable in
 the library by the application using the library. And to provide a default
 implementation looking for application definitions in a user provided directory.
 Providing a default implementation using a WWW-download carries the penalty of
 another dependency in the form of a WWW-client library.
+
+..  It is a good suggestion, that is,  
+    locally-provided application definitions should be allowed.
+    NXvalidate (and other, such as visualization) code should be aware, as well.
+
 
 We would be well advised not to implement our own XML parser. For C, the
 author suggests to use MXML as it is good enough and already is a NeXus
@@ -93,42 +111,53 @@ dependency.
 
 TODO: someone OK with this?
 
+..  No, do not rely on mxml.
+    We should use the most common XML library: libxml2.
+    The mxml library was chosen for certain reasons in the NAPI.
+    It is still not clear why that choice is superior to libxml2.
+
 
 ### Validating Groups
 
 The first issue to address here is where to start. Validation can be run
 at NXentry and NXsubentry level. Or both. There can be multiple instances
-in a given NeXus file. Thus the default operation of nxvalidate should be
-to search for all NXentry and NXsubentry in a NeXus file and try to validate
-each. If there is no definition field exists in a NXentry or a NXsubentry or
-the referenced application definition cannot be found this is an error
-preventing further validation.
+in a given NeXus data file. Thus the default operation of nxvalidate should be
+to search for all NXentry and NXsubentry in a NeXus data file and try to validate
+each. The error of "missing 'definition' field" should be detected when
+validating against any NXDL file, which will ultimately 
+involve the rules in the nxdl.xsd file that require the "definition" element.
 
 TODO: shall we provide for a means to validate a NXentry with a user supplied
 application definition?
 
+.. yes, as stated above
+
 Validation now implies that we need to compare the content of a group in a NXDL
-file with the content of the matching group in the NeXus file. Recursively
+file with the content of the matching group in the NeXus data file. Recursively
 following the hierarchy of the NXDL file.
 
-One complication arises  from the fact that groups can be specified either by
+One complication arises from the fact that groups can be specified either by
 name or by NXclass. This has to be accounted for.
 
 When a mandatory field or group entry is missing, this is a validation error.
 
-When an optional field or group is missing nxvalidate shall state this
-as information.
+When an optional field or group is missing, nxvalidate shall state this
+as information if the appropriate option flag has been set.
+
+When an undefined field or group is present, nxvalidate shall state this
+as information if the appropriate option flag has been set.
+
+..
+	There may be additional fields or groups in a NeXus data file, not required by the
+	application definition. This ought to yield a warning or information message.
+	We can check if the additional item is part of the base class of the current
+	NeXus group and issue a differnt information then. But this implies that
+	nxvalidate has access to the base class definitions too.
+	
+	TODO: what is the desired behaviour with regards to additional fields?
 
 NeXus increasingly uses group attributes. If the application definitions asks
 for this, nxvalidate needs to  test group attributes.
-
-There may be additional fields or groups in a NeXus file, not required by the
-application definition. This ought to yield a warning or information message.
-We can check if the additional item is part of the base class of the current
-NeXus group and issue a differnt information then. But this implies that
-nxvalidate has access to the base class definitions too.
-
-TODO: what is the desired behaviour with regards to additional fields?
 
 
 ### Validating Fields
@@ -139,7 +168,7 @@ existence.
 The first is the rank. This is an easy one.
 
 The second is dimensionality. NXDL may use symbols for dimension fields.
-The first use of such a symbol in a NeXus file shall define the value for that
+The first use of such a symbol in a NeXus data file shall define the value for that
 actual dimension. This implies that we need to keep track of this information
 in a **symbol table**. Further uses of the same symbol should be looked up
 in the symbol table and the value compared. If there is a mismatch we have a
@@ -150,20 +179,26 @@ compared with the actual field type, possibly using tables. Such tables
 should be externalized. But that would require another file which increases
 complexity for the user. Thus I suggest to hardcode this into the source files.
 
-For some fields application definitions provide expected values. This needs to
+For some fields, application definitions provide expected values. This needs to
 be validated too.
 
 Then there must be a loop validating attributes against the NXDL description.
 
 ### Validating Attributes
 
-For the units attribute nxvalidate has the same problem as described above
+For the units attribute, nxvalidate has the same problem as described above
 for number types.
 
 TODO: where do I get a valid list of valid entries for unit symbols from? For
 example for NX_ANGLE? And all the others? The nxdlTypes.xsd just contains
 examples but no bullet proof list? Or do we defer the implementation of this
 test until we have a good list?
+
+..  Does a bullet-proof list exist?  The units can be single-valued such as 
+    "mm" or multi-valued such as "nm*keV" or even more obtuse such as
+    "mm^2/m^6/sr".  The NIAC agreed to stop validation of the content of 
+    "unit" attributes until a clear algorithm or code appeared which could be 
+    used to validate the content.  Does such code exist for general use?
 
 Otherwise, for each allowed NeXus attribute we need to check if it is well
 formed. This requires a special function for each NeXus attribute type.
@@ -181,13 +216,22 @@ chain ends on a period.
 
 TODO: do we want his?
 
+.. yes, this is fully under our control
+
 ### API
 
-The scope of the work will be NeXus validation library and an application for
+The scope of the work will be a NeXus validation library and an application for
 testing. I assume a C-library. If we decide for another implementation
-language please translate into the functional equivalent. The library API could
+language, please translate into the functional equivalent. The library API could
 look like this:
 
+
+.. confusing use:
+   neXus vs. nexus
+   neXusFile vs. nexusFile
+
+.. "nexusFile" should be changed to dataFile
+   same for neXusFile?
 
     /*
      * NXvalidateInit initializes the validation library. Mainly
@@ -198,7 +242,7 @@ look like this:
      * \param nexusFile The file to validate
      * \param nxdlFile The application deinition to validate against. Can be
      * NULL, then the validator searches the application definition in the
-     * NeXus file.
+     * NeXus data file.
      * \return 0 when validation succeeds, 1 else.
      */
     int NXvalidateRun(char *nexusFile, char *nxdlFile);
@@ -252,7 +296,7 @@ I would implement along the following lines:
 
 * ANSI-C for maximum portability
 * MXML as XML parsing library.
-* NAPI for NeXus file access.
+* NAPI for NeXus data file access.
 * Use of a context structure for passing around context and state among functions.
   This makes the validator reentrant.
 * Use my old stringdict for the symbol table. It is not efficient but good
@@ -262,3 +306,12 @@ I would implement along the following lines:
 Otherwise  this is a  just a sizeable number of functions.
 
 TODO: any comments?
+
+.. This API would look much more clear in C++ as a class (or classes)
+
+.. As for the NXDL definitions, there should be separate C++ class code
+   to manage a local cache of NXDL files.  They do not take up much space.
+   The local cache can be compared with the online repository
+   (an option can override the well-chosen default location of online repo).
+   If the local cache is out of date, it can be refreshed (user option of
+   automatic or manual) from the online repo.
