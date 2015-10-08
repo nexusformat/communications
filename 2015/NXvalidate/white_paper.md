@@ -309,6 +309,10 @@ TODO: any comments?
 
 .. This API would look much more clear in C++ as a class (or classes)
 
+.. use standard C++ libraries to handle such things as the symbol table
+
+.. use libxml2 as XML parsing library
+
 .. As for the NXDL definitions, there should be separate C++ class code
    to manage a local cache of NXDL files.  They do not take up much space.
    The local cache can be compared with the online repository
