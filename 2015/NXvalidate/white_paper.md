@@ -20,10 +20,10 @@ This implementation never reached maturity and proved to be too complex to
 maintain. In addition there are new requirements:
 
 * Some aspects of the validation process have become so complex that they can
-  only be implemented with algorithms written in higher-level code. 
+  only be implemented with algorithms written in higher-level code.
   For example the validation of depends_on chains.
 * There is a requirement to have the validation process available as a library
-  to be included into other software. 
+  to be included into other software.
 * There is a requirement that validation is to be implemented efficiently
   so as to validate a large number of NeXus data files once they are created.
 * The validation code must not fail when an arbitrary file is presented
@@ -32,7 +32,7 @@ maintain. In addition there are new requirements:
 Therefore the NIAC decided to reimplement NXvalidate in an efficient programming
 language. As of now ANSI-C and python are languages to be considered.
 
-The heart of the validation code should be in C or C++ to allow its inclusion 
+The heart of the validation code should be in C or C++ to allow its inclusion
 into libraries for use in just about any language and host architecture.
 
 ## Problem Analysis
@@ -40,7 +40,7 @@ into libraries for use in just about any language and host architecture.
 At first glance the problem looks as simple as expressed in this morsel of
 pseudocode:
 
-    Load the NeXus data file 
+    Load the NeXus data file
         Verify the file is valid HDF5
         Load the NXDL file
 		Foreach group in the NXDL file:
@@ -56,7 +56,7 @@ pseudocode:
 Well, this is not really that simple.
 Moreover, at each step there are further complications. The general idea is to
 process as much of the NeXus and NXDL file as possible and report problems
-into the log along the way. 
+into the log along the way.
 
 ### Loading NeXus and NXDL Files
 
@@ -65,8 +65,8 @@ or the HDF-5 API.
 
 TODO: Decide NAPI versus HDF-5. The author prefers NAPI.
 
-.. Will the NAPI handle gracefully the case where the file presented is not valid 
-   HDF5 or is valid HDF5 but completely invalid NeXus structure? 
+.. Will the NAPI handle gracefully the case where the file presented is not valid
+   HDF5 or is valid HDF5 but completely invalid NeXus structure?
 
 For NXDL files, there are problems:
 
@@ -81,7 +81,7 @@ TODO: opinions on this one?
 
 How do we find NXDL files? Especially with inheritance an automatic way of
 locating NXDL files becomes a necessity. The extends property in the NXDL file
-only holds the name of the parent application definition. 
+only holds the name of the parent application definition.
 
 Related to this is
 another bootstrapping problem: by looking for the NXentry/definition or
@@ -124,7 +124,7 @@ at NXentry and NXsubentry level. Or both. There can be multiple instances
 in a given NeXus data file. Thus the default operation of nxvalidate should be
 to search for all NXentry and NXsubentry in a NeXus data file and try to validate
 each. The error of "missing 'definition' field" should be detected when
-validating against any NXDL file, which will ultimately 
+validating against any NXDL file, which will ultimately
 involve the rules in the nxdl.xsd file that require the "definition" element.
 
 TODO: shall we provide for a means to validate a NXentry with a user supplied
@@ -153,7 +153,7 @@ as information if the appropriate option flag has been set.
 	We can check if the additional item is part of the base class of the current
 	NeXus group and issue a differnt information then. But this implies that
 	nxvalidate has access to the base class definitions too.
-	
+
 	TODO: what is the desired behaviour with regards to additional fields?
 
 NeXus increasingly uses group attributes. If the application definitions asks
@@ -194,10 +194,10 @@ example for NX_ANGLE? And all the others? The nxdlTypes.xsd just contains
 examples but no bullet proof list? Or do we defer the implementation of this
 test until we have a good list?
 
-..  Does a bullet-proof list exist?  The units can be single-valued such as 
+..  Does a bullet-proof list exist?  The units can be single-valued such as
     "mm" or multi-valued such as "nm*keV" or even more obtuse such as
-    "mm^2/m^6/sr".  The NIAC agreed to stop validation of the content of 
-    "unit" attributes until a clear algorithm or code appeared which could be 
+    "mm^2/m^6/sr".  The NIAC agreed to stop validation of the content of
+    "unit" attributes until a clear algorithm or code appeared which could be
     used to validate the content.  Does such code exist for general use?
 
 Otherwise, for each allowed NeXus attribute we need to check if it is well
@@ -233,19 +233,20 @@ look like this:
 .. "nexusFile" should be changed to dataFile
    same for neXusFile?
 
+    typedef struct __NXVContext *pNXVcontext;
     /*
-     * NXvalidateInit initializes the validation library. Mainly
+     * NXVinit initializes the validation context Mainly
      * installs a default NXDL locator and a default logger.
+     * \param nxdlDir The directory where to look for NXDL files
+     * \return a pointer to a new validation context. Or NULL on
+     * failure.
      */
-    NXvalidateInit(void);
-    /* NXvalidateRun runs the validation. Outputs trouble to a log.
-     * \param nexusFile The file to validate
-     * \param nxdlFile The application deinition to validate against. Can be
-     * NULL, then the validator searches the application definition in the
-     * NeXus data file.
-     * \return 0 when validation succeeds, 1 else.
+    pNXVcontext NXVinit(char *nxdlDir);
+      /*
+     * NXVkill deletes a validation context created with NXVinit
+     * \param self The validation context
      */
-    int NXvalidateRun(char *nexusFile, char *nxdlFile);
+    void NXVkill(pNXVcontext self);
 
     typedef struct {
         char *neXusFile;
@@ -263,26 +264,42 @@ look like this:
     typedef void (*validateLogger)(logEntry l, void *userData);
 
     /*
-     * NXvalidateSetLogger sets a custom logger for validation
+     * NXVsetLogger sets a custom logger for validation
+     * \param self The validation context to set the logger for. Must have
+     * been created with NXVinit
      * \param logger The logger to use
      * \param userData any data to pass to the custom logger
      */
-    void NXvalidateSetLogger(validateLogger logger, void *userData);
+    void NXVsetLogger(pNXVcontext self, validateLogger logger, void *userData);
 
     /*
      * This is the signature of a function retrieving an application definition.
      * It is supposed to return the content of the application definition as
      * string. Or NULL, if it cannot be located.
      */
-    typedef char* (RetrieveNXDL)(char *appDef);
+    typedef char* (RetrieveNXDL)(char *appDef, void *userData);
 
     /*
-     * NXvalidateSetNXDLRetriever sets a user defined function for retrieving
+     * NXVsetNXDLRetriever sets a user defined function for retrieving
      * application definition data.
+     * \param self The validation context to set this retriever for
      * \param retriever The retrieval function
      * \param userData Any data to pass to the retriever.
      */
-    void NXvalidateSetNXDLRetriever(RetrieveNXDL retriever, void *userData);
+    void NXVsetNXDLRetriever(pNXVcontext self, RetrieveNXDL retriever,
+                             void *userData);
+
+    /* NXVvalidate runs the validation. Outputs trouble to a log.
+    * \param self The validation context to run the validation in
+    * \param dataFile The file to validate
+    * \param nxdlFile The application definition to validate against. Can be
+    * NULL, then the validator searches the application definition in the
+    * NeXus data file.
+    * \return 0 when validation succeeds, 1 else.
+    */                        
+    int NXVvalidate(pNXVcontext self, char *dataFile, char *nxdlFile);
+
+
 
 TODO: anyone content with this?
 
